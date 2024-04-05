@@ -80,4 +80,56 @@ return {
       )
     end,
   },
+  {
+    "tpope/vim-dadbod",
+    event = "User AstroFile",
+    opt = {},
+  },
+  {
+    "kristijanhusak/vim-dadbod-ui",
+    event = "User AstroFile",
+    opt = {},
+  },
+  {
+    "kristijanhusak/vim-dadbod-completion",
+    event = "User AstroFile",
+    config = function() require("user.plugins.config.dadbod").setup() end,
+  },
+  {
+    "adalessa/laravel.nvim",
+    name = "laravel",
+    dependencies = {
+      "nvim-telescope/telescope.nvim",
+      "tpope/vim-dotenv",
+      "MunifTanjim/nui.nvim",
+    },
+    cmd = { "Sail", "Artisan", "Composer", "Npm", "Yarn", "Laravel" },
+    event = { "VeryLazy" },
+    config = function()
+      require("laravel").setup()
+      require("telescope").load_extension "laravel"
+    end,
+  },
+  {
+    "folke/todo-comments.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    opts = {},
+    event = "User AstroFile",
+  },
+  {
+    "AstroNvim/astrocommunity",
+    { import = "astrocommunity.pack.typescript" },
+    { import = "astrocommunity.colorscheme.tokyonight-nvim" },
+  },
+  {
+    "jackMort/ChatGPT.nvim",
+    event = "VeryLazy",
+    config = function() require("chatgpt").setup() end,
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+      "nvim-lua/plenary.nvim",
+      "folke/trouble.nvim",
+      "nvim-telescope/telescope.nvim",
+    },
+  },
 }

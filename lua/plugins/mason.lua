@@ -50,6 +50,7 @@ return {
         -- add more arguments for adding more debuggers
         "php",
         "codelldb",
+        "rust",
       })
     end,
   },
