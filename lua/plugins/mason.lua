@@ -1,5 +1,3 @@
-if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
-
 -- Customize Mason plugins
 
 ---@type LazySpec
@@ -13,6 +11,17 @@ return {
       opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, {
         "lua_ls",
         -- add more arguments for adding more language servers
+        "bashls",
+        -- Web Development
+        "html",
+        "cssls",
+        "tsserver",
+        "intelephense",
+        -- "stimulus_ls", This package's name is wrong in lspconfig so run `npm i -g stimulus-lsp`
+        -- python
+        "pylsp",
+        -- Rust
+        "rust_analyzer",
       })
     end,
   },
@@ -26,6 +35,8 @@ return {
         "prettier",
         "stylua",
         -- add more arguments for adding more null-ls sources
+        "beautysh",
+        "xmlformatter",
       })
     end,
   },
@@ -37,6 +48,8 @@ return {
       opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, {
         "python",
         -- add more arguments for adding more debuggers
+        "php",
+        "codelldb",
       })
     end,
   },

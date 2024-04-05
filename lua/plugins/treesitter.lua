@@ -1,5 +1,3 @@
-if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
-
 -- Customize Treesitter
 
 ---@type LazySpec
@@ -11,6 +9,18 @@ return {
       "lua",
       "vim",
       -- add more arguments for adding more treesitter parsers
+      "sql",
+      "bash",
+      -- Web Development
+      "html",
+      "css",
+      "javascript",
+      "php",
+      "scss",
+      -- Python
+      "python",
+      -- Rust
+      "rust",
     })
   end,
 }
