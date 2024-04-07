@@ -1,5 +1,3 @@
-if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
-
 -- AstroCore provides a central place to modify mappings, vim options, autocommands, and more!
 -- Configuration documentation can be found with `:h astrocore`
 -- NOTE: We highly recommend setting up the Lua Language Server (`:LspInstall lua_ls`)
@@ -32,10 +30,15 @@ return {
         spell = false, -- sets vim.opt.spell
         signcolumn = "auto", -- sets vim.opt.signcolumn to auto
         wrap = false, -- sets vim.opt.wrap
+        scrolloff = 7,
+        tabstop = 2,
+        softtabstop = 2,
+        shiftwidth = 2,
+        expandtab = true,
       },
       g = { -- vim.g.<key>
         -- configure global vim variables (vim.g)
-        -- NOTE: `mapleader` and `maplocalleader` must be set in the AstroNvim opts or before `lazy.setup`
+        -- NOTE: `mapLeader` and `maplocalleader` must be set in the AstroNvim opts or before `lazy.setup`
         -- This can be found in the `lua/lazy_setup.lua` file
       },
     },
@@ -70,6 +73,63 @@ return {
         ["<Leader>b"] = { desc = "Buffers" },
         -- quick save
         -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
+        ["<Tab>"] = {
+          function() require("astrocore.buffer").nav(vim.v.count1) end,
+          desc = "Next buffer",
+        },
+        ["<S-Tab>"] = {
+          function() require("astrocore.buffer").nav(-vim.v.count1) end,
+          desc = "Previous buffer",
+        },
+        ["<Leader>bn"] = {
+          function() vim.cmd "Telescope buffers" end,
+          desc = "Show Buffers list",
+        },
+        ["<Leader>Db"] = {
+          function() vim.cmd "DBUIToggle" end,
+          desc = "Show the Database UI tooltip",
+        },
+        ["<Leader>gg"] = {
+          function() vim.cmd "Flog" end,
+          desc = "Shows the Git commits graph",
+        },
+        ["<Leader>T"] = {
+          desc = " Todos list",
+        },
+        ["<Leader>Tt"] = {
+          function() vim.cmd "TodoTelescope" end,
+          desc = "Todos list in Telescope",
+        },
+        ["<Leader>Tl"] = {
+          function() vim.cmd "TodoLocList" end,
+          desc = "Todos list in Location list",
+        },
+        -- Open Alpha when the last buffesr closes
+        ["<Leader>c"] = {
+          function()
+            local bufs = vim.fn.getbufinfo { buflisted = true }
+            require("astrocore.buffer").close(0)
+            if require("astrocore").is_available "alpha-nvim" and not bufs[2] then require("alpha").start(true) end
+          end,
+          desc = "Close buffer",
+        },
+        -- ChatGPT
+        ["<Leader>a"] = {
+          desc = "AI Assistant",
+        },
+        ["<Leader>ac"] = {
+          function() vim.cmd "ChatGPTCompleteCode" end,
+          desc = "Get code suggestion from GPT",
+        },
+      },
+      v = {
+        ["<Leader>a"] = {
+          desc = "AI Assistant",
+        },
+        ["<Leader>ae"] = {
+          function() vim.cmd "ChatGPTEditWithInstructions" end,
+          desc = "Edit the selected code with an instruction",
+        },
       },
       t = {
         -- setting a mapping to false will disable it

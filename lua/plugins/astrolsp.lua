@@ -1,5 +1,3 @@
-if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
-
 -- AstroLSP allows you to customize the features in AstroNvim's LSP configuration engine
 -- Configuration documentation can be found with `:h astrolsp`
 -- NOTE: We highly recommend setting up the Lua Language Server (`:LspInstall lua_ls`)
@@ -46,6 +44,59 @@ return {
     ---@diagnostic disable: missing-fields
     config = {
       -- clangd = { capabilities = { offsetEncoding = "utf-8" } },
+      pylsp = {
+        root_dir = require("lspconfig.util").root_pattern "main.py",
+        settings = {
+          pylsp = {
+            configurationSources = { "pycodestyle" },
+            plugins = {
+              autopep8 = { enabled = false },
+              yapf = {
+                enabled = true,
+                style = {
+                  based_on_style = "pep8",
+                  indent_width = 2,
+                },
+              },
+              pycodestyle = {
+                enabled = true,
+                maxLineLength = 121,
+                indentSize = 2,
+              },
+            },
+          },
+        },
+      },
+      intelephense = {
+        root_dir = function() return vim.loop.cwd() end,
+        filetypes = { "php", "blade" },
+      },
+      tsserver = {
+        root_dir = function() return vim.loop.cwd() end,
+      },
+      sqllls = {
+
+        root_dir = function() return vim.loop.cwd() end,
+      },
+      bashls = {
+
+        root_dir = function() return vim.loop.cwd() end,
+      },
+      stimulus_ls = {
+
+        root_dir = function() return vim.loop.cwd() end,
+        filetypes = { "blade" },
+      },
+      rust_analyzer = {
+        settings = {
+          ["rust-analyzer"] = {
+            files = {
+              excludeDirs = { "target", "build", ".flatpak-builder", ".git" },
+              watcherExclude = { "target", "build", ".flatpak-builder", ".git" },
+            },
+          },
+        },
+      },
     },
     -- customize how language servers are attached
     handlers = {

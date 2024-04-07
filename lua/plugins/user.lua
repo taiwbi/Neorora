@@ -91,11 +91,6 @@ return {
     opt = {},
   },
   {
-    "kristijanhusak/vim-dadbod-completion",
-    event = "User AstroFile",
-    config = function() require("user.plugins.config.dadbod").setup() end,
-  },
-  {
     "adalessa/laravel.nvim",
     name = "laravel",
     dependencies = {

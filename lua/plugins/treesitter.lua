@@ -11,15 +11,12 @@ return {
       -- add more arguments for adding more treesitter parsers
       "sql",
       "bash",
-      -- Web Development
       "html",
       "css",
       "javascript",
       "php",
       "scss",
-      -- Python
       "python",
-      -- Rust
       "rust",
     })
   end,
