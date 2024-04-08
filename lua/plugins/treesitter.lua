@@ -18,6 +18,7 @@ return {
       "scss",
       "python",
       "rust",
+      "hyprlang",
     })
   end,
 }
