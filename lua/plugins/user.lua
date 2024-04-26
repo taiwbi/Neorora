@@ -127,4 +127,5 @@ return {
       "nvim-telescope/telescope.nvim",
     },
   },
+  { "catppuccin/nvim", name = "catppuccin", event = "VeryLazy", priority = 1000 },
 }

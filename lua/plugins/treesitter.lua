@@ -19,6 +19,7 @@ return {
       "python",
       "rust",
       "hyprlang",
+      "diff",
     })
   end,
 }

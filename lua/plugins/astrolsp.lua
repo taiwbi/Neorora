@@ -44,28 +44,8 @@ return {
     ---@diagnostic disable: missing-fields
     config = {
       -- clangd = { capabilities = { offsetEncoding = "utf-8" } },
-      pylsp = {
+      pyright = {
         root_dir = require("lspconfig.util").root_pattern "main.py",
-        settings = {
-          pylsp = {
-            configurationSources = { "pycodestyle" },
-            plugins = {
-              autopep8 = { enabled = false },
-              yapf = {
-                enabled = true,
-                style = {
-                  based_on_style = "pep8",
-                  indent_width = 2,
-                },
-              },
-              pycodestyle = {
-                enabled = true,
-                maxLineLength = 121,
-                indentSize = 2,
-              },
-            },
-          },
-        },
       },
       intelephense = {
         root_dir = function() return vim.loop.cwd() end,

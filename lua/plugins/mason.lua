@@ -11,7 +11,6 @@ return {
       opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, {
         "lua_ls",
         -- add more arguments for adding more language servers
-        "bashls",
         -- Web Development
         "html",
         "cssls",
@@ -19,7 +18,7 @@ return {
         "intelephense",
         -- "stimulus_ls", This package's name is wrong in lspconfig so run `npm i -g stimulus-lsp`
         -- python
-        "pylsp",
+        "pyright",
         -- Rust
         "rust_analyzer",
       })
@@ -35,7 +34,8 @@ return {
         "prettier",
         "stylua",
         -- add more arguments for adding more null-ls sources
-        "beautysh",
+        "shellcheck",
+        "shfmt",
         "xmlformatter",
       })
     end,
