@@ -47,10 +47,6 @@ return {
       pyright = {
         root_dir = require("lspconfig.util").root_pattern "main.py",
       },
-      intelephense = {
-        root_dir = function() return vim.loop.cwd() end,
-        filetypes = { "php", "blade" },
-      },
       tsserver = {
         root_dir = function() return vim.loop.cwd() end,
       },

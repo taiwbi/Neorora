@@ -15,12 +15,15 @@ return {
         "html",
         "cssls",
         "tsserver",
-        "intelephense",
+        "eslint",
+        "jsonls",
         -- "stimulus_ls", This package's name is wrong in lspconfig so run `npm i -g stimulus-lsp`
         -- python
         "pyright",
         -- Rust
         "rust_analyzer",
+        -- C & C++
+        "clangd",
       })
     end,
   },
