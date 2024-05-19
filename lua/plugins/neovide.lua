@@ -9,7 +9,7 @@ return {
     options = {
       opt = { -- configure vim.opt options
         -- configure font
-        guifont = "Lotion:h13",
+        guifont = "CaskaydiaCove Nerd Font Mono,Vazir Code Hack:h12", -- Actual settings in ~/.config/neovide/config.toml
         -- line spacing
         linespace = -1,
         guicursor = "n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175",
@@ -25,7 +25,8 @@ return {
         neovide_transparency = 0.85,
         neovide_floating_blur_amount_x = 12.0,
         neovide_floating_blur_amount_y = 12.0,
-        neovide_cursor_animation_length = 0.3,
+        neovide_scroll_animation_length = 0.5,
+        neovide_cursor_animation_length = 0.5,
         neovide_cursor_trail_size = 0,
         neovide_hide_mouse_when_typing = false,
         neovide_cursor_smooth_blink = true,
