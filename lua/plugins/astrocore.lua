@@ -89,7 +89,7 @@ return {
           function() vim.cmd "DBUIToggle" end,
           desc = "Show the Database UI tooltip",
         },
-        ["<Leader>gg"] = {
+        ["<Leader>gy"] = {
           function() vim.cmd "Flog" end,
           desc = "Shows the Git commits graph",
         },
