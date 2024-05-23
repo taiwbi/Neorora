@@ -14,5 +14,6 @@ vim.filetype.add {
     ["~/%.config/foo/.*"] = "fooscript",
     [".*.blade.php"] = "blade",
     [".*/hypr/.*%.conf"] = "hyprlang",
+    [".*/waybar/config"] = "jsonc",
   },
 }
