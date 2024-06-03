@@ -40,8 +40,8 @@ return {
         -- add more arguments for adding more null-ls sources
         "php-cs-fixer",
         "phpstan",
-        "shellcheck",
-        "shfmt",
+        "shellharden",
+        "bash-language-server",
         "xmlformatter",
       })
     end,
