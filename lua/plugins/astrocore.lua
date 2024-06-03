@@ -40,6 +40,14 @@ return {
         -- configure global vim variables (vim.g)
         -- NOTE: `mapLeader` and `maplocalleader` must be set in the AstroNvim opts or before `lazy.setup`
         -- This can be found in the `lua/lazy_setup.lua` file
+        transparent_groups = vim.list_extend(vim.g.transparent_groups or {}, {
+          "NeoTree",
+          "NeoTreeWinSeparator",
+          "NeoTreeVertSplit",
+          "NeoTreeNormalNC",
+          "NeoTreeNormal",
+          "NeoTreeFloatNormal",
+        }),
       },
     },
     -- Mappings can be configured through AstroCore as well.
