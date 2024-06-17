@@ -56,9 +56,12 @@ return {
       bashls = {
         root_dir = function() return vim.loop.cwd() end,
       },
-      phpactor = {
+      intelephense = {
         root_dir = function() return vim.loop.cwd() end,
         filetypes = { "blade", "php" },
+        init_options = {
+          licenceKey = "INTELEPHENSE_LICENSE_KEY", -- WARN: Add your intelephense license key here if you have one...
+        },
       },
       stimulus_ls = {
         root_dir = function() return vim.loop.cwd() end,
