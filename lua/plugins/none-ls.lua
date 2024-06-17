@@ -14,6 +14,10 @@ return {
       -- Set a formatter
       -- null_ls.builtins.formatting.stylua,
       -- null_ls.builtins.formatting.prettier,
+      null_ls.builtins.diagnostics.phpstan.with {
+        command = "phpstan",
+        args = { "analyze", "--error-format", "raw", "--no-progress", "--level=max", "$FILENAME" },
+      },
     }
     return config -- return final config table
   end,

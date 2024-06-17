@@ -38,6 +38,7 @@ return {
         "prettier",
         "stylua",
         -- add more arguments for adding more null-ls sources
+        "phpstan",
         "shellharden",
         "bash-language-server",
         "xmlformatter",
