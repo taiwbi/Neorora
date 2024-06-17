@@ -51,15 +51,16 @@ return {
         root_dir = function() return vim.loop.cwd() end,
       },
       sqllls = {
-
         root_dir = function() return vim.loop.cwd() end,
       },
       bashls = {
-
         root_dir = function() return vim.loop.cwd() end,
       },
+      phpactor = {
+        root_dir = function() return vim.loop.cwd() end,
+        filetypes = { "blade", "php" },
+      },
       stimulus_ls = {
-
         root_dir = function() return vim.loop.cwd() end,
         filetypes = { "blade" },
       },
