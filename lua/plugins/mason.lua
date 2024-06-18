@@ -15,6 +15,7 @@ return {
         "html",
         "intelephense",
         "cssls",
+        "tailwindcss",
         "tsserver",
         "eslint",
         "jsonls",
