@@ -15,6 +15,7 @@ return {
         "html",
         "phpactor",
         "cssls",
+        "tailwindcss",
         "tsserver",
         "eslint",
         "jsonls",
