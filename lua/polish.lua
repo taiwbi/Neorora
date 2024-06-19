@@ -12,7 +12,7 @@ vim.filetype.add {
   },
   pattern = {
     ["~/%.config/foo/.*"] = "fooscript",
-    [".*.blade.php"] = "blade",
+    [".*.blade.php"] = "php",
     [".*/hypr/.*%.conf"] = "hyprlang",
     [".*/waybar/config"] = "jsonc",
   },
