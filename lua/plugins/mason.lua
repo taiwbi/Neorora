@@ -13,7 +13,7 @@ return {
         -- add more arguments for adding more language servers
         -- Web Development
         "html",
-        "phpactor",
+        "intelephense",
         "cssls",
         "tailwindcss",
         "tsserver",
@@ -39,7 +39,6 @@ return {
         "prettier",
         "stylua",
         -- add more arguments for adding more null-ls sources
-        "php-cs-fixer",
         "phpstan",
         "shellharden",
         "bash-language-server",

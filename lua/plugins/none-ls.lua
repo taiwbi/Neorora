@@ -14,17 +14,6 @@ return {
       -- Set a formatter
       -- null_ls.builtins.formatting.stylua,
       -- null_ls.builtins.formatting.prettier,
-      null_ls.builtins.formatting.phpcsfixer.with {
-        command = "php-cs-fixer",
-        args = {
-          "fix",
-          "--using-cache=no",
-          "--config=" .. vim.fn.expand "~/.config/nvim/lsp-rules/php-cs-fixer.php",
-          "--quiet",
-          "--",
-          "$FILENAME",
-        },
-      },
       null_ls.builtins.diagnostics.phpstan.with {
         command = "phpstan",
         args = { "analyze", "--error-format", "raw", "--no-progress", "--level=max", "$FILENAME" },
