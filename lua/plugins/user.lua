@@ -114,6 +114,16 @@ return {
   },
   { "catppuccin/nvim", name = "catppuccin", event = "VeryLazy", priority = 1000 },
   {
+    "Mofiqul/adwaita.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      vim.g.adwaita_darker = false -- for darker version
+      vim.g.adwaita_disable_cursorline = true -- to disable cursorline
+      vim.g.adwaita_transparent = true -- makes the background transparent
+    end,
+  },
+  {
     -- Configuration in /lua/plugins/astrocore.lua file
     "xiyaowong/transparent.nvim",
     name = "transparent",

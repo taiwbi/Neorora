@@ -21,11 +21,11 @@ local function set_colorscheme()
   local scheme = get_gnome_color_scheme()
   if scheme == "dark" then
     vim.schedule_wrap(function()
-      vim.cmd "colorscheme catppuccin-mocha" -- Set your preferred dark theme
+      vim.cmd "colorscheme adwaita" -- Set your preferred dark theme
     end)()
   elseif scheme == "light" then
     vim.schedule_wrap(function()
-      vim.cmd "colorscheme catppuccin-latte" -- Set your preferred light theme
+      vim.cmd "colorscheme adwaita" -- Set your preferred light theme
     end)()
   end
 end
