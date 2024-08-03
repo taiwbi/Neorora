@@ -41,6 +41,7 @@ return {
         -- add more arguments for adding more null-ls sources
         "phpstan",
         "shellharden",
+        "shellcheck",
         "bash-language-server",
         "xmlformatter",
       })
