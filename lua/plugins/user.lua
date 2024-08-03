@@ -114,6 +114,12 @@ return {
   },
   { "catppuccin/nvim", name = "catppuccin", event = "VeryLazy", priority = 1000 },
   {
+    "2giosangmitom/nightfall.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {},
+  },
+  {
     -- Configuration in /lua/plugins/astrocore.lua file
     "xiyaowong/transparent.nvim",
     name = "transparent",
