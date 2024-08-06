@@ -96,8 +96,8 @@ return {
       "DBUIFindBuffer",
     },
     keys = {
-      { "<leader>Db", "<cmd>DBUIToggle<cr>", desc = "Toggle Databse UI" },
-      { "<leader>Da", "<cmd>DBUIAddConnection<cr>", desc = "Add Database Connection" },
+      { "<leader>Db", function() vim.cmd "DBUIToggle" end, desc = "Toggle Databse UI" },
+      { "<leader>Da", function() vim.cmd "DBUIAddConnection" end, desc = "Add Database Connection" },
     },
     init = function() vim.g.db_ui_use_nerd_fonts = 1 end,
   },
@@ -110,20 +110,39 @@ return {
   {
     "AstroNvim/astrocommunity",
     { import = "astrocommunity.pack.typescript" },
-    { import = "astrocommunity.colorscheme.tokyonight-nvim" },
   },
   {
     "jackMort/ChatGPT.nvim",
-    event = "VeryLazy",
-    config = function() require("chatgpt").setup() end,
+    config = function()
+      require("chatgpt").setup {
+        openai_params = {
+          model = "gpt-4o",
+          frequency_penalty = 0,
+          presence_penalty = 0,
+          max_tokens = 4095,
+          temperature = 0.4,
+          top_p = 0.1,
+          n = 1,
+        },
+      }
+    end,
     dependencies = {
       "MunifTanjim/nui.nvim",
       "nvim-lua/plenary.nvim",
       "folke/trouble.nvim",
       "nvim-telescope/telescope.nvim",
     },
+    cmd = {
+      "ChatGPT",
+      "ChatGPTActAs",
+      "ChatGPTEditWithInstructions",
+      "ChatGPTRun",
+      "ChatGPTCompleteCode",
+    },
+    keys = {
+      { "<Leader>ac", function() vim.cmd "ChatGPTCompleteCode" end, desc = "Get code suggestion from GPT" },
+    },
   },
-  { "catppuccin/nvim", name = "catppuccin", event = "VeryLazy", priority = 1000 },
   {
     "2giosangmitom/nightfall.nvim",
     lazy = false,
@@ -134,11 +153,11 @@ return {
     -- Configuration in /lua/plugins/astrocore.lua file
     "xiyaowong/transparent.nvim",
     name = "transparent",
-    event = "VeryLazy",
+    event = "User AstroFile",
   },
   {
     "folke/noice.nvim",
-    event = "VeryLazy",
+    event = "User AstroFile",
     dependencies = {
       "MunifTanjim/nui.nvim",
       "rcarriga/nvim-notify",

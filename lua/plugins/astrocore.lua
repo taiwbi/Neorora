@@ -151,10 +151,6 @@ return {
         ["<Leader>a"] = {
           desc = "AI Assistant",
         },
-        ["<Leader>ac"] = {
-          function() vim.cmd "ChatGPTCompleteCode" end,
-          desc = "Get code suggestion from GPT",
-        },
       },
       v = {
         ["<Leader>a"] = {
