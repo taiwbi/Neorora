@@ -81,14 +81,25 @@ return {
     end,
   },
   {
-    "tpope/vim-dadbod",
-    event = "User AstroFile",
-    opt = {},
-  },
-  {
     "kristijanhusak/vim-dadbod-ui",
-    event = "User AstroFile",
-    opt = {},
+    dependencies = {
+      { "tpope/vim-dadbod" },
+      {
+        "kristijanhusak/vim-dadbod-completion",
+        ft = { "sql", "mysql" },
+      },
+    },
+    cmd = {
+      "DBUI",
+      "DBUIToggle",
+      "DBUIAddConnection",
+      "DBUIFindBuffer",
+    },
+    keys = {
+      { "<leader>Db", "<cmd>DBUIToggle<cr>", desc = "Toggle Databse UI" },
+      { "<leader>Da", "<cmd>DBUIAddConnection<cr>", desc = "Add Database Connection" },
+    },
+    init = function() vim.g.db_ui_use_nerd_fonts = 1 end,
   },
   {
     "folke/todo-comments.nvim",

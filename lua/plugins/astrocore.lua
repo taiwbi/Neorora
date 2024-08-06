@@ -123,10 +123,6 @@ return {
           function() vim.cmd "Telescope buffers" end,
           desc = "Show Buffers list",
         },
-        ["<Leader>Db"] = {
-          function() vim.cmd "DBUIToggle" end,
-          desc = "Show the Database UI tooltip",
-        },
         ["<Leader>gy"] = {
           function() vim.cmd "Flog" end,
           desc = "Shows the Git commits graph",
