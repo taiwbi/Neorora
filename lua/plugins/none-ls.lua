@@ -18,6 +18,10 @@ return {
         command = "phpstan",
         args = { "analyze", "--error-format", "raw", "--no-progress", "--level=max", "$FILENAME" },
       },
+      null_ls.builtins.formatting.blade_formatter.with {
+        command = "blade-formatter",
+        args = { "-i", "2", "--write", "$FILENAME" },
+      },
     }
     return config -- return final config table
   end,
