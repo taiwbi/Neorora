@@ -7,6 +7,9 @@ return {
   event = "User AstroFile",
   config = function()
     vim.g.transparent_groups = vim.list_extend(vim.g.transparent_groups or {}, {
+      "CmdLine",
+      "CmdLineBorder",
+      "CmdLinePrompt",
       "CmpBorder",
       "CmpDoc",
       "CmpPmenu",
@@ -38,11 +41,16 @@ return {
       "NeoTreeWinSeparator",
       "NormalFloat",
       "StatusLine",
+      "StatusLineNC",
       "TabLine",
       "TabLineFill",
       "TabLineSel",
       "WinBar",
       "WinBarNC",
+      "CmdLineHistory",
+      "CmdLineMessage",
+      "NoiceCmdline",
+      "NoicePopup",
     })
   end,
 }
