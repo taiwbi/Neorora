@@ -2,7 +2,7 @@
 
 سلام دوست برنامه‌نویس من! این پیکربندی شخصی‌ من برای AstroNvim هست. این تنظیمات رو مخصوص کار با پایتون، پی‌اچ‌پی (وردپرس و لاراول) و یه کم هم راست بهینه کردم. آماده‌ای که لذت کدنویسی رو دوچندان کنیم؟
 
-![تصویر محیط نئورورا](https://raw.githubusercontent.com/taiwbi/AstroConfig/main/assets/screenshot.png)
+![تصویر محیط نئورورا](https://raw.githubusercontent.com/taiwbi/AstroConfig/main/screenshot.png)
 
 ## ✨ ویژگی‌های اصلی
 
