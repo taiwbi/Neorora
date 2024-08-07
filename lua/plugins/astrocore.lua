@@ -35,6 +35,7 @@ return {
         softtabstop = 2,
         shiftwidth = 2,
         expandtab = true,
+        showtabline = 0,
       },
       g = { -- vim.g.<key>
         -- configure global vim variables (vim.g)
