@@ -2,7 +2,7 @@
 
 This is my personal AstroNvim configuration! This setup is tailored for developing in Python, PHP (WordPress and Laravel), and a bit of Rust. Buckle up for a delightful coding experience!
 
-<img src="https://raw.githubusercontent.com/taiwbi/AstroConfig/lite/assets/screenshot.png" alt="Screenshot">
+<img src="https://raw.githubusercontent.com/taiwbi/AstroConfig/main/assets/screenshot.png" alt="Screenshot">
 
 ## 🌟 Features
 
