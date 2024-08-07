@@ -35,19 +35,12 @@ return {
         softtabstop = 2,
         shiftwidth = 2,
         expandtab = true,
+        showtabline = 0,
       },
       g = { -- vim.g.<key>
         -- configure global vim variables (vim.g)
         -- NOTE: `mapLeader` and `maplocalleader` must be set in the AstroNvim opts or before `lazy.setup`
         -- This can be found in the `lua/lazy_setup.lua` file
-        transparent_groups = vim.list_extend(vim.g.transparent_groups or {}, {
-          "NeoTree",
-          "NeoTreeWinSeparator",
-          "NeoTreeVertSplit",
-          "NeoTreeNormalNC",
-          "NeoTreeNormal",
-          "NeoTreeFloatNormal",
-        }),
       },
     },
     -- Mappings can be configured through AstroCore as well.
@@ -93,10 +86,6 @@ return {
           function() vim.cmd "Telescope buffers" end,
           desc = "Show Buffers list",
         },
-        ["<Leader>Db"] = {
-          function() vim.cmd "DBUIToggle" end,
-          desc = "Show the Database UI tooltip",
-        },
         ["<Leader>gy"] = {
           function() vim.cmd "Flog" end,
           desc = "Shows the Git commits graph",
@@ -124,10 +113,6 @@ return {
         -- ChatGPT
         ["<Leader>a"] = {
           desc = "AI Assistant",
-        },
-        ["<Leader>ac"] = {
-          function() vim.cmd "ChatGPTCompleteCode" end,
-          desc = "Get code suggestion from GPT",
         },
       },
       v = {

@@ -10,15 +10,7 @@ return {
           type = "executable",
           command = "node",
           args = {
-            "$HOME/.local/share/nvim/mason/packages/php-debug-adapter/extension/out/phpDebug.js",
-          },
-        }
-        dap.adapters.codelldb = {
-          type = "server",
-          port = "13123",
-          executable = {
-            command = "$HOME/.local/share/nvim/mason/packages/codelldb/codelldb",
-            args = { "--port", "13123" },
+            os.getenv("HOME") .. "/.local/share/nvim/mason/packages/php-debug-adapter/extension/out/phpDebug.js",
           },
         }
         dap.configurations.php = {
@@ -41,8 +33,18 @@ return {
               XDEBUG_CONFIG = "client_port=${port}",
             },
           },
-          -- If you want to have some configurations that you don't want to track in git, you can uncomment the below line and return your configurations in ./dap-php.lua file
-          -- require "user.plugins.config.dap-php", -- Personal PHP debug configurations
+        }
+      end,
+      -- Rust
+      codelldb = function (source_name)
+        local dap = require "dap"
+        dap.adapters.codelldb = {
+          type = "server",
+          port = "13123",
+          executable = {
+            command = os.getenv("HOME") .. "/.local/share/nvim/mason/packages/codelldb/codelldb",
+            args = { "--port", "13123" },
+          },
         }
         dap.configurations.rust = {
           {
