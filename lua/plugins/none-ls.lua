@@ -16,7 +16,13 @@ return {
       -- null_ls.builtins.formatting.prettier,
       null_ls.builtins.diagnostics.phpstan.with {
         command = "phpstan",
-        args = { "analyze", "--error-format", "raw", "--no-progress", "--level=max", "$FILENAME" },
+        args = {
+          "analyze",
+          "--error-format=json",
+          "--no-progress",
+          "--memory-limit=2G",
+          "$FILENAME",
+        },
       },
       null_ls.builtins.formatting.blade_formatter.with {
         command = "blade-formatter",
