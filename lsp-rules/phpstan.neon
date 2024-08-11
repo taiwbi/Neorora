@@ -1,3 +1,0 @@
-parameters:
-	parallel:
-		maximumNumberOfProcesses: 4
