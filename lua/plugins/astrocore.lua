@@ -35,7 +35,6 @@ return {
         softtabstop = 2,
         shiftwidth = 2,
         expandtab = true,
-        showtabline = 0,
       },
       g = { -- vim.g.<key>
         -- configure global vim variables (vim.g)
@@ -91,6 +90,7 @@ return {
           desc = "Shows the Git commits graph",
         },
         ["<Leader>T"] = {
+          function() end,
           desc = " Todos list",
         },
         ["<Leader>Tt"] = {
