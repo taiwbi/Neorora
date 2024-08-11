@@ -110,19 +110,33 @@ return {
           end,
           desc = "Close buffer",
         },
-        -- ChatGPT
-        ["<Leader>a"] = {
+        -- Parrot
+        ["<Leader>P"] = {
+          function() end,
           desc = "AI Assistant",
+        },
+        ["<leader>Pc"] = { function() vim.cmd "PrtChatNew" end, desc = "Open a new AI Chat" },
+        ["<leader>PC"] = { function() vim.cmd "PrtChatFinder" end, desc = "AI Chat History" },
+        ["<leader>Pd"] = { function() vim.cmd "PrtChatDelete" end, desc = "Delete current chat file" },
+        ["<leader>Pi"] = { function() vim.cmd "PrtInfo" end, desc = "Parrot AI Info" },
+        -- LSP
+        ["grr"] = {
+          function() vim.cmd "Telescope lsp_references" end,
+          desc = "Search references",
+        },
+        ["<leader>lR"] = {
+          function() vim.cmd "Telescope lsp_references" end,
+          desc = "Search references",
         },
       },
       v = {
-        ["<Leader>a"] = {
+        ["<Leader>P"] = {
+          function() end,
           desc = "AI Assistant",
         },
-        ["<Leader>ae"] = {
-          function() vim.cmd "ChatGPTEditWithInstructions" end,
-          desc = "Edit the selected code with an instruction",
-        },
+        ["<leader>Pr"] = { function() vim.cmd "PrtRewrite" end, desc = "Rewrites the selection" },
+        ["<leader>Pa"] = { function() vim.cmd "PrtAddto" end, desc = "Append text to the visual selection" },
+        ["<leader>Pb"] = { function() vim.cmd "PrtAddBefore" end, desc = "Prepend text to the visual selection" },
       },
       t = {
         -- setting a mapping to false will disable it
