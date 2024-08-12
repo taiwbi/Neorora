@@ -79,7 +79,7 @@ return {
     { import = "astrocommunity.pack.typescript" },
   },
   {
-    "2giosangmitom/nightfall.nvim",
+    "folke/tokyonight.nvim",
     lazy = false,
     priority = 1000,
     opts = {},
