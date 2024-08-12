@@ -43,20 +43,27 @@ local function set_colorscheme()
   end
 
   vim.schedule(function()
-    if scheme == "dark" then
+    ---@diagnostic disable-next-line: undefined-field
+    local current_background = vim.opt.background:get()
+    local current_colorscheme = vim.g.colors_name
+
+    if scheme == "dark" and (current_background ~= "dark" or current_colorscheme ~= config.dark_theme) then
       vim.opt.background = "dark"
       cmd("colorscheme " .. config.dark_theme)
-    else
+      debug_log("Set colorscheme to " .. scheme)
+    elseif scheme ~= "dark" and (current_background ~= "light" or current_colorscheme ~= config.light_theme) then
       vim.opt.background = "light"
       cmd("colorscheme " .. config.light_theme)
+      debug_log("Set colorscheme to " .. scheme)
     end
-    debug_log("Set colorscheme to " .. scheme)
   end)
 end
 
 -- Monitor GNOME color scheme changes
 local function start_monitor()
+  ---@diagnostic disable-next-line: undefined-field
   local stdout = uv.new_pipe(false)
+  ---@diagnostic disable-next-line: undefined-field
   local stderr = uv.new_pipe(false)
   local handle, pid
 
@@ -68,6 +75,7 @@ local function start_monitor()
     vim.defer_fn(start_monitor, 5000)
   end
 
+  ---@diagnostic disable-next-line: undefined-field
   handle, pid = uv.spawn("gsettings", {
     args = { "monitor", "org.gnome.desktop.interface", "color-scheme" },
     stdio = { nil, stdout, stderr },
@@ -80,6 +88,7 @@ local function start_monitor()
 
   debug_log("Started gsettings monitor with PID " .. pid)
 
+  ---@diagnostic disable-next-line: undefined-field
   uv.read_start(stdout, function(err, data)
     if err then
       debug_log("stdout read error: " .. err)
@@ -89,6 +98,7 @@ local function start_monitor()
     end
   end)
 
+  ---@diagnostic disable-next-line: undefined-field
   uv.read_start(stderr, function(err, data)
     if err then
       debug_log("stderr read error: " .. err)
