@@ -84,4 +84,23 @@ return {
     priority = 1000,
     opts = {},
   },
+  {
+    "nvim-telescope/telescope.nvim",
+    tag = "0.1.8",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    opts = {
+      defaults = {
+        winblend = 50,
+      },
+    },
+  },
+  {
+    "akinsho/toggleterm.nvim",
+    version = "*",
+    opts = {
+      float_opts = {
+        winblend = 50,
+      },
+    },
+  },
 }
