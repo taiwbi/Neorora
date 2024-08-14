@@ -90,7 +90,7 @@ return {
     dependencies = { "nvim-lua/plenary.nvim" },
     opts = {
       defaults = {
-        winblend = 50,
+        winblend = 0,
       },
     },
   },
@@ -99,7 +99,7 @@ return {
     version = "*",
     opts = {
       float_opts = {
-        winblend = 50,
+        winblend = 0,
       },
     },
   },
