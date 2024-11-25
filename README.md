@@ -64,6 +64,13 @@ This is my personal AstroNvim configuration! This setup is tailored for developi
    rustup component add rustfmt
    ```
 
+   For python development, make sure python is installed and install debugpy:
+
+   ```sh
+   sudo dnf install python
+   pip install debugpy
+   ```
+
 4. **Clone the repository:**
 
    ```sh
