@@ -19,26 +19,3 @@ require "lazy_setup"
 require "polish"
 require "colorscheme"
 require "tricks"
-
---FIX: This is not a standard way to define custom LSP in AstroNVIM. But I couldn't make it work any other way
--- If you wish to fix this check AstroNvim documentation and send a pull request if you managed to fix it :)
--- https://docs.astronvim.com/recipes/advanced_lsp/#custom-lsp-definition
-
-local lspconfig = require "lspconfig"
-local configs = require "lspconfig.configs"
-
--- Configure it
-configs.blade = {
-  default_config = {
-    -- Path to the executable: laravel-dev-generators
-    cmd = { "laravel-dev-tools", "lsp" },
-    filetypes = { "blade" },
-    root_dir = function(fname) return lspconfig.util.find_git_ancestor(fname) end,
-    settings = {},
-  },
-}
--- Set it up
-lspconfig.blade.setup {
-  -- Capabilities is specific to my setup.
-  capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities()),
-}
