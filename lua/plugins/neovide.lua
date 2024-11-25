@@ -9,7 +9,7 @@ return {
     options = {
       opt = { -- configure vim.opt options
         -- configure font
-        guifont = "Cartograph CF,Vazir Code Hack:h11",
+        guifont = "Monaspace Neon,AzarMehrMonospaced:h11",
         -- line spacing
         linespace = 0,
         guicursor = "n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175",
