@@ -15,5 +15,6 @@ vim.filetype.add {
     [".*.blade.php"] = "blade",
     [".*/hypr/.*%.conf"] = "hyprlang",
     [".*/waybar/config"] = "jsonc",
+    [".*.mq5"] = "cpp",
   },
 }
