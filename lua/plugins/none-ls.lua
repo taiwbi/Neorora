@@ -14,6 +14,12 @@ return {
       -- Set a formatter
       -- null_ls.builtins.formatting.stylua,
       -- null_ls.builtins.formatting.prettier,
+      null_ls.builtins.formatting.pyink.with {
+        args = {
+          "--pyink-indentation",
+          "2",
+        },
+      },
       null_ls.builtins.diagnostics.phpstan.with {
         command = "phpstan",
         args = {

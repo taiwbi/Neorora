@@ -45,6 +45,7 @@ return {
         "shellcheck",
         "bash-language-server",
         "xmlformatter",
+        "pyink",
       })
     end,
   },
