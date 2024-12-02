@@ -57,7 +57,6 @@ return {
           "typescript",
           "typescriptreact",
           "typescript.tsx",
-          "blade",
         },
       },
       sqllls = {
