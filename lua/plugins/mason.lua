@@ -16,7 +16,7 @@ return {
         "intelephense",
         "cssls",
         "tailwindcss",
-        "tsserver",
+        "ts_ls",
         "eslint",
         "jsonls",
         -- "stimulus_ls", This package's name is wrong in lspconfig so run `npm i -g stimulus-lsp`
