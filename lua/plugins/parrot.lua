@@ -31,12 +31,14 @@ return {
     "PrtAddBefore",
   },
   config = function()
-    local api_file = io.open(os.getenv "HOME" .. "/.ssh/anthropic-key")
-    if not api_file then
+    local anthropic_api_file = io.open(os.getenv "HOME" .. "/.ssh/keys/anthropic-api-key")
+    local google_api_file = io.open(os.getenv "HOME" .. "/.ssh/keys/googleai-api-key")
+    if not anthropic_api_file then
       print "No API Key File for Anthropic"
       return
     end
-    local anthropic_key = api_file:read("*a"):gsub("%s+", "")
+    local anthropic_key = anthropic_api_file:read("*a"):gsub("%s+", "")
+    local google_key = google_api_file:read("*a"):gsub("%s+", "")
     require("parrot").setup {
       -- Providers must be explicitly added to make them available.
       providers = {
@@ -48,13 +50,27 @@ return {
           },
           params = {
             chat = {
-              -- model = "claude-3-sonnet-20240229",
               model = "claude-3-5-sonnet-20240620",
               max_tokens = 4096,
             },
             command = {
-              -- model = "claude-3-sonnet-20240229",
               model = "claude-3-5-sonnet-20240620",
+              max_tokens = 4096,
+            },
+          },
+        },
+        gemini = {
+          api_key = google_key,
+          topic = {
+            model = "gemini-1.5-flash-8b",
+          },
+          params = {
+            chat = {
+              model = "gemini-1.5-pro",
+              max_tokens = 4096,
+            },
+            command = {
+              model = "gemini-1.5-pro",
               max_tokens = 4096,
             },
           },
@@ -67,6 +83,8 @@ return {
       chat_shortcut_new = { modes = { "n", "i", "v", "x" }, shortcut = "<C-g>c" },
 
       curl_params = {
+        "-x",
+        "socks5://192.168.43.1:1080",
         "--noproxy",
         "''",
       },
