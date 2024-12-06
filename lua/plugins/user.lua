@@ -101,7 +101,7 @@ return {
     "nobbmaestro/nvim-andromeda",
     dependencies = { { "tjdevries/colorbuddy.nvim", branch = "dev" } },
     event = "VeryLazy",
-    config = function()
+    init = function()
       require("andromeda").setup {
         preset = "andromeda",
         transparent_bg = false,
