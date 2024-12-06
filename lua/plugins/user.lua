@@ -79,12 +79,6 @@ return {
     { import = "astrocommunity.pack.typescript" },
   },
   {
-    "folke/tokyonight.nvim",
-    lazy = false,
-    priority = 1000,
-    opts = {},
-  },
-  {
     "nvim-telescope/telescope.nvim",
     tag = "0.1.8",
     dependencies = { "nvim-lua/plenary.nvim" },
@@ -102,5 +96,19 @@ return {
         winblend = 0,
       },
     },
+  },
+  {
+    "nobbmaestro/nvim-andromeda",
+    dependencies = { { "tjdevries/colorbuddy.nvim", branch = "dev" } },
+    event = "VeryLazy",
+    config = function()
+      require("andromeda").setup {
+        preset = "andromeda",
+        transparent_bg = false,
+        styles = {
+          italic = true,
+        },
+      }
+    end,
   },
 }
