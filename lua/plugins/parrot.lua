@@ -62,7 +62,7 @@ return {
         gemini = {
           api_key = google_key,
           topic = {
-            model = "gemini-1.5-flash-8b",
+            model = "gemini-1.5-flash",
           },
           params = {
             chat = {
