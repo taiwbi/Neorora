@@ -4,8 +4,8 @@ local cmd = vim.cmd
 
 -- Configuration
 local config = {
-  dark_theme = "andromeda",
-  light_theme = "astrolight",
+  dark_theme = "catppuccin-mocha",
+  light_theme = "catppuccin-latte",
   debug = false, -- Set to true for debug output
 }
 

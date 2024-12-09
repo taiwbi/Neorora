@@ -117,8 +117,10 @@ return {
         },
         ["<leader>Pc"] = { function() vim.cmd "PrtChatNew" end, desc = "Open a new AI Chat" },
         ["<leader>PC"] = { function() vim.cmd "PrtChatFinder" end, desc = "AI Chat History" },
+        ["<leader>PA"] = { function() vim.cmd "PrtChatRespond" end, desc = "Answer AI in chat window" },
         ["<leader>Pd"] = { function() vim.cmd "PrtChatDelete" end, desc = "Delete current chat file" },
         ["<leader>Pi"] = { function() vim.cmd "PrtInfo" end, desc = "Parrot AI Info" },
+        ["<leader>Pm"] = { function() vim.cmd "PrtModel" end, desc = "Change AI Model" },
         -- LSP
         ["grr"] = {
           function() vim.cmd "Telescope lsp_references" end,

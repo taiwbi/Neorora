@@ -97,18 +97,5 @@ return {
       },
     },
   },
-  {
-    "nobbmaestro/nvim-andromeda",
-    dependencies = { { "tjdevries/colorbuddy.nvim", branch = "dev" } },
-    event = "VeryLazy",
-    init = function()
-      require("andromeda").setup {
-        preset = "andromeda",
-        transparent_bg = false,
-        styles = {
-          italic = true,
-        },
-      }
-    end,
-  },
+  { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 }

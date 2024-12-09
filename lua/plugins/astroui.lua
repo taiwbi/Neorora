@@ -9,7 +9,7 @@ return {
   ---@type AstroUIOpts
   opts = {
     -- change colorscheme
-    colorscheme = "andromeda",
+    colorscheme = "catppuccin-mocha",
     -- AstroUI allows you to easily modify highlight groups easily for any and all colorschemes
     highlights = {
       init = { -- this table overrides highlights in all themes
@@ -32,22 +32,6 @@ return {
       LSPLoading8 = "⠧",
       LSPLoading9 = "⠇",
       LSPLoading10 = "⠏",
-    },
-    status = {
-      colors = {
-        bg = "#23262e",
-        winbar_bg = "#23262e",
-        winbarnc_bg = "#23262e",
-        section_bg = "#23262e",
-        git_branch_bg = "#23262e",
-        file_info_fg = "#5f6167",
-        lsp_fg = "#5f6167",
-        nav_fg = "#5f6167",
-        tabline_bg = "#23262e",
-        buffer_bg = "#23262e",
-        buffer_active_bg = "#23262e",
-        buffer_active_fg = "#00e8c6",
-      },
     },
   },
 }
