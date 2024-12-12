@@ -9,7 +9,6 @@ return {
     require("luasnip.loaders.from_vscode").lazy_load {
       paths = { vim.fn.stdpath "config" .. "/snippets" },
     }
-    print("Snippets loaded from path: " .. vim.fn.stdpath "config" .. "/snippets")
 
     require("luasnip").filetype_extend("blade", { "html", "php" })
   end,
