@@ -111,17 +111,21 @@ return {
           end,
           desc = "Close buffer",
         },
-        -- Parrot
+        -- Code Companion
         ["<Leader>P"] = {
           function() end,
-          desc = "AI Assistant",
+          desc = "Code Companion",
         },
-        ["<leader>Pc"] = { function() vim.cmd "PrtChatNew" end, desc = "Open a new AI Chat" },
-        ["<leader>PC"] = { function() vim.cmd "PrtChatFinder" end, desc = "AI Chat History" },
-        ["<leader>PA"] = { function() vim.cmd "PrtChatRespond" end, desc = "Answer AI in chat window" },
-        ["<leader>Pd"] = { function() vim.cmd "PrtChatDelete" end, desc = "Delete current chat file" },
-        ["<leader>Pi"] = { function() vim.cmd "PrtInfo" end, desc = "Parrot AI Info" },
-        ["<leader>Pm"] = { function() vim.cmd "PrtModel" end, desc = "Change AI Model" },
+        ["<leader>Pc"] = { function() vim.cmd "CodeCompanionChat" end, desc = "Open a new AI Chat" },
+        ["<leader>Pa"] = { function() vim.cmd "CodeCompanionActions" end, desc = "AI Actions" },
+        ["<Leader>Pp"] = {
+          function()
+            vim.api.nvim_command "normal a<<INSERT_HERE>>"
+            vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("10kV14j", true, false, true), "n", true)
+            vim.cmd "CodeCompanion Rewrite this code but complete the code by putting what you think should be inserted instead of <<INSERT_HERE>>. Write functional, clean and working code."
+          end,
+          desc = "Inline Completion",
+        },
         -- LSP
         ["grr"] = {
           function() vim.cmd "Telescope lsp_references" end,
@@ -137,9 +141,10 @@ return {
           function() end,
           desc = "AI Assistant",
         },
-        ["<leader>Pr"] = { function() vim.cmd "PrtRewrite" end, desc = "Rewrites the selection" },
-        ["<leader>Pa"] = { function() vim.cmd "PrtAddto" end, desc = "Append text to the visual selection" },
-        ["<leader>Pb"] = { function() vim.cmd "PrtAddBefore" end, desc = "Prepend text to the visual selection" },
+        ["<leader>PA"] = {
+          function() vim.cmd "CodeCompanionChat Add" end,
+          desc = "Add selected chat to the current chat buffer",
+        },
       },
       t = {
         -- setting a mapping to false will disable it
