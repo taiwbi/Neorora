@@ -18,6 +18,12 @@ return {
         args = {
           "--pyink-indentation",
           "2",
+          "-l",
+          "120",
+          "--stdin-filename",
+          "$FILENAME",
+          "--quiet",
+          "-",
         },
       },
       null_ls.builtins.diagnostics.phpstan.with {
