@@ -26,19 +26,6 @@ return {
           "-",
         },
       },
-      null_ls.builtins.diagnostics.phpstan.with {
-        command = "vendor/bin/phpstan",
-        args = {
-          "analyze",
-          "--configuration=phpstan.neon",
-          "--error-format=json",
-          "--no-progress",
-          "--memory-limit=2G",
-          "$FILENAME",
-        },
-        timeout = 3000,
-        root_dir = require("null-ls.utils").root_pattern(".null-ls-root", "composer.json", ".git", "phpstan.neon"),
-      },
       null_ls.builtins.formatting.blade_formatter.with {
         command = "blade-formatter",
         args = {

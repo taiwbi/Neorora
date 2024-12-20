@@ -92,9 +92,6 @@ return {
           },
         },
       },
-      opts = {
-        log_level = "DEBUG",
-      },
     }
   end,
 }
