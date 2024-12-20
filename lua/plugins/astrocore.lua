@@ -121,9 +121,11 @@ return {
         ["<leader>Pa"] = { function() vim.cmd "CodeCompanionActions" end, desc = "AI Actions" },
         ["<Leader>Pp"] = {
           function()
-            vim.api.nvim_command "normal a<<INSERT_HERE>>"
-            vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("10kV14j", true, false, true), "n", true)
-            vim.cmd "CodeCompanion Rewrite this code but complete the code by putting what you think should be inserted instead of <<INSERT_HERE>>. Write functional, clean and working code."
+            vim.api.nvim_command "normal aINSERT_HERE"
+            vim.defer_fn(function() end, 300)
+            vim.api.nvim_command "normal 10kV14j"
+            vim.defer_fn(function() end, 300)
+            vim.cmd "CodeCompanion Rewrite this code but complete the code by generating what should most probably come instead of INSERT_HERE. Write functional, clean and working code."
           end,
           desc = "Inline Completion",
         },
