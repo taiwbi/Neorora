@@ -76,9 +76,6 @@ return {
             },
           })
         end,
-        opts = {
-          proxy = "socks5://192.168.43.1:1080",
-        },
       },
 
       display = {
