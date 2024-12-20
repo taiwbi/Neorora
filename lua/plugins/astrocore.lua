@@ -90,6 +90,7 @@ return {
           function() vim.cmd "Flog" end,
           desc = "Shows the Git commits graph",
         },
+        -- TODO List
         ["<Leader>T"] = {
           function() end,
           desc = " Todos list",
