@@ -4,7 +4,6 @@ return {
     "nvim-lua/plenary.nvim",
     "nvim-treesitter/nvim-treesitter",
     "MeanderingProgrammer/render-markdown.nvim",
-    { "echasnovski/mini.nvim", version = "*" },
   },
   config = function()
     require("codecompanion").setup {
