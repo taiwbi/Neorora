@@ -122,4 +122,8 @@ return {
     name = "rose-pine",
     config = function() vim.cmd "colorscheme rose-pine" end,
   },
+  {
+    "3rd/image.nvim",
+    opts = {},
+  },
 }
