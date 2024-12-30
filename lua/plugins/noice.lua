@@ -10,7 +10,7 @@ return {
   opts = {
     lsp = {
       progress = {
-        enabled = false, -- AstroNvim has a builtin progress being shown on Status bar
+        enabled = true,
       },
       hover = {
         enabled = false,
