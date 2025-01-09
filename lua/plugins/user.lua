@@ -53,7 +53,7 @@ return {
       { "tpope/vim-dadbod" },
       {
         "kristijanhusak/vim-dadbod-completion",
-        ft = { "sql", "mysql" },
+        ft = { "sql", "mysql", "plsql" },
       },
     },
     cmd = {
@@ -66,7 +66,13 @@ return {
       { "<leader>Db", function() vim.cmd "DBUIToggle" end, desc = "Toggle Databse UI" },
       { "<leader>Da", function() vim.cmd "DBUIAddConnection" end, desc = "Add Database Connection" },
     },
-    init = function() vim.g.db_ui_use_nerd_fonts = 1 end,
+    init = function()
+      vim.g.db_ui_use_nerd_fonts = 1
+      vim.api.nvim_create_autocmd({ "FileType" }, {
+        pattern = { "sql", "mysql", "plsql" },
+        callback = function() require("cmp").setup.buffer { sources = { { name = "vim-dadbod-completion" } } } end,
+      })
+    end,
   },
   {
     "folke/todo-comments.nvim",
