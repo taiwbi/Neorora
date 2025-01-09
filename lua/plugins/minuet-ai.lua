@@ -11,8 +11,8 @@ return {
       virtualtext = {
         auto_trigger_ft = { "python", "lua", "php", "javascript", "rust", "rs", "c", "cpp", "markdown" },
         keymap = {
-          accept = "<A-A>",
-          accept_line = "<A-a>",
+          accept = "<A-a>",
+          accept_line = "<A-A>",
           prev = "<A-[>",
           next = "<A-]>",
           dismiss = "<A-e>",
@@ -20,13 +20,13 @@ return {
       },
       provider = "openai_compatible",
       context_window = 3500,
-      throttle = 3000,
-      debounce = 3000,
+      throttle = 2000,
+      debounce = 1000,
       request_timeout = 7,
       n_completions = 1,
       provider_options = {
         openai_compatible = {
-          model = "meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo",
+          model = "Qwen/Qwen2.5-Coder-32B-Instruct",
           end_point = "https://api.deepinfra.com/v1/openai/chat/completions",
           system = {
             template = "{{{prompt}}}\n{{{guidelines}}}\n{{{n_completion_template}}}",
@@ -72,7 +72,7 @@ def fibonacci(n):
           stream = true,
           optional = {
             stop = nil,
-            max_tokens = 4500,
+            max_tokens = 1200,
           },
         },
       },
