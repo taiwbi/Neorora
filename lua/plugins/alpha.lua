@@ -8,7 +8,7 @@ return {
 
     local function calculate_center_x()
       local win_width = vim.api.nvim_win_get_width(0)
-      local image_width = 30
+      local image_width = 35
       return math.floor((win_width - image_width) / 2)
     end
 
@@ -50,7 +50,6 @@ return {
       end
 
       return {
-        [[ ]],
         [[ ]],
         [[ ]],
         [[ ]],
