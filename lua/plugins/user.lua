@@ -128,8 +128,14 @@ return {
     name = "rose-pine",
     config = function() vim.cmd "colorscheme rose-pine" end,
   },
+  -- Install packages to make image.nvim work: dnf install ImageMagick ImageMagick-devel luarocks
+  -- luarocks --local --lua-version=5.1 install magick
   {
     "3rd/image.nvim",
     opts = {},
+    enabled = function()
+      if vim.env.TERM == "xterm-kitty" or vim.env.TERM == "xterm-ghostty" then return true end
+      return false
+    end,
   },
 }
