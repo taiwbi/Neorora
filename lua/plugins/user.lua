@@ -123,11 +123,6 @@ return {
     opts = {},
     cmd = "VenvSelect",
   },
-  {
-    "rose-pine/neovim",
-    name = "rose-pine",
-    config = function() vim.cmd "colorscheme rose-pine" end,
-  },
   -- Install packages to make image.nvim work: dnf install ImageMagick ImageMagick-devel luarocks
   -- luarocks --local --lua-version=5.1 install magick
   {
@@ -138,4 +133,27 @@ return {
       return false
     end,
   },
+  -- INFO: Themes
+  {
+    "rose-pine/neovim",
+    name = "rose-pine",
+  },
+  {
+    "rebelot/kanagawa.nvim",
+    config = function()
+      ---@diagnostic disable-next-line: missing-fields
+      require("kanagawa").setup {
+        theme = "dragon", -- Load "wave" theme when 'background' option is not set
+        background = { -- map the value of 'background' option to a theme
+          dark = "dragon", -- try "dragon" !
+          light = "lotus",
+        },
+      }
+    end,
+  },
+  {
+    "lunarvim/horizon.nvim",
+    lazy = true,
+  },
+  { "olivercederborg/poimandres.nvim", lazy = true, opts = {} },
 }
