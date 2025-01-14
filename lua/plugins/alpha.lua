@@ -83,6 +83,9 @@ return {
         [[ ]],
         [[ ]],
         [[ ]],
+        [[ ]],
+        [[ ]],
+        [[ ]],
         [[ Behind that blindfold lies a heart that, ]],
         [[ despite being artificial, feels deeply. ]],
       }
