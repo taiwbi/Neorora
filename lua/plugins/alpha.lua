@@ -64,7 +64,7 @@ return {
         y = 1,
         buffer = vim.api.nvim_get_current_buf(),
         window = vim.api.nvim_get_current_win(),
-        height = 12,
+        height = 14,
       })
 
       if image then
@@ -75,6 +75,7 @@ return {
       end
 
       return {
+        [[ ]],
         [[ ]],
         [[ ]],
         [[ ]],
