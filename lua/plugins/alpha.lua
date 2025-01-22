@@ -59,7 +59,7 @@ return {
       })
 
       -- Load and render the image
-      image = img_api.from_file("/home/mahdi/.config/nvim/assets/alpha-logo.png", {
+      image = img_api.from_file(vim.fn.expand "$HOME" .. "/.config/nvim/assets/2B.png", {
         x = calculate_center_x(),
         y = 1,
         buffer = vim.api.nvim_get_current_buf(),
@@ -106,7 +106,11 @@ return {
     opts.section.header.opts = {
       position = "center",
     }
-    opts.section.buttons.val = {}
+    opts.section.buttons.val = {
+      opts.button("LDR n", "  New File"),
+      opts.button("LDR sf", "󰁯  Load a Session"),
+      opts.button("LDR sF", "  Load a DirSession"),
+    }
 
     return opts
   end,
