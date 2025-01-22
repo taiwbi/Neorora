@@ -102,21 +102,6 @@ return {
 
     -- Image header management
     local function create_image_header()
-      -- Only create image once when Alpha starts
-      if not image_instance then
-        local img_api = require "image"
-        alpha_win_id = vim.api.nvim_get_current_win()
-
-        image_instance = img_api.from_file(vim.fn.expand "$HOME/.config/nvim/assets/2B.png", {
-          x = calculate_center_x(),
-          y = 1,
-          buffer = vim.api.nvim_get_current_buf(),
-          window = alpha_win_id,
-          height = 14,
-        })
-        if image_instance then image_instance:render() end
-      end
-
       -- Return empty space for header
       local header_lines = {}
       for _ = 1, 10 do
@@ -133,6 +118,23 @@ return {
       })
     end
 
+    local function draw_image()
+      -- Only create image once when Alpha starts
+      if not image_instance then
+        local img_api = require "image"
+        alpha_win_id = vim.api.nvim_get_current_win()
+
+        image_instance = img_api.from_file(vim.fn.expand "$HOME/.config/nvim/assets/2B.png", {
+          x = calculate_center_x(),
+          y = 1,
+          buffer = vim.api.nvim_get_current_buf(),
+          window = alpha_win_id,
+          height = 14,
+        })
+        if image_instance then image_instance:render() end
+      end
+    end
+
     -- Determine header type
     opts.section.header.val = (term == "xterm-kitty" or term == "xterm-ghostty") and create_image_header()
       or create_ascii_header()
@@ -143,6 +145,16 @@ return {
       opts.button("LDR sf", "󰁯  Load a Session"),
       opts.button("LDR sF", "  Load a DirSession"),
     }
+
+    -- Create image when Alpha opens
+    vim.api.nvim_create_autocmd("User", {
+      group = alpha_augroup,
+      pattern = "AlphaReady",
+      callback = function()
+        if term ~= "xterm-kitty" and term ~= "xterm-ghostty" then return end
+        draw_image()
+      end,
+    })
 
     return opts
   end,
