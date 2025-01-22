@@ -79,7 +79,7 @@ return {
 
       display = {
         diff = {
-          provider = "default",
+          provider = "mini_diff",
         },
         chat = {
           window = {
