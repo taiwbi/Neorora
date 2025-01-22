@@ -30,7 +30,7 @@ return {
     })
 
     -- Handle window resizing only when in Alpha window
-    vim.api.nvim_create_autocmd("VimResized", {
+    vim.api.nvim_create_autocmd({ "WinResized", "WinLeave", "WinEnter", "WinScrolled", "BufWinEnter" }, {
       group = alpha_augroup,
       callback = function()
         if
