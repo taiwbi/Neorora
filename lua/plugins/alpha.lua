@@ -3,17 +3,46 @@ return {
   opts = function(_, opts)
     local term = vim.env.TERM
     local image_instance = nil
+    local alpha_win_id = nil
     local startup_complete = false
 
     -- Calculate centered X position for the image
-    local function calculate_center_x()
-      return math.floor((vim.api.nvim_win_get_width(0) - 35) / 2) -- Adjust 35 to your image width
-    end
+    local function calculate_center_x() return math.floor((vim.api.nvim_win_get_width(0) - 35) / 2) end
 
     -- Autocommand group for image management
     local alpha_augroup = vim.api.nvim_create_augroup("AlphaImage", { clear = true })
 
-    -- Clear image when Alpha closes
+    -- Handle window focus changes
+    vim.api.nvim_create_autocmd({ "WinLeave", "WinEnter" }, {
+      group = alpha_augroup,
+      callback = function()
+        if alpha_win_id and image_instance then
+          if vim.api.nvim_get_current_win() ~= alpha_win_id then
+            image_instance:clear()
+          else
+            image_instance:render()
+          end
+        end
+      end,
+    })
+
+    -- Handle window resizing only when in Alpha window
+    vim.api.nvim_create_autocmd("VimResized", {
+      group = alpha_augroup,
+      callback = function()
+        if
+          alpha_win_id
+          and startup_complete
+          and vim.api.nvim_get_current_win() == alpha_win_id
+          and image_instance
+          and image_instance.move
+        then
+          image_instance:move(calculate_center_x(), 1)
+        end
+      end,
+    })
+
+    -- Clear resources when Alpha closes
     vim.api.nvim_create_autocmd("User", {
       group = alpha_augroup,
       pattern = "AlphaClosed",
@@ -22,20 +51,10 @@ return {
           image_instance:clear()
           image_instance = nil
         end
+        alpha_win_id = nil
       end,
     })
 
-    -- Handle window resizing
-    vim.api.nvim_create_autocmd({ "TextChanged", "TextChangedI" }, {
-      group = alpha_augroup,
-      callback = function()
-        if image_instance and image_instance.move and startup_complete then
-          image_instance:move(calculate_center_x(), 1)
-        end
-      end,
-    })
-
-    -- Handles image position after startup
     vim.schedule(function()
       if image_instance and image_instance.move then
         image_instance:move(calculate_center_x(), 1)
@@ -78,20 +97,24 @@ return {
       }
     end
 
-    -- Image header for supported terminals
+    -- Image header management
     local function create_image_header()
-      local img_api = require "image"
-      image_instance = img_api.from_file(vim.fn.expand "$HOME/.config/nvim/assets/2B.png", {
-        x = calculate_center_x(),
-        y = 1,
-        buffer = vim.api.nvim_get_current_buf(),
-        window = vim.api.nvim_get_current_win(),
-        height = 14,
-      })
+      -- Only create image once when Alpha starts
+      if not image_instance then
+        local img_api = require "image"
+        alpha_win_id = vim.api.nvim_get_current_win()
 
-      if image_instance then image_instance:render() end
+        image_instance = img_api.from_file(vim.fn.expand "$HOME/.config/nvim/assets/2B.png", {
+          x = calculate_center_x(),
+          y = 1,
+          buffer = vim.api.nvim_get_current_buf(),
+          window = alpha_win_id,
+          height = 14,
+        })
+        if image_instance then image_instance:render() end
+      end
 
-      -- Create header space for image and text
+      -- Return empty space for header
       local header_lines = {}
       for _ = 1, 10 do
         table.insert(header_lines, [[ ]])
@@ -108,22 +131,10 @@ return {
     end
 
     -- Determine header type
-    local function create_header()
-      return (term == "xterm-kitty" or term == "xterm-ghostty") and create_image_header() or create_ascii_header()
-      -- return create_image_header()
-    end
+    opts.section.header.val = (term == "xterm-kitty" or term == "xterm-ghostty") and create_image_header()
+      or create_ascii_header()
 
-    -- Configure Alpha
-    -- opts.section.header = {
-    --   type = "text",
-    --   val = create_header(),
-    --   opts = {
-    --     position = "center",
-    --     hl = "AlphaHeader",
-    --   },
-    -- }
-    opts.section.header.val = create_header()
-
+    -- Keep your existing buttons configuration
     opts.section.buttons.val = {
       opts.button("LDR n", "  New File"),
       opts.button("LDR sf", "󰁯  Load a Session"),
