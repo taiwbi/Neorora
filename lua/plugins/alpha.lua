@@ -17,7 +17,10 @@ return {
       group = alpha_augroup,
       callback = function()
         if alpha_win_id and image_instance then
-          if vim.api.nvim_get_current_win() ~= alpha_win_id then
+          local win_id = vim.api.nvim_get_current_win()
+          local win_config = vim.api.nvim_win_get_config(win_id)
+
+          if win_id ~= alpha_win_id and win_config.relative ~= "" then
             image_instance:clear()
           else
             image_instance:render()
