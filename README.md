@@ -2,8 +2,8 @@
 
 This is my personal AstroNvim configuration, Neorora, meticulously crafted for an enhanced coding experience in **Python**, **PHP** (with a focus on **WordPress** and **Laravel**), **Rust**, and **Web Development** (HTML, CSS, JavaScript, TypeScript). It's designed to be both functional and visually appealing.
 
-![Screenshot](screenshot.png "Screenshot"){ width=45% float-left margin-right=10px }
-![Screenshot Code](screenshot-code.png "Screenshot Code"){ width=45% float-left }
+![Screenshot](screenshot.png "Screenshot")
+![Screenshot Code](screenshot-code.png "Screenshot Code")
 
 ## ✨ Features
 
