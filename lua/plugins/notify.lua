@@ -8,4 +8,5 @@ return {
     notify.setup(opts)
     vim.notify = notify
   end,
+  enabled = false,
 }

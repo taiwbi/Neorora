@@ -18,21 +18,23 @@ return {
         args = {
           "--pyink-indentation",
           "2",
-        },
-      },
-      null_ls.builtins.diagnostics.phpstan.with {
-        command = "phpstan",
-        args = {
-          "analyze",
-          "--error-format=json",
-          "--no-progress",
-          "--memory-limit=2G",
+          "-l",
+          "120",
+          "--stdin-filename",
           "$FILENAME",
+          "--quiet",
+          "-",
         },
       },
       null_ls.builtins.formatting.blade_formatter.with {
         command = "blade-formatter",
-        args = { "-i", "2", "--write", "$FILENAME" },
+        args = {
+          "-i",
+          "2",
+          "--sort-tailwindcss-classes",
+          "--write",
+          "$FILENAME",
+        },
       },
     }
     return config -- return final config table

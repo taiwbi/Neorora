@@ -53,7 +53,7 @@ return {
       { "tpope/vim-dadbod" },
       {
         "kristijanhusak/vim-dadbod-completion",
-        ft = { "sql", "mysql" },
+        ft = { "sql", "mysql", "plsql" },
       },
     },
     cmd = {
@@ -66,7 +66,13 @@ return {
       { "<leader>Db", function() vim.cmd "DBUIToggle" end, desc = "Toggle Databse UI" },
       { "<leader>Da", function() vim.cmd "DBUIAddConnection" end, desc = "Add Database Connection" },
     },
-    init = function() vim.g.db_ui_use_nerd_fonts = 1 end,
+    init = function()
+      vim.g.db_ui_use_nerd_fonts = 1
+      vim.api.nvim_create_autocmd({ "FileType" }, {
+        pattern = { "sql", "mysql", "plsql" },
+        callback = function() require("cmp").setup.buffer { sources = { { name = "vim-dadbod-completion" } } } end,
+      })
+    end,
   },
   {
     "folke/todo-comments.nvim",
@@ -79,18 +85,12 @@ return {
     { import = "astrocommunity.pack.typescript" },
   },
   {
-    "folke/tokyonight.nvim",
-    lazy = false,
-    priority = 1000,
-    opts = {},
-  },
-  {
     "nvim-telescope/telescope.nvim",
     tag = "0.1.8",
     dependencies = { "nvim-lua/plenary.nvim" },
     opts = {
       defaults = {
-        winblend = 50,
+        winblend = 0,
       },
     },
   },
@@ -99,8 +99,62 @@ return {
     version = "*",
     opts = {
       float_opts = {
-        winblend = 50,
+        winblend = 0,
       },
     },
   },
+  {
+    "linux-cultist/venv-selector.nvim",
+    branch = "regexp",
+    enabled = vim.fn.executable "fd" == 1 or vim.fn.executable "fdfind" == 1 or vim.fn.executable "fd-find" == 1,
+    dependencies = {
+      { "nvim-telescope/telescope.nvim", branch = "0.1.x", dependencies = { "nvim-lua/plenary.nvim" } },
+      {
+        "AstroNvim/astrocore",
+        opts = {
+          mappings = {
+            n = {
+              ["<Leader>lv"] = { "<Cmd>VenvSelect<CR>", desc = "Select VirtualEnv" },
+            },
+          },
+        },
+      },
+    },
+    opts = {},
+    cmd = "VenvSelect",
+  },
+  -- Install packages to make image.nvim work: dnf install ImageMagick ImageMagick-devel luarocks
+  -- luarocks --local --lua-version=5.1 install magick
+  {
+    "3rd/image.nvim",
+    opts = {},
+    enabled = function()
+      if vim.env.TERM == "xterm-kitty" or vim.env.TERM == "xterm-ghostty" then return true end
+      return false
+    end,
+  },
+  -- INFO: Themes
+  {
+    "rose-pine/neovim",
+    name = "rose-pine",
+  },
+  {
+    "rebelot/kanagawa.nvim",
+    config = function()
+      ---@diagnostic disable-next-line: missing-fields
+      require("kanagawa").setup {
+        theme = "dragon", -- Load "wave" theme when 'background' option is not set
+        background = { -- map the value of 'background' option to a theme
+          dark = "dragon", -- try "dragon" !
+          light = "lotus",
+        },
+      }
+    end,
+  },
+  {
+    "lunarvim/horizon.nvim",
+    lazy = true,
+  },
+  { "olivercederborg/poimandres.nvim", lazy = true, opts = {} },
+  { "echasnovski/mini.nvim", version = "*", config = function() require("mini.diff").setup() end },
 }

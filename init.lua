@@ -17,5 +17,4 @@ end
 
 require "lazy_setup"
 require "polish"
-require "colorscheme"
 require "tricks"

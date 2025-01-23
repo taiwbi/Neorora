@@ -35,6 +35,7 @@ return {
         softtabstop = 2,
         shiftwidth = 2,
         expandtab = true,
+        showtabline = 0,
       },
       g = { -- vim.g.<key>
         -- configure global vim variables (vim.g)
@@ -89,6 +90,7 @@ return {
           function() vim.cmd "Flog" end,
           desc = "Shows the Git commits graph",
         },
+        -- TODO List
         ["<Leader>T"] = {
           function() end,
           desc = " Todos list",
@@ -110,15 +112,23 @@ return {
           end,
           desc = "Close buffer",
         },
-        -- Parrot
+        -- Code Companion
         ["<Leader>P"] = {
           function() end,
-          desc = "AI Assistant",
+          desc = "Code Companion",
         },
-        ["<leader>Pc"] = { function() vim.cmd "PrtChatNew" end, desc = "Open a new AI Chat" },
-        ["<leader>PC"] = { function() vim.cmd "PrtChatFinder" end, desc = "AI Chat History" },
-        ["<leader>Pd"] = { function() vim.cmd "PrtChatDelete" end, desc = "Delete current chat file" },
-        ["<leader>Pi"] = { function() vim.cmd "PrtInfo" end, desc = "Parrot AI Info" },
+        ["<leader>Pc"] = { function() vim.cmd "CodeCompanionChat" end, desc = "Open a new AI Chat" },
+        ["<leader>Pa"] = { function() vim.cmd "CodeCompanionActions" end, desc = "AI Actions" },
+        ["<Leader>Pp"] = {
+          function()
+            vim.api.nvim_command "normal aINSERT_HERE"
+            vim.defer_fn(function() end, 300)
+            vim.api.nvim_command "normal 10kV14j"
+            vim.defer_fn(function() end, 300)
+            vim.cmd "CodeCompanion Rewrite this code but complete the code by generating what should most probably come instead of INSERT_HERE. Write functional, clean and working code."
+          end,
+          desc = "Inline Completion",
+        },
         -- LSP
         ["grr"] = {
           function() vim.cmd "Telescope lsp_references" end,
@@ -134,9 +144,10 @@ return {
           function() end,
           desc = "AI Assistant",
         },
-        ["<leader>Pr"] = { function() vim.cmd "PrtRewrite" end, desc = "Rewrites the selection" },
-        ["<leader>Pa"] = { function() vim.cmd "PrtAddto" end, desc = "Append text to the visual selection" },
-        ["<leader>Pb"] = { function() vim.cmd "PrtAddBefore" end, desc = "Prepend text to the visual selection" },
+        ["<leader>PA"] = {
+          function() vim.cmd "CodeCompanionChat Add" end,
+          desc = "Add selected chat to the current chat buffer",
+        },
       },
       t = {
         -- setting a mapping to false will disable it

@@ -21,7 +21,7 @@ return {
         "jsonls",
         -- "stimulus_ls", This package's name is wrong in lspconfig so run `npm i -g stimulus-lsp`
         -- python
-        "pyright",
+        "basedpyright",
         -- Rust
         "rust_analyzer",
         -- C & C++
@@ -39,7 +39,6 @@ return {
         "prettier",
         "stylua",
         -- add more arguments for adding more null-ls sources
-        "phpstan",
         "blade-formatter",
         "shellharden",
         "shellcheck",
