@@ -14,6 +14,9 @@ return {
     highlights = {
       init = { -- this table overrides highlights in all themes
         -- Normal = { bg = "#000000" },
+        NoiceCmdlinePopupBorder = { bg = "NONE" },
+        NoiceCmdlinePopup = { bg = "NONE" },
+        -- NoiceCmdlineIcon
       },
       astrotheme = { -- a table of overrides/changes when applying the astrotheme theme
         -- Normal = { bg = "#000000" },
@@ -25,6 +28,21 @@ return {
         NeoTreeTabSeparatorInactive = { bg = "#1D1F27", fg = "#1D1F27" },
         NeoTreeTabActive = { bg = "#21252E" },
         NeoTreeTabSeparatorActive = { bg = "#21252E", fg = "#21252E" },
+      },
+      kanagawa = {
+        WinBar = { bg = "#181616" },
+        WinBarNC = { bg = "#181616" },
+        StatusLine = { bg = "#181616" },
+        LineNr = { bg = "#181616" },
+        FoldColumn = { bg = "#181616" },
+        SignColumn = { bg = "#181616" },
+        NormalFloat = { bg = "#181616" },
+        FloatBorder = { bg = "#181616" },
+        FloatShadow = { bg = "#181616" },
+        NoiceCmdlineIcon = { bg = "NONE", fg = "#658594" },
+        GitSignsAdd = { bg = "NONE", fg = "#76946A" },
+        GitSignsChange = { bg = "NONE", fg = "#DCA561" },
+        GitSignsDelete = { bg = "NONE", fg = "#C34043" },
       },
     },
     -- Icons can be configured throughout the interface
