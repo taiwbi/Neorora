@@ -113,22 +113,10 @@ return {
           desc = "Close buffer",
         },
         -- Code Companion
-        ["<Leader>P"] = {
-          function() end,
-          desc = "Code Companion",
-        },
+        ["<Leader>P"] = { function() end, desc = "Code Companion" },
         ["<leader>Pc"] = { function() vim.cmd "CodeCompanionChat" end, desc = "Open a new AI Chat" },
         ["<leader>Pa"] = { function() vim.cmd "CodeCompanionActions" end, desc = "AI Actions" },
-        ["<Leader>Pp"] = {
-          function()
-            vim.api.nvim_command "normal aINSERT_HERE"
-            vim.defer_fn(function() end, 300)
-            vim.api.nvim_command "normal 10kV14j"
-            vim.defer_fn(function() end, 300)
-            vim.cmd "CodeCompanion Rewrite this code but complete the code by generating what should most probably come instead of INSERT_HERE. Write functional, clean and working code."
-          end,
-          desc = "Inline Completion",
-        },
+        ["<Leader>Pp"] = { function() vim.cmd "CodeCompanion" end, desc = "Inline code action" },
         -- LSP
         ["grr"] = {
           function() vim.cmd "Telescope lsp_references" end,
