@@ -22,8 +22,8 @@ return {
         -- Normal = { bg = "#000000" },
       },
       horizon = {
-        WinBar = { bg = "#1D1F27" },
-        WinBarNC = { bg = "#1D1F27" },
+        WinBar = { bg = "NONE" },
+        WinBarNC = { bg = "NONE" },
         NeoTreeTabInactive = { bg = "#1D1F27" },
         NeoTreeTabSeparatorInactive = { bg = "#1D1F27", fg = "#1D1F27" },
         NeoTreeTabActive = { bg = "#21252E" },
