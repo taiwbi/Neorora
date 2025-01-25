@@ -136,6 +136,7 @@ return {
           function() vim.cmd "CodeCompanionChat Add" end,
           desc = "Add selected chat to the current chat buffer",
         },
+        ["<Leader>Pp"] = { function() vim.cmd "CodeCompanion" end, desc = "Inline code action" },
       },
       t = {
         -- setting a mapping to false will disable it
