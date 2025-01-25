@@ -132,7 +132,7 @@ You should see a welcome screen (Alpha dashboard) with the 2B image (if you're u
 2. **Configure AI Tools:**
 
    - Refer to the documentation of `codecompanion.nvim` and `minuet-ai.nvim` for any necessary API key setup or configuration.
-   - Currently, the config uses DeepInfra endpoints and requires a `DEEPINFRA_API_KEY` env variable. You can put this key in a file at `~/.ssh/keys/deepinfa-key`. You need both.
+   - Currently, the config uses DeepInfra and Google Gemini endpoints and requires a `DEEPINFRA_API_KEY` and `GOOGLE_AI_API_KEY` env variable.
 
 3. **Explore and Customize:**
    - Familiarize yourself with AstroNvim's mappings and commands. Use `:help` to access documentation.
