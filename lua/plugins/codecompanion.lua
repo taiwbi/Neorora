@@ -9,38 +9,18 @@ return {
     require("codecompanion").setup {
       strategies = {
         chat = {
-          adapter = "qwen",
+          adapter = "qwen_coder",
         },
         inline = {
           adapter = "qwen_coder ",
         },
       },
       adapters = {
-        qwen = function()
-          return require("codecompanion.adapters").extend("openai_compatible", {
-            env = {
-              url = "https://api.deepinfra.com/v1/openai",
-              api_key = "cmd:cat ~/.ssh/keys/deepinfa-key",
-              chat_url = "/chat/completions",
-            },
-            schema = {
-              model = {
-                default = "Qwen/Qwen2.5-72B-Instruct",
-              },
-              temperature = {
-                default = 0.4,
-              },
-              max_tokens = {
-                default = 8192,
-              },
-            },
-          })
-        end,
         qwen_coder = function()
           return require("codecompanion.adapters").extend("openai_compatible", {
             env = {
               url = "https://api.deepinfra.com/v1/openai",
-              api_key = "cmd:cat ~/.ssh/keys/deepinfa-key",
+              api_key = "DEEPINFRA_API_KEY",
               chat_url = "/chat/completions",
             },
             schema = {
@@ -59,12 +39,11 @@ return {
         gemini = function()
           return require("codecompanion.adapters").extend("gemini", {
             env = {
-              api_key = "cmd:cat ~/.ssh/keys/googleai-api-key",
+              api_key = "GOOGLE_AI_API_KEY",
             },
             schema = {
               model = {
-                default = "gemini-2.0-flash-exp",
-                -- default = "gemini-exp-1206",
+                default = "gemini-exp-1206",
               },
               temperature = {
                 default = 0.4,
