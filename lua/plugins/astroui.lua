@@ -44,6 +44,13 @@ return {
         GitSignsChange = { bg = "NONE", fg = "#DCA561" },
         GitSignsDelete = { bg = "NONE", fg = "#C34043" },
       },
+      poimandres = {
+        WinBar = { bg = "#1B1E28" },
+        WinBarNC = { bg = "#1B1E28" },
+        LspReferenceRead = { bg = "NONE" },
+        LspReferenceText = { bg = "NONE" },
+        LspReferenceWrite = { bg = "NONE" },
+      },
     },
     -- Icons can be configured throughout the interface
     icons = {
