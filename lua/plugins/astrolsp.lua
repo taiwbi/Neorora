@@ -93,6 +93,27 @@ return {
         filetypes = { "blade", "php" },
         init_options = {
           licenceKey = "INTELEPHENSE_LICENSE_KEY", -- WARN: Add your intelephense license key here if you have one...
+          files = {
+            maxSize = 2097152,
+          },
+        },
+        settings = {
+          intelephense = {
+            files = {
+              exclude = {
+                "**/.git/**",
+                "**/node_modules/**",
+              },
+            },
+            environment = {
+              includePaths = {
+                vim.fn.getcwd() .. "/_ide_helper.php",
+                vim.fn.getcwd() .. "/_ide_helper_models.php",
+                vim.fn.getcwd() .. "/.phpstorm.meta.php",
+                vim.fn.getcwd() .. "/vendor/_laravel_idea/",
+              },
+            },
+          },
         },
       },
       stimulus_ls = {
