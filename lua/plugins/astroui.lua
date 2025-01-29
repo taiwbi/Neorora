@@ -16,20 +16,6 @@ return {
         -- Normal = { bg = "#000000" },
         NoiceCmdlinePopupBorder = { bg = "NONE" },
         NoiceCmdlinePopup = { bg = "NONE" },
-        -- NoiceCmdlineIcon
-      },
-      astrotheme = { -- a table of overrides/changes when applying the astrotheme theme
-        -- Normal = { bg = "#000000" },
-      },
-      horizon = {
-        WinBar = { bg = "NONE" },
-        WinBarNC = { bg = "NONE" },
-        NeoTreeTabInactive = { bg = "#1D1F27" },
-        NeoTreeTabSeparatorInactive = { bg = "#1D1F27", fg = "#1D1F27" },
-        NeoTreeTabActive = { bg = "#21252E" },
-        NeoTreeTabSeparatorActive = { bg = "#21252E", fg = "#21252E" },
-      },
-      kanagawa = {
         WinBar = { bg = "NONE" },
         WinBarNC = { bg = "NONE" },
         StatusLine = { bg = "NONE" },
@@ -39,6 +25,21 @@ return {
         NormalFloat = { bg = "NONE" },
         FloatBorder = { bg = "NONE" },
         FloatShadow = { bg = "NONE" },
+        LspReferenceRead = { bg = "NONE" },
+        LspReferenceText = { bg = "NONE" },
+        LspReferenceWrite = { bg = "NONE" },
+        -- NoiceCmdlineIcon
+      },
+      astrotheme = { -- a table of overrides/changes when applying the astrotheme theme
+        -- Normal = { bg = "#000000" },
+      },
+      horizon = {
+        NeoTreeTabInactive = { bg = "#1D1F27" },
+        NeoTreeTabSeparatorInactive = { bg = "#1D1F27", fg = "#1D1F27" },
+        NeoTreeTabActive = { bg = "#21252E" },
+        NeoTreeTabSeparatorActive = { bg = "#21252E", fg = "#21252E" },
+      },
+      kanagawa = {
         NoiceCmdlineIcon = { bg = "NONE", fg = "#658594" },
         GitSignsAdd = { bg = "NONE", fg = "#76946A" },
         GitSignsChange = { bg = "NONE", fg = "#DCA561" },
@@ -47,9 +48,6 @@ return {
       poimandres = {
         WinBar = { bg = "#1B1E28" },
         WinBarNC = { bg = "#1B1E28" },
-        LspReferenceRead = { bg = "NONE" },
-        LspReferenceText = { bg = "NONE" },
-        LspReferenceWrite = { bg = "NONE" },
       },
     },
     -- Icons can be configured throughout the interface
