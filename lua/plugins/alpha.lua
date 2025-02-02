@@ -11,7 +11,7 @@ return {
     -- Seraphine Veil – Combining angelic beauty (Seraphine) with the veil-like mystery of her blindfold.
     local image_name = "Lunara" -- Should be a png file
     local image_y = 2
-    local image_margin_right = 53
+    local image_margin_right = 40
     local image_size = 14
     local top_text_margin = 12
 
