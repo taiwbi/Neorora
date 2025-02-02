@@ -10,6 +10,7 @@ return {
       },
       virtualtext = {
         auto_trigger_ft = {
+          "py",
           "python",
           "lua",
           "php",
