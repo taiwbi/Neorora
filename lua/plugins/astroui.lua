@@ -9,7 +9,7 @@ return {
   ---@type AstroUIOpts
   opts = {
     -- change colorscheme
-    colorscheme = "kanagawa",
+    colorscheme = "horizon",
     -- AstroUI allows you to easily modify highlight groups easily for any and all colorschemes
     highlights = {
       init = { -- this table overrides highlights in all themes
@@ -38,6 +38,7 @@ return {
         NeoTreeTabSeparatorInactive = { bg = "#1D1F27", fg = "#1D1F27" },
         NeoTreeTabActive = { bg = "#21252E" },
         NeoTreeTabSeparatorActive = { bg = "#21252E", fg = "#21252E" },
+        IblScope = { bg = "NONE", fg = "#5B6670" },
       },
       kanagawa = {
         NoiceCmdlineIcon = { bg = "NONE", fg = "#658594" },
