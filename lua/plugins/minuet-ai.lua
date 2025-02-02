@@ -40,12 +40,12 @@ return {
       provider = "openai_compatible",
       context_window = 3500,
       throttle = 1000,
-      debounce = 500,
+      debounce = 900,
       request_timeout = 3,
       n_completions = 1,
       provider_options = {
         openai_compatible = {
-          model = "Qwen/Qwen2.5-Coder-32B-Instruct",
+          model = "Qwen/Qwen2.5-7B-Instruct",
           end_point = "https://api.deepinfra.com/v1/openai/chat/completions",
           system = {
             template = "{{{prompt}}}\n{{{guidelines}}}\n{{{n_completion_template}}}",
@@ -92,7 +92,7 @@ def fibonacci(n):
           stream = true,
           optional = {
             stop = nil,
-            max_tokens = 1200,
+            max_tokens = 1024,
           },
         },
       },
