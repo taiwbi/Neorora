@@ -14,6 +14,7 @@ return {
         -- Web Development
         "html",
         "intelephense",
+        "psalm",
         "cssls",
         "tailwindcss",
         "ts_ls",
