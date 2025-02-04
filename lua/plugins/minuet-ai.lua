@@ -43,6 +43,7 @@ return {
       debounce = 900,
       request_timeout = 3,
       n_completions = 1,
+      proxy = nil,
       provider_options = {
         openai_compatible = {
           model = "Qwen/Qwen2.5-7B-Instruct",
