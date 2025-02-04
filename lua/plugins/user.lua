@@ -152,9 +152,6 @@ return {
       }
     end,
   },
-  {
-    "lunarvim/horizon.nvim",
-    lazy = true,
-  },
+  { "akinsho/horizon.nvim", version = "*" },
   { "olivercederborg/poimandres.nvim", lazy = true, opts = {} },
 }
