@@ -1,3 +1,22 @@
+local handle
+local proxy_host
+local proxy_port
+
+handle = io.popen "gsettings get org.gnome.system.proxy.socks host"
+if handle then
+  proxy_host = handle:read "*a"
+  handle:close()
+  proxy_host = proxy_host:gsub("^%s*'([^']*)'.*", "%1")
+  print(proxy_host)
+end
+
+handle = io.popen "gsettings get org.gnome.system.proxy.socks port"
+if handle then
+  proxy_port = handle:read "*a"
+  handle:close()
+  proxy_port = proxy_port:gsub("^%s*(.-)%s*$", "%1")
+end
+
 return {
   "olimorris/codecompanion.nvim",
   dependencies = {
@@ -40,6 +59,10 @@ return {
                 default = 8192,
               },
             },
+            opts = {
+              allow_insecure = false,
+              proxy = "",
+            },
           })
         end,
         gemini = function()
@@ -57,6 +80,10 @@ return {
               max_tokens = {
                 default = 8192,
               },
+            },
+            opts = {
+              allow_insecure = true,
+              proxy = "socks5://" .. proxy_host .. ":" .. proxy_port,
             },
           })
         end,
