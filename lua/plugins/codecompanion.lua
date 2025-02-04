@@ -7,7 +7,6 @@ if handle then
   proxy_host = handle:read "*a"
   handle:close()
   proxy_host = proxy_host:gsub("^%s*'([^']*)'.*", "%1")
-  print(proxy_host)
 end
 
 handle = io.popen "gsettings get org.gnome.system.proxy.socks port"
