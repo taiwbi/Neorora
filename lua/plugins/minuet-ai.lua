@@ -1,7 +1,33 @@
-return {
+local M = {}
+
+local function read_file_content(filepath)
+  local file = io.open(filepath, "r")
+  if not file then
+    return nil -- Return nil if the file doesn't exist or can't be opened.
+  end
+  local content = file:read "*all"
+  file:close()
+  return content
+end
+
+M.minuet_config = {
   "milanglacier/minuet-ai.nvim",
+  dependencies = { "nvim-lua/plenary.nvim" },
   config = function()
-    require("minuet").setup {
+    local home_dir = os.getenv "HOME"
+    local config_base_path = home_dir .. "/.config/nvim/lua/plugins/ai"
+    local prompt_path = config_base_path .. "/minuet-prompt.md"
+    local guidelines_path = config_base_path .. "/minuet-guidelines.md"
+    local few_shot_user_path = config_base_path .. "/minuet-examples/1-user.txt"
+    local few_shot_assistant_path = config_base_path .. "/minuet-examples/1-assistant.txt"
+
+    -- Read file contents, handling potential errors gracefully.
+    local prompt = read_file_content(prompt_path)
+    local guidelines = read_file_content(guidelines_path)
+    local few_shot_user = read_file_content(few_shot_user_path)
+    local few_shot_assistant = read_file_content(few_shot_assistant_path)
+
+    local minuet_options = {
       cmp = {
         enable_auto_complete = false,
       },
@@ -10,14 +36,12 @@ return {
       },
       virtualtext = {
         auto_trigger_ft = {
-          "py",
           "python",
           "lua",
           "php",
           "javascript",
           "typescript",
           "rust",
-          "rs",
           "c",
           "cpp",
           "sh",
@@ -38,66 +62,49 @@ return {
         },
       },
       provider = "openai_compatible",
-      context_window = 3500,
-      throttle = 1000,
-      debounce = 900,
+      context_window = 4500,
+      throttle = 2000,
+      debounce = 1000,
       request_timeout = 3,
       n_completions = 1,
-      proxy = nil,
+      proxy = nil, -- Consider using a function similar to the codecompanion one if needed
+      notify = "debug",
       provider_options = {
         openai_compatible = {
-          model = "Qwen/Qwen2.5-7B-Instruct",
+          model = "Qwen/Qwen2.5-Coder-32B-Instruct",
           end_point = "https://api.deepinfra.com/v1/openai/chat/completions",
           system = {
             template = "{{{prompt}}}\n{{{guidelines}}}\n{{{n_completion_template}}}",
-            prompt = io.open(os.getenv "HOME" .. "/.config/nvim/lua/plugins/ai/minuet-prompt.md", "r"):read "*all",
-            guidelines = io.open(os.getenv "HOME" .. "/.config/nvim/lua/plugins/ai/minuet-guidelines.md", "r")
-              :read "*all",
+            prompt = prompt or "Default prompt", -- Use a default if file reading fails
+            guidelines = guidelines or "Default guidelines", -- Use a default if file reading fails
             n_completion_template = "",
           },
-          few_shots = {
-            {
-              role = "user",
-              content = [[
-# language: python
-<contextAfterCursor>
-
-fib(5)
-<contextBeforeCursor>
-def fibonacci(n):
-    <cursorPosition>]],
-            },
-            {
-              role = "assistant",
-              content = [[
-    '''
-    Recursive Fibonacci implementation
-    '''
-    if n < 2:
-        return n
-    return fib(n - 1) + fib(n - 2)
-<endCompletion>
-    '''
-    Iterative Fibonacci implementation
-    '''
-    a, b = 0, 1
-    for _ in range(n):
-        a, b = b, a + b
-    return a
-<endCompletion>
-]],
-            },
-          },
+          few_shots = {}, -- Initialize as empty, then add conditionally
           api_key = "DEEPINFRA_API_KEY",
           name = "Qwen",
           stream = true,
           optional = {
             stop = nil,
-            max_tokens = 1024,
+            max_tokens = 2048,
           },
         },
       },
     }
+
+    -- Conditionally add few-shot examples if files were read successfully
+    if few_shot_user and few_shot_assistant then
+      table.insert(minuet_options.provider_options.openai_compatible.few_shots, {
+        role = "user",
+        content = few_shot_user,
+      })
+      table.insert(minuet_options.provider_options.openai_compatible.few_shots, {
+        role = "assistant",
+        content = few_shot_assistant,
+      })
+    end
+
+    require("minuet").setup(minuet_options)
   end,
-  dependencies = { "nvim-lua/plenary.nvim" },
 }
+
+return M.minuet_config
