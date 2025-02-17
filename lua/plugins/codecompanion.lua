@@ -1,22 +1,27 @@
-local handle
-local proxy_host
-local proxy_port
+local M = {}
 
-handle = io.popen "gsettings get org.gnome.system.proxy.socks host"
-if handle then
-  proxy_host = handle:read "*a"
+local function get_gnome_proxy_setting(setting_type)
+  local handle = io.popen("gsettings get org.gnome.system.proxy.socks " .. setting_type)
+  if not handle then return nil end
+
+  local value = handle:read "*a"
   handle:close()
-  proxy_host = proxy_host:gsub("^%s*'([^']*)'.*", "%1")
+
+  if setting_type == "host" then
+    -- Extract the host from single quotes, trimming whitespace
+    value = value:gsub("^%s*'([^']*)'.*", "%1")
+  elseif setting_type == "port" then
+    -- Trim any leading or trailing whitespace from the port
+    value = value:gsub("^%s*(.-)%s*$", "%1")
+  end
+  -- Check empty string
+  return value ~= "" and value or nil
 end
 
-handle = io.popen "gsettings get org.gnome.system.proxy.socks port"
-if handle then
-  proxy_port = handle:read "*a"
-  handle:close()
-  proxy_port = proxy_port:gsub("^%s*(.-)%s*$", "%1")
-end
+local proxy_host = get_gnome_proxy_setting "host"
+local proxy_port = get_gnome_proxy_setting "port"
 
-return {
+M.codecompanion_config = {
   "olimorris/codecompanion.nvim",
   dependencies = {
     "nvim-lua/plenary.nvim",
@@ -30,64 +35,35 @@ return {
     },
   },
   config = function()
-    require("codecompanion").setup {
+    local codecompanion_opts = {
       strategies = {
         chat = {
-          adapter = "qwen_coder",
+          adapter = "qwen",
         },
         inline = {
-          adapter = "qwen_coder ",
+          adapter = "qwen",
         },
       },
       adapters = {
-        qwen_coder = function()
-          return require("codecompanion.adapters").extend("openai_compatible", {
-            env = {
-              url = "https://api.deepinfra.com/v1/openai",
-              api_key = "DEEPINFRA_API_KEY",
-              chat_url = "/chat/completions",
+        qwen = require("codecompanion.adapters").extend("openai_compatible", {
+          env = {
+            url = "https://api.deepinfra.com/v1/openai",
+            api_key = "cmd: echo $DEEPINFRA_API_KEY",
+            chat_url = "/chat/completions",
+          },
+          schema = {
+            model = {
+              default = "Qwen/Qwen2.5-72B-Instruct",
             },
-            schema = {
-              model = {
-                default = "Qwen/Qwen2.5-Coder-32B-Instruct",
-              },
-              temperature = {
-                default = 0.4,
-              },
-              max_tokens = {
-                default = 8192,
-              },
+            temperature = {
+              default = 0.85,
             },
-            opts = {
-              allow_insecure = false,
-              proxy = "",
+            max_tokens = {
+              default = 8192,
             },
-          })
-        end,
-        gemini = function()
-          return require("codecompanion.adapters").extend("gemini", {
-            env = {
-              api_key = "GOOGLE_AI_API_KEY",
-            },
-            schema = {
-              model = {
-                default = "gemini-exp-1206",
-              },
-              temperature = {
-                default = 0.4,
-              },
-              max_tokens = {
-                default = 8192,
-              },
-            },
-            opts = {
-              allow_insecure = true,
-              proxy = "socks5://" .. proxy_host .. ":" .. proxy_port,
-            },
-          })
-        end,
+          },
+        }),
       },
-
       display = {
         diff = {
           provider = "mini_diff",
@@ -100,5 +76,14 @@ return {
         },
       },
     }
+    -- Conditionally add the proxy setting if both host and port are available
+    if proxy_host and proxy_port then
+      codecompanion_opts.adapters.opts = {}
+      codecompanion_opts.adapters.opts.proxy = "socks5://" .. proxy_host .. ":" .. proxy_port
+      codecompanion_opts.adapters.opts.allow_insecure = true
+    end
+    require("codecompanion").setup(codecompanion_opts)
   end,
 }
+
+return M.codecompanion_config
