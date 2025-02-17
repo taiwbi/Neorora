@@ -46,6 +46,7 @@ return {
         "bash-language-server",
         "xmlformatter",
         "pyink",
+        "sql-formatter",
       })
     end,
   },
