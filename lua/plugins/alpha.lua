@@ -11,7 +11,7 @@ return {
     -- Seraphine Veil – Combining angelic beauty (Seraphine) with the veil-like mystery of her blindfold.
     local image_name = "Lunara" -- Should be a png file
     local image_y = 2
-    local image_margin_right = 40
+    local image_margin_right = 45
     local image_size = 14
     local top_text_margin = 12
 
@@ -95,7 +95,7 @@ return {
 
         for j = 1, #line do
           local start = pos
-          pos = pos + getLen(header[i], start + 1) -- LINE 94
+          pos = pos + getLen(header[i], start + 1)
 
           local color_name = colors[line:sub(j, j)]
           if color_name then table.insert(colorized_line, { color_name, start, pos }) end
@@ -109,33 +109,63 @@ return {
 
     -- ASCII art fallback
     local ascii_header = {
-      [[    ⠀⠀   ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡔⠁⠀⠀⠀⠀⠰⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠠⠀⠀⠀⠈⠀⠀⠀⠀⠘⢿⣿⣿⣧⠀⠀⠀⠘⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀      ⠀]],
-      [[⠀⠀⠀       ⠀⠀⠀⠀⠀⠀⠀⠀⢠⠎⠀⠀⠀⠀⢀⠀⠀⠀⠀⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠹⣿⣿⣆⠀⠀⠀⠙⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀      ]],
-      [[⠀   ⠀⠀⠀⠀⠀    ⠀⠀⠀⠰⠈⡎⠀⠐⠀⡀⡰⢁⠐⠱⡀⠠⠀⠀⠁⠄⠀⠀⠀⠀⠀⠀⠀⠠⠀⠀⠀⠀⠀⠀⠀⠀⠙⣿⣿⡖⡀⠀⠀⢳⠀⠀⠀⠀⠀⠀⠀⠀⠀      ]],
-      [[⠀⠀⠀        ⠀⠀⠀⠀⠀⠀⡼⢀⠐⡀⠄⢀⠆⠀⠀⣿⠐⠀⠁⠀⠀⠀⠀⠀⢀⠀⠀⠀⠀⠀⠐⠀⠀⠀⠀⠀⠀⠀⠀⠘⢿⣷⠐⠀⠀⠀⣇⠀⠀⠀⠀⠀⠀⠀       ]],
-      [[     ⠀⠀⠀   ⠀⠀⠀⠀⠀⠠⠗⡀⠆⠀⠀⢸⠀⠀⣼⣾⡀⠀⠂⢂⠀⠀⠀⠀⠀⡐⠢⢀⠀⡀⠈⠠⡀⠀⠀⠀⠀⠀⠀⠀⠘⣿⡌⠀⠀⠀⠘⡀⠀⠀⠀⠀⠀⠀⠀      ]],
-      [[       ⠀⠀⠀⠀⠀⠀⠀⠀⠀⡾⠀⢱⠀⠀⠀⢸⠀⠀⣿⣿⣇⠀⠀⠉⢤⡀⠀⠀⠀⠀⠀⠀⣿⡔⡠⢀⠀⠀⡀⠀⠐⠆⠀⠀⢸⡜⠅⠀⠀⠀⠀⢧⠀⠀⠀⠀⠀⠀⠀      ]],
-      [[       ⠀⠀⠀⠀⠀⠀⠀⠀⢀⡇⠈⢤⠀⠀⠀⢸⠀⠐⣿⣿⣿⡀⡀⠀⠀⢊⢄⠀⠀⠀⠀⠀⠹⣷⡌⠠⠉⠢⠀⠄⢠⢸⡀⠀⠀⣿⣈⠀⠀⠀⠀⠈⠀⠀⠀⠀⠀⠀⠀      ]],
-      [[⠀⠀⠀       ⠀⠀⠀⠀⠀⢸⡅⠀⢸⠀⠀⠀⠀⡆⡥⣿⣿⣿⣷⡐⢄⠀⠀⠐⡑⠄⠀⠀⠀⠀⢿⣿⡄⠀⠀⠀⠙⠆⢸⠘⢄⠀⢹⠂⠀⠀⠀⠀⠀⣇⠀⠀⠀⠀⠀⠀      ]],
-      [[⠀⠀⠀⠀⠀       ⠀⠀⠀⣾⡇⠀⢼⠀⠀⠀⠀⣥⣿⣽⣿⣿⣿⣷⣄⠑⡢⠀⡀⠢⢄⠀⠀⣆⠈⢿⣿⣆⠀⢂⠀⠈⢺⠆⡹⡀⢰⠀⠀⠀⠀⠀⡁⢸⠀⠀⠀⠀⠀⠀      ]],
-      [[⠀⠀⠀⠀⠀       ⠀⠀⠀⣽⢧⠀⢺⢨⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿⣿⣦⡘⢦⡀⠉⠐⠑⠀⢹⣧⡈⢿⣿⣆⠀⠆⠀⠨⠀⠀⢱⢀⠀⠀⠀⠀⠀⠆⠘⠢⠀⠀⠀⠀⠀      ]],
-      [[⠀       ⠀⠀⠀⠀⠀⠀⠀⣏⢸⡆⢹⠀⡇⠀⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⣹⢆⠀⠀⠀⠀⣿⣿⡎⣿⣿⡆⡶⠀⠀⠀⠀⠀⢾⠀⠀⠀⠀⠀⣾⢰⠁⠀⠀⠀⠀⠀      ]],
-      [[⠀       ⠀⠀⠀⠀⠀⠀⠀⣼⠀⡇⢸⢧⠈⢆⠀⡄⠘⣿⣿⣿⣿⣿⣿⣿⡿⠿⠛⠉⠑⠠⢀⠀⠡⡉⠉⠪⠏⡛⣤⠀⡋⠀⠀⠀⢘⠀⠀⠀⠀⠀⡟⠀⠀⠀⠀⠀⠀⠀      ]],
-      [[⠀       ⠀⠀⠀⠀⠀⠀⠀⢹⡂⢹⡆⣿⡂⠈⠣⡐⣄⠸⣿⣿⣿⡿⠛⠉⢠⠆⠀⠑⠀⠀⠀⠁⠐⠢⠀⠀⠈⡇⢸⢰⠁⢠⢂⠀⠘⠀⠀⠀⠀⡰⠀⠀⠀⠀⠀⠀⠀⠀      ]],
-      [[       ⠀⠀⠀⠀⠀⠀⠀⠀⠈⡇⢸⠘⡎⠜⠄⠀⠙⢮⡳⣼⢟⡁⠀⠀⠀⠈⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠇⠀⡎⣐⠂⢠⠀⡌⠀⠂⢀⡠⠁⠀⠀⠀⠀⠀⠀⠀⠀      ]],
-      [[⠀       ⠀⠀⠀⠀⠀⠀⠀⠀⢷⠈⣇⠈⢂⠑⠄⠀⠘⡻⡓⠢⠉⠀⠀⠀⠀⣀⠄⣀⡀⠀⠀⠀⠀⠀⠀⠀⣰⠃⡼⡐⣜⢢⠩⡐⠀⠀⡠⠕⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀      ]],
-      [[       ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⣇⢿⣆⠈⡂⠈⢢⡀⠱⡈⠢⡀⠀⠀⠀⠲⢮⣭⣧⠬⠐⠀⠀⠀⠀⡠⢈⠇⠸⠕⣐⡀⠀⡓⠁⠂⠎⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀      ]],
-      [[       ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠐⡾⡌⠲⣔⠄⠀⠰⣦⡳⡀⠈⠢⣄⠀⠀⠀⠀⠀⠀⠀⠂⢀⣼⠊⢠⠐⠢⠎⢐⢀⠇⡜⣡⠂⠊⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀      ]],
-      [[       ⠀⠀⠀⠀⠀⠀⠀  ⠀⠀⠘⢗⠀⠈⠳⣄⠀⠐⢌⠓⣄⠀⢀⣽⣦⣀⠀⠀⣀⡠⢖⠙⠈⠀⠁⡐⠁⣠⠀⣈⡬⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀      ]],
-      [[       ⠀⠀⠀⠀⠀⠀⠀⠀ ⠀⠀⠀⠈⠊⠤⠀⠈⠑⠤⡈⢿⣼⣗⣌⢿⣿⣶⣭⣦⣥⣘⣊⣠⣤⣶⠟⣀⣶⣧⡾⠊⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀      ]],
-      [[       ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠻⣻⣏⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣯⣾⣏⣿⣿⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀      ]],
-      [[       ⠀⠀⠀⠀⠀⠀⠀  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢄⣴⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡟⡽⣿⣿⣿⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀      ]],
-      [[]],
-      [[                   2B - The Epitome of Android Grace                    ]],
-      [[           A masterpiece of YoRHa engineering and elegance,             ]],
-      [[        her silver hair dancing in the winds of a ruined world.         ]],
-      [[     Behind that blindfold lies an unwavering sense of duty and         ]],
-      [[        a heart that, despite being artificial, feels deeply.           ]],
+      [[                    ⢀⡔⠁    ⠰          ⠠   ⠈    ⠘⢿⣿⣿⣧   ⠘⡄                  ]],
+      [[                   ⢠⠎    ⢀    ⠁                  ⠹⣿⣿⣆   ⠙⡀                 ]],
+      [[                 ⠰⠈⡎ ⠐ ⡀⡰⢁⠐⠱⡀⠠  ⠁⠄       ⠠        ⠙⣿⣿⡖⡀  ⢳                 ]],
+      [[                  ⡼⢀⠐⡀⠄⢀⠆  ⣿⠐ ⠁     ⢀     ⠐        ⠘⢿⣷⠐   ⣇                ]],
+      [[                 ⠠⠗⡀⠆  ⢸  ⣼⣾⡀ ⠂⢂     ⡐⠢⢀ ⡀⠈⠠⡀       ⠘⣿⡌   ⠘⡀               ]],
+      [[                 ⡾ ⢱   ⢸  ⣿⣿⣇  ⠉⢤⡀      ⣿⡔⡠⢀  ⡀ ⠐⠆  ⢸⡜⠅    ⢧               ]],
+      [[                ⢀⡇⠈⢤   ⢸ ⠐⣿⣿⣿⡀⡀  ⢊⢄     ⠹⣷⡌⠠⠉⠢ ⠄⢠⢸⡀  ⣿⣈    ⠈               ]],
+      [[                ⢸⡅ ⢸    ⡆⡥⣿⣿⣿⣷⡐⢄  ⠐⡑⠄    ⢿⣿⡄   ⠙⠆⢸⠘⢄ ⢹⠂     ⣇              ]],
+      [[                ⣾⡇ ⢼    ⣥⣿⣽⣿⣿⣿⣷⣄⠑⡢ ⡀⠢⢄  ⣆⠈⢿⣿⣆ ⢂ ⠈⢺⠆⡹⡀⢰     ⡁⢸              ]],
+      [[                ⣽⢧ ⢺⢨   ⢸⣿⣿⣿⣿⣿⣿⣿⣦⡘⢦⡀⠉⠐⠑ ⢹⣧⡈⢿⣿⣆ ⠆ ⠨  ⢱⢀     ⠆⠘⠢             ]],
+      [[                ⣏⢸⡆⢹ ⡇   ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⣹⢆    ⣿⣿⡎⣿⣿⡆⡶     ⢾     ⣾⢰⠁             ]],
+      [[                ⣼ ⡇⢸⢧⠈⢆ ⡄⠘⣿⣿⣿⣿⣿⣿⣿⡿⠿⠛⠉⠑⠠⢀ ⠡⡉⠉⠪⠏⡛⣤ ⡋   ⢘     ⡟               ]],
+      [[                ⢹⡂⢹⡆⣿⡂⠈⠣⡐⣄⠸⣿⣿⣿⡿⠛⠉⢠⠆ ⠑   ⠁⠐⠢  ⠈⡇⢸⢰⠁⢠⢂ ⠘    ⡰                ]],
+      [[                ⠈⡇⢸⠘⡎⠜⠄ ⠙⢮⡳⣼⢟⡁   ⠈⡄           ⠇ ⡎⣐⠂⢠ ⡌ ⠂⢀⡠⠁                ]],
+      [[                 ⢷⠈⣇⠈⢂⠑⠄ ⠘⡻⡓⠢⠉    ⣀⠄⣀⡀       ⣰⠃⡼⡐⣜⢢⠩⡐  ⡠⠕⠁                 ]],
+      [[                 ⠈⣇⢿⣆⠈⡂⠈⢢⡀⠱⡈⠢⡀   ⠲⢮⣭⣧⠬⠐    ⡠⢈⠇⠸⠕⣐⡀ ⡓⠁⠂⠎                    ]],
+      [[                  ⠐⡾⡌⠲⣔⠄ ⠰⣦⡳⡀⠈⠢⣄       ⠂⢀⣼⠊⢠⠐⠢⠎⢐⢀⠇⡜⣡⠂⠊                     ]],
+      [[                   ⠘⢗ ⠈⠳⣄ ⠐⢌⠓⣄ ⢀⣽⣦⣀  ⣀⡠⢖⠙⠈ ⠁⡐⠁⣠ ⣈⡬⠋⠁                       ]],
+      [[ ]],
+      [[         her silver hair dancing in the winds of a ruined world.           ]],
+      [[ ]],
+      [[       Behind that blindfold lies an unwavering sense of duty and          ]],
+      [[         a 󱙤 heart that, despite being artificial, feels deeply.           ]],
+      [[ ]],
+      [[              Create New File                              󱁐 n            ]],
+      [[              Restore Session                              󱁐 sf           ]],
+      [[              View History                                 󱁐 sF           ]],
+    }
+
+    local ascii_map = {
+      [[                    mmm    m          m   m    mmmmm   mm                  ]],
+      [[                   mm    m    m                  mmmm   mm                 ]],
+      [[                 mmm m mmmmmmm  mm       m        mmmmm  m                 ]],
+      [[                  mmmmmmm  aa m     m     m        mmmm   m                ]],
+      [[                 mmmm  m  aaa mm     mmm mmmm       mmm   mm               ]],
+      [[                 m m   m  aaa  mmm      aamm  m mm  mmm    m               ]],
+      [[                mmmm   m aaaaaa  mm     aaaa   mmmm  mm    m               ]],
+      [[                mm m    aaaaaaaa  mmm    aaa   mmmmm mm     m              ]],
+      [[                mm m    aaaaaaaaaa mmm  aaaaa m mmmmmm     mm              ]],
+      [[                mm mm   aaaaaaaaaaaaaaa aaaaaa m m  mm     mmm             ]],
+      [[                mmmm m   aaaaaaaaaaaa    aaaaaaa     m     mmm             ]],
+      [[                m mmmmm maaaaaaaaaaaaaaa aaaaaaa m   m     m               ]],
+      [[                mmmmmmmmmmaaaaaaahh h   mmm  mmmmmmm m    m                ]],
+      [[                mmmmmmm mmmaaa   hh           m mmmm m mmmm                ]],
+      [[                 mmmmmmm mmmmm    rrrr       mmmmmmmm  mmm                 ]],
+      [[                 mmmmmmmmmmmmm   rrrrrr    mmmmmmm mmmm                    ]],
+      [[                  mmmmmm mmmmmmm       mmmmmmmmmmmmmmm                     ]],
+      [[                   mm mmm mmmm mmmm  mmmmm mmmm mmmm                       ]],
+      [[w]],
+      [[         aaa aaaaaa aaaa aaaaaaa aa aaa aaaaa aa a aaaaaa aaaaaa           ]],
+      [[w]],
+      [[       aaaaaa aaaa aaaaaaaaa aaaa aa aaaaaaaaaa aaaaa aa aaaa aaa          ]],
+      [[         a r rrrrr aaaaa aaaaaaa aaaaa aaaaaaaaaaa aaaaa aaaaaaa           ]],
+      [[w]],
+      [[            i  hhhhhh hhh hhhh                              g g            ]],
+      [[            i  hhhhhhh hhhhhhh                              g gg           ]],
+      [[            i  hhhh hhhhhhh                                 g gg           ]],
     }
 
     -- Image header management
@@ -162,6 +192,7 @@ return {
       ["h"] = { fg = "#ebbcba", ctermfg = 35 },
       ["g"] = { fg = "#f6c177", ctermfg = 33 },
       ["i"] = { fg = "#c4a7e7", ctermfg = 33 },
+      ["m"] = { fg = "#6e6a86", ctermfg = 33 },
     }
 
     local color_map = {}
@@ -199,9 +230,10 @@ return {
     -- Determine header type
     if term == "xterm-kitty" or term == "xterm-ghostty" then
       opts.section.header.val = image_header
-      opts.section.header.opts.hl = colorize(image_header, color_map, colors) -- LINE 199
+      opts.section.header.opts.hl = colorize(image_header, color_map, colors)
     else
       opts.section.header.val = ascii_header
+      opts.section.header.opts.hl = colorize(ascii_header, ascii_map, colors)
     end
 
     opts.section.buttons.val = {}
