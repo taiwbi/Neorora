@@ -154,4 +154,5 @@ return {
   },
   { "akinsho/horizon.nvim", version = "*" },
   { "olivercederborg/poimandres.nvim", lazy = true, opts = {} },
+  { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 }
