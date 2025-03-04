@@ -126,6 +126,16 @@ return {
           function() vim.cmd "Telescope lsp_references" end,
           desc = "Search references",
         },
+        -- Some small tweaks :)
+        ["<leader>jp"] = {
+          function()
+            local abs_path = vim.fn.expand "%:p"
+            local root_dir = vim.fn.getcwd()
+            local rel_path = vim.fn.substitute(abs_path, root_dir .. "/", "", "")
+            os.execute('printf "' .. rel_path .. '" | wl-copy')
+          end,
+          desc = "Copy current file relative path",
+        },
       },
       v = {
         ["<Leader>P"] = {
