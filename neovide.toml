@@ -1,0 +1,19 @@
+# Create a symlink from this file to ~/.config/neovide/config.toml
+# Run in ~/.config/neovide/: `ln -s ../nvim/neovide.toml ./config.toml`
+
+frame = "none"
+
+[font]
+size = 11
+
+[[font.normal]]
+family = "Monaspace Neon Var"
+
+[[font.normal]]
+family = "AzarMehrMonospaced"
+
+[[font.italic]]
+family = "Monaspace Radon Var"
+
+[box-drawing.mode]
+type = "native"
