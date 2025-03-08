@@ -7,13 +7,7 @@ frame = "none"
 size = 11
 
 [[font.normal]]
-family = "Monaspace Neon Var"
-
-[[font.normal]]
-family = "AzarMehrMonospaced"
-
-[[font.italic]]
-family = "Monaspace Radon Var"
+family = "Adwaita Mono"
 
 [box-drawing.mode]
 type = "native"
