@@ -62,6 +62,7 @@ return {
     -- Icons can be configured throughout the interface
     icons = {
       -- configure the loading of the lsp in the status line
+      VimIcon = "",
       LSPLoading1 = "⠋",
       LSPLoading2 = "⠙",
       LSPLoading3 = "⠹",
@@ -72,6 +73,12 @@ return {
       LSPLoading8 = "⠧",
       LSPLoading9 = "⠇",
       LSPLoading10 = "⠏",
+    },
+    status = {
+      separators = {
+        left = { "", "" }, -- separator for the left side of the statusline
+        right = { "", "" }, -- separator for the right side of the statusline
+      },
     },
   },
 }
