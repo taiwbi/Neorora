@@ -73,7 +73,6 @@ return {
         -- this is useful for naming menus
         ["<Leader>b"] = { desc = "Buffers" },
         -- quick save
-        -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
         ["<Tab>"] = {
           function() require("astrocore.buffer").nav(vim.v.count1) end,
           desc = "Next buffer",
@@ -113,10 +112,16 @@ return {
           desc = "Close buffer",
         },
         -- Code Companion
-        ["<Leader>P"] = { function() end, desc = "Code Companion" },
-        ["<leader>Pc"] = { function() vim.cmd "CodeCompanionChat" end, desc = "Open a new AI Chat" },
-        ["<leader>Pa"] = { function() vim.cmd "CodeCompanionActions" end, desc = "AI Actions" },
-        ["<Leader>Pp"] = { function() vim.cmd "CodeCompanion" end, desc = "Inline code action" },
+        ["<Leader>P"] = {
+          function() end,
+          desc = "AI Assistant",
+        },
+        ["<leader>Pc"] = { function() vim.cmd "PrtChatNew" end, desc = "Open a new AI Chat" },
+        ["<leader>PC"] = { function() vim.cmd "PrtChatToggle" end, desc = "Toggle AI Chat" },
+        ["<leader>Pf"] = { function() vim.cmd "PrtChatFinder" end, desc = "Search previous AI chats" },
+        ["<leader>Pa"] = { function() vim.cmd "PrtAsk" end, desc = "Ask a question" },
+        ["<C-r>"] = { function() vim.cmd "PrtChatRespond" end, desc = "Response with AI" },
+        ["<C-s>"] = { function() vim.cmd "PrtStop" end, desc = "Response with AI" },
         -- LSP
         ["grr"] = {
           function() vim.cmd "Telescope lsp_references" end,
@@ -138,15 +143,13 @@ return {
         },
       },
       v = {
-        ["<Leader>P"] = {
-          function() end,
-          desc = "AI Assistant",
+        ["<Leader>P"] = { function() end, desc = "AI Assistant" },
+        ["<leader>Pc"] = { function() vim.cmd "PrtChatPaste" end, desc = "Add selected chat to the chat" },
+        ["<leader>Pr"] = { function() vim.cmd "PrtRewrite" end, desc = "Rewrite the selection using AI" },
+        ["<leader>Pi"] = {
+          function() vim.cmd "PrtImplement" end,
+          desc = "Implement the instructioned selected comment",
         },
-        ["<leader>PA"] = {
-          function() vim.cmd "CodeCompanionChat Add" end,
-          desc = "Add selected chat to the current chat buffer",
-        },
-        ["<Leader>Pp"] = { function() vim.cmd "CodeCompanion" end, desc = "Inline code action" },
       },
       t = {
         -- setting a mapping to false will disable it
