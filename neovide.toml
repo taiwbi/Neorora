@@ -7,7 +7,7 @@ frame = "none"
 size = 11
 
 [[font.normal]]
-family = "Adwaita Mono"
+family = "Maple Mono"
 
 [box-drawing.mode]
 type = "native"
