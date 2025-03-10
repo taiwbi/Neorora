@@ -41,7 +41,7 @@ return {
         "stylua",
         -- add more arguments for adding more null-ls sources
         "blade-formatter",
-        "shellharden",
+        "beautysh",
         "shellcheck",
         "bash-language-server",
         "xmlformatter",
