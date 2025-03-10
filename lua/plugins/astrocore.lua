@@ -120,8 +120,8 @@ return {
         ["<leader>PC"] = { function() vim.cmd "PrtChatToggle" end, desc = "Toggle AI Chat" },
         ["<leader>Pf"] = { function() vim.cmd "PrtChatFinder" end, desc = "Search previous AI chats" },
         ["<leader>Pa"] = { function() vim.cmd "PrtAsk" end, desc = "Ask a question" },
-        ["<C-r>"] = { function() vim.cmd "PrtChatRespond" end, desc = "Response with AI" },
-        ["<C-s>"] = { function() vim.cmd "PrtStop" end, desc = "Response with AI" },
+        ["<C-s>"] = { function() vim.cmd "PrtChatRespond" end, desc = "Response with AI" },
+        ["<C-S-s>"] = { function() vim.cmd "PrtStop" end, desc = "Stop AI Response" },
         -- LSP
         ["grr"] = {
           function() vim.cmd "Telescope lsp_references" end,
