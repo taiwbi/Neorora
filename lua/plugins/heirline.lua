@@ -17,14 +17,14 @@ return {
           local bg, fg
 
           if branch_name == "main" or branch_name == "master" then
-            bg = "#FF9E3B"
-            fg = "#16161D"
+            bg = "#99c1f1"
+            fg = "#241f31"
           elseif branch_name == "develop" or branch_name == "dev" then
-            bg = "#FF9E3B"
+            bg = "#dc8add"
             fg = "#363646"
           else
-            bg = "#252535"
-            fg = "#FF9E3B"
+            bg = "#cdab8f"
+            fg = "#3d3846"
           end
 
           vim.b.git_branch_bg = bg
@@ -52,10 +52,10 @@ return {
       status.component.lsp {
         lsp_progress = false,
         hl = {
-          bg = "#363646",
-          fg = "#C8C093",
+          bg = "#492863",
+          fg = "#f6f5f4",
         },
-        surround = { separator = "left", color = "#363646" },
+        surround = { separator = "left", color = "#492863" },
       },
     }
     opts.winbar = { -- winbar
@@ -69,8 +69,8 @@ return {
           filetype = false,
           file_read_only = false,
           hl = {
-            bg = "#363646",
-            fg = "#C8C093",
+            bg = "#164B33",
+            fg = "#deddda",
           },
           surround = { separator = "left", color = "#363646" },
           update = "BufEnter",
@@ -82,8 +82,8 @@ return {
           filetype = false,
           file_read_only = false,
           hl = {
-            bg = "#363646",
-            fg = "#C8C093",
+            bg = "#0E7D4A",
+            fg = "#f6f5f4",
           },
           surround = { separator = "left", color = "#363646" },
         },
