@@ -164,4 +164,10 @@ return {
   { "akinsho/horizon.nvim", version = "*" },
   { "olivercederborg/poimandres.nvim", lazy = true, opts = {} },
   { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+  {
+    "Mofiqul/adwaita.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function() vim.g.adwaita_transparent = true end,
+  },
 }
