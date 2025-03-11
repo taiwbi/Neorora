@@ -3,57 +3,52 @@ return {
   opts = function(_, opts)
     local status = require "astroui.status"
 
-    local mode_text = status.utils.surround({ "", " " }, function()
-      local mode_colors = {
-        n = "#717C7C",
-        i = "#2D4F67",
-        v = "#54546D",
-        V = "#54546D",
-        [""] = "#54546D",
-        c = "#e2c08d",
-        R = "#FF5D62",
-        t = "#76946A",
-        ["!"] = "#658594",
-      }
-
-      local mode = vim.fn.mode()
-      return mode_colors[mode] or "#C8C093"
-    end, {
-      provider = status.provider.mode_text {
-        icon = { kind = "VimIcon", padding = { right = 1 } },
-        padding = { left = 0, right = 0 },
-      },
-      hl = status.hl.mode,
-    })
-
-    local git_branch = status.utils.surround({ "", " " }, function() return "#FF9E3B" end, {
-      provider = status.provider.git_branch {
-        icon = { kind = "GitBranch", padding = { right = 1 } },
-        padding = { left = 0, right = 0 },
-      },
-      -- Change text color
-      hl = function()
-        local branch_name = vim.b.gitsigns_head
-        if branch_name == "main" or branch_name == "master" then
-          return { fg = "#252535" }
-        elseif branch_name == "develop" then
-          return { fg = "#43242B" }
-        else
-          return { fg = "#2D4F67" }
-        end
-      end, -- default
-    })
-
     opts.statusline = { -- statusline
       hl = { fg = "fg", bg = "bg" },
-      mode_text,
-      git_branch,
-      status.component.file_info { surround = { separator = "none" } },
+      status.component.mode {
+        mode_text = {
+          icon = { kind = "VimIcon", padding = { right = 1, left = 0 } },
+        },
+        hl = status.hl.mode,
+      },
+      status.component.git_branch {
+        hl = function()
+          local branch_name = vim.b.gitsigns_head
+          local bg, fg
+
+          if branch_name == "main" or branch_name == "master" then
+            bg = "#FF9E3B"
+            fg = "#16161D"
+          elseif branch_name == "develop" or branch_name == "dev" then
+            bg = "#FF9E3B"
+            fg = "#363646"
+          else
+            bg = "#252535"
+            fg = "#FF9E3B"
+          end
+
+          vim.b.git_branch_bg = bg
+          return { fg = fg, bg = bg }
+        end,
+        surround = {
+          separator = "left",
+          color = function()
+            return vim.b.git_branch_bg or "#252535" -- fallback color
+          end,
+        },
+        update = "BufEnter",
+      },
       status.component.git_diff { surround = { separator = "none" } },
-      status.component.diagnostics { surround = { separator = "none" } },
       status.component.fill(),
+      status.component.diagnostics { surround = { separator = "none" } },
       status.component.cmd_info { surround = { separator = "none" } },
       status.component.fill(),
+      status.component.nav {
+        scrollbar = false,
+        percentage = false,
+        surround = { separator = "none", padding = { left = 1 } },
+      },
+      status.component.virtual_env { surround = { separator = "none", padding = { left = 1 } } },
       status.component.lsp {
         lsp_progress = false,
         hl = {
@@ -61,12 +56,6 @@ return {
           fg = "#C8C093",
         },
         surround = { separator = "left", color = "#363646" },
-      },
-      status.component.virtual_env(),
-      status.component.nav {
-        scrollbar = false,
-        percentage = false,
-        surround = { separator = "none", padding = { left = 1 } },
       },
     }
     opts.winbar = { -- winbar
