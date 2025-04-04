@@ -1,6 +1,0 @@
-<contextAfterCursor>
-
-fib(5)
-<contextBeforeCursor>
-def fibonacci(n):
-    <cursorPosition>
