@@ -29,14 +29,12 @@ return {
         },
         keymap = {
           accept = "<A-a>",
-          accept_line = "<A-A>",
           prev = "<A-[>",
           next = "<A-]>",
-          dismiss = "<A-e>",
         },
       },
       provider = "openai_fim_compatible",
-      context_window = 4500,
+      context_window = 3500,
       throttle = 2000,
       debounce = 1000,
       request_timeout = 3,
@@ -59,28 +57,18 @@ return {
             end,
             suffix = false,
           },
-          header_transform = function(endpoint, headers)
-            -- Append model name to endpoint as required by DeepInfra
-            return endpoint .. "Qwen/Qwen2.5-Coder-32B-Instruct", headers
-          end,
+          header_transform = function(endpoint, headers) return endpoint .. "Qwen/Qwen2.5-Coder-32B-Instruct", headers end,
           body_transform = function(data)
-            -- DeepInfra expects 'input' instead of 'prompt'
             return {
               input = data.prompt,
               stream = data.stream,
             }
           end,
           get_text_fn = {
-            no_stream = function(json)
-              -- DeepInfra non-streaming response format
-              return json.results[1].generated_text
-            end,
-            stream = function(json)
-              -- DeepInfra streaming response format
-              return json.token.text
-            end,
+            no_stream = function(json) return json.results[1].generated_text end,
+            stream = function(json) return json.token.text end,
           },
-          n_completions = 2, -- Request 2 completions
+          n_completions = 2,
         },
       },
     }
