@@ -10,7 +10,7 @@ return {
           type = "executable",
           command = "node",
           args = {
-            os.getenv("HOME") .. "/.local/share/nvim/mason/packages/php-debug-adapter/extension/out/phpDebug.js",
+            os.getenv "HOME" .. "/.local/share/nvim/mason/packages/php-debug-adapter/extension/out/phpDebug.js",
           },
         }
         dap.configurations.php = {
@@ -36,13 +36,13 @@ return {
         }
       end,
       -- Rust
-      codelldb = function (source_name)
+      codelldb = function(source_name)
         local dap = require "dap"
         dap.adapters.codelldb = {
           type = "server",
           port = "13123",
           executable = {
-            command = os.getenv("HOME") .. "/.local/share/nvim/mason/packages/codelldb/codelldb",
+            command = os.getenv "HOME" .. "/.local/share/nvim/mason/packages/codelldb/codelldb",
             args = { "--port", "13123" },
           },
         }
