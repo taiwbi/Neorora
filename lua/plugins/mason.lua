@@ -24,6 +24,7 @@ return {
         "stylua",
         "prettier",
         "blade-formatter",
+        "php-cs-fixer", -- For Blade Files only
         "beautysh",
         "xmlformatter",
         "pyink",

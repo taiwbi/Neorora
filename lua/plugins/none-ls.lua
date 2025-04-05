@@ -23,6 +23,18 @@ return {
           "$FILENAME",
         },
       },
+
+			null_ls.builtins.formatting.phpcsfixer.with({
+				command = "php-cs-fixer",
+				filetypes = { "blade" },
+				args = {
+					"--no-interaction",
+					"--quiet",
+					"--config=" .. vim.fn.stdpath("config") .. "/extra/php-cs-fixer.php",
+					"fix",
+					"$FILENAME",
+				},
+			}),
     })
   end,
 }
