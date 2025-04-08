@@ -39,7 +39,6 @@ return {
 			debounce = 1000,
 			request_timeout = 3,
 			n_completions = 1,
-			notify = "debug",
 			provider_options = {
 				openai_fim_compatible = {
 					model = "Qwen/Qwen2.5-Coder-32B-Instruct",
