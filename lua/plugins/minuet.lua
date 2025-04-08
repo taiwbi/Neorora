@@ -26,6 +26,9 @@ return {
 					"dockerfile",
 					"sql",
 					"mysql",
+					"yaml",
+					"spec",
+					"make",
 				},
 				keymap = {
 					accept = "<A-a>",
