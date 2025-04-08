@@ -26,7 +26,6 @@ return {
 
 			null_ls.builtins.formatting.phpcsfixer.with({
 				command = "php-cs-fixer",
-				filetypes = { "blade" },
 				args = {
 					"--no-interaction",
 					"--quiet",
