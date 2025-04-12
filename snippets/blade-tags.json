@@ -1,7 +1,0 @@
-{
-  "vite": {
-    "prefix": "b:vite",
-    "body": "@vite(['${1:asset}'])",
-    "description": "Loads asset files using @vite"
-  }
-}
