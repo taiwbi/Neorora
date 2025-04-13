@@ -16,14 +16,10 @@ return {
       },
       status.component.git_diff(),
       status.component.builder {
-        { provider = "📁" },
+        { provider = "" },
         padding = { left = 0 },
       },
-      status.component.separated_path {
-        path_func = status.provider.filename { modify = ":.:h" },
-        padding = { left = 0 },
-        surround = { separator = "none" },
-      },
+      status.component.breadcrumbs { icon = { enabled = false } },
       status.component.fill(),
       status.component.cmd_info(),
       status.component.diagnostics(),

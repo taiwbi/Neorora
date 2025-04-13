@@ -34,7 +34,7 @@ return {
     status = {
       separators = {
         path = "  ",
-        breadcrumbs = "  ",
+        breadcrumbs = "  ",
       },
     },
   },
