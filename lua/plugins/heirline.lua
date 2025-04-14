@@ -25,10 +25,10 @@ return {
       status.component.diagnostics(),
       status.component.virtual_env(),
       status.component.nav {
-        ruler = false,
         scrollbar = false,
         padding = { right = 1 },
       },
+      status.component.mode { surround = { separator = "right" } },
     }
   end,
 }
