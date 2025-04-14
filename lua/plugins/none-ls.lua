@@ -23,17 +23,6 @@ return {
           "$FILENAME",
         },
       },
-
-			null_ls.builtins.formatting.phpcsfixer.with({
-				command = "php-cs-fixer",
-				args = {
-					"--no-interaction",
-					"--quiet",
-					"--config=" .. vim.fn.stdpath("config") .. "/extra/php-cs-fixer.php",
-					"fix",
-					"$FILENAME",
-				},
-			}),
     })
   end,
 }
