@@ -24,7 +24,7 @@ return {
         neovide_opacity = 1,
         neovide_floating_blur_amount_x = 8,
         neovide_floating_blur_amount_y = 8,
-        neovide_floating_shadow = true,
+        neovide_floating_shadow = false,
         neovide_floating_z_height = 3,
         neovide_light_angle_degrees = 45,
         neovide_light_radius = 3,
