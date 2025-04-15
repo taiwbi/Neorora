@@ -8,7 +8,7 @@ vim.api.nvim_create_user_command("WrapCssClasses", function()
   local lines = vim.api.nvim_buf_get_lines(0, 0, -1, false)
   local new_lines = {}
 
-  for i, line in ipairs(lines) do
+  for _, line in ipairs(lines) do
     if line:match 'class=".-"' then
       local indent = line:match "^%s*"
       local indent_len = #indent
@@ -30,7 +30,7 @@ vim.api.nvim_create_user_command("WrapCssClasses", function()
 
           local current_line = class_prefix
 
-          for j, class in ipairs(classes) do
+          for _, class in ipairs(classes) do
             if #current_line + #class + 1 > 120 - indent_len then
               table.insert(new_lines, current_line)
               current_line = indent .. "    " .. class
