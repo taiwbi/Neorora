@@ -19,6 +19,7 @@ return {
       austere = {
         Cursor = { bg = "#fce094" },
         FoldColumn = { bg = "#101010" },
+        SnacksIndent = { fg = "#3d3d3d" },
       },
     },
     -- Icons can be configured throughout the interface
