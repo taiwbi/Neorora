@@ -21,9 +21,9 @@ return {
       },
       status.component.breadcrumbs { icon = { enabled = false } },
       status.component.fill(),
-      status.component.cmd_info(),
       status.component.diagnostics(),
       status.component.virtual_env(),
+      status.component.cmd_info(),
       status.component.nav {
         scrollbar = false,
         padding = { right = 1 },
