@@ -41,4 +41,8 @@ return {
     name = "rose-pine",
   },
   { "lurst/austere.vim" },
+  { "nocksock/bloop.nvim", dependencies = { "rktjmp/lush.nvim" } },
+  { "nyoom-engineering/oxocarbon.nvim" },
+  { "zenbones-theme/zenbones.nvim" },
+  -- { "nyoom-engineering/nyoom.nvim" },
 }
