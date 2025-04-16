@@ -29,13 +29,20 @@ vim.api.nvim_create_user_command("WrapCssClasses", function()
           end
 
           local current_line = class_prefix
+          local continuation_indent = indent .. "    "
+          local max_length = 120
 
-          for _, class in ipairs(classes) do
-            if #current_line + #class + 1 > 120 - indent_len then
+          for i, class in ipairs(classes) do
+            local is_first_in_line = current_line == class_prefix or current_line == continuation_indent
+            local space_needed = is_first_in_line and 0 or 1
+            local projected_length = #current_line + space_needed + #class
+
+            -- Check if adding this class would exceed the max length
+            if projected_length > max_length then
               table.insert(new_lines, current_line)
-              current_line = indent .. "    " .. class
+              current_line = continuation_indent .. class
             else
-              if current_line ~= class_prefix then current_line = current_line .. " " end
+              if not is_first_in_line then current_line = current_line .. " " end
               current_line = current_line .. class
             end
           end

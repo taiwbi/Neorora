@@ -19,6 +19,7 @@ return {
           "-i",
           vim.opt.tabstop:get(),
           "--sort-tailwindcss-classes",
+          "--indent-inner-html",
           "--write",
           "$FILENAME",
         },
