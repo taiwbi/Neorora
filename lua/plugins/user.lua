@@ -44,5 +44,5 @@ return {
   { "nocksock/bloop.nvim", dependencies = { "rktjmp/lush.nvim" } },
   { "nyoom-engineering/oxocarbon.nvim" },
   { "zenbones-theme/zenbones.nvim" },
-  -- { "nyoom-engineering/nyoom.nvim" },
+  { "rebelot/kanagawa.nvim" },
 }
