@@ -37,13 +37,7 @@ return {
       },
     },
   },
-  {
-    "rose-pine/neovim",
-    name = "rose-pine",
-  },
-  { "lurst/austere.vim" },
-  { "nocksock/bloop.nvim", dependencies = { "rktjmp/lush.nvim" } },
-  { "nyoom-engineering/oxocarbon.nvim" },
-  { "zenbones-theme/zenbones.nvim" },
-  { "rebelot/kanagawa.nvim" },
+  { "ellisonleao/gruvbox.nvim", priority = 1000, config = true, opts = {
+    contrast = "hard",
+  } },
 }
