@@ -9,8 +9,8 @@ return {
     options = {
       opt = { -- configure vim.opt options
         -- line spacing
-        linespace = 3,
-        guifont = "Geist Mono,:h12",
+        linespace = 7,
+        guifont = "Geist Mono,:h11",
         guicursor = "n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175",
         winblend = 0,
         pumblend = 0,
