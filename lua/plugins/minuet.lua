@@ -14,7 +14,9 @@ return {
           "python",
           "lua",
           "php",
+          "blade",
           "javascript",
+          "css",
           "typescript",
           "rust",
           "c",
@@ -38,8 +40,9 @@ return {
       },
       provider = "openai_fim_compatible",
       context_window = 3500,
-      throttle = 2000,
-      debounce = 1000,
+      notify = "debug",
+      throttle = 300,
+      debounce = 500,
       request_timeout = 3,
       n_completions = 1,
       provider_options = {
@@ -72,6 +75,11 @@ return {
           get_text_fn = {
             no_stream = function(json) return json.results[1].generated_text end,
             stream = function(json) return json.token.text end,
+          },
+          optional = {
+            max_tokens = 1024,
+            top_p = 0.9,
+            temperature = 0.45,
           },
           n_completions = 2,
         },
