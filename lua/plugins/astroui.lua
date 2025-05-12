@@ -7,7 +7,7 @@ return {
   ---@type AstroUIOpts
   opts = {
     -- change colorscheme
-    colorscheme = "gruvbox",
+    colorscheme = "catppuccin",
     -- AstroUI allows you to easily modify highlight groups easily for any and all colorschemes
     highlights = {
       init = { -- this table overrides highlights in all themes
@@ -15,16 +15,6 @@ return {
       },
       astrodark = { -- a table of overrides/changes when applying the astrotheme theme
         -- Normal = { bg = "#000000" },
-      },
-      austere = {
-        Cursor = { bg = "#fce094" },
-        FoldColumn = { bg = "#101010" },
-        SnacksIndent = { fg = "#3d3d3d" },
-      },
-      gruvbox = {
-        -- For Hard contrast
-        FoldColumn = { bg = "#1D2021" },
-        SignColumn = { bg = "#1D2021" },
       },
     },
     -- Icons can be configured throughout the interface

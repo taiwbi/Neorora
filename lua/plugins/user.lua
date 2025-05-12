@@ -37,7 +37,5 @@ return {
       },
     },
   },
-  { "ellisonleao/gruvbox.nvim", priority = 1000, config = true, opts = {
-    contrast = "hard",
-  } },
+  { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 }
