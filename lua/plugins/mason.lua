@@ -22,6 +22,7 @@ return {
 
         -- Formatters
         "stylua",
+        "pint",
         "prettier",
         "blade-formatter",
         "beautysh",
