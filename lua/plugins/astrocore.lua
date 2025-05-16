@@ -59,8 +59,8 @@ return {
       n = {
         -- second key is the lefthand side of the map
         ["<Leader>r"] = { desc = "Genral helpful keys" },
-        ["<Leader>ra"] = { function() vim.fn.setreg('+', vim.fn.expand('%:p')) end, desc = "Copy file's absolute path" },
-        ["<Leader>rr"] = { function() vim.fn.setreg('+', vim.fn.expand('%:.')) end, desc = "Copy file's relative path" },
+        ["<Leader>ra"] = { function() vim.fn.setreg("+", vim.fn.expand "%:p") end, desc = "Copy file's absolute path" },
+        ["<Leader>rr"] = { function() vim.fn.setreg("+", vim.fn.expand "%:.") end, desc = "Copy file's relative path" },
 
         -- Navigate buffer tabs
         ["<Tab>"] = { function() require("astrocore.buffer").nav(vim.v.count1) end, desc = "Next buffer" },
