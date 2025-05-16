@@ -54,12 +54,16 @@ return {
         },
       },
       intelephense = {
-        filetypes = { "php" },
+        filetypes = { "php", "blade" },
         init_options = {
           licenceKey = "INTELEPHENSE_LICENSE_KEY",
         },
         settings = {
           intelephense = {
+            files = {
+              -- this forces the server to parse blade files as PHP
+              associations = { "*.php", "*.phtml", "*.blade.php" },
+            },
             environment = {
               includePaths = {
                 vim.fn.getcwd() .. "/_ide_helper.php",

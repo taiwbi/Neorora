@@ -28,6 +28,7 @@ return {
       },
       filename = {
         [".foorc"] = "fooscript",
+        ["*.blade.php"] = "blade",
       },
       pattern = {
         [".*/etc/foo/.*"] = "fooscript",
