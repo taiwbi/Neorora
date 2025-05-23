@@ -58,6 +58,8 @@ return {
     mappings = {
       -- first key is the mode
       n = {
+        ["<Leader>W"] = { function() vim.cmd "noautocmd w" end, desc = "Save without formatting" },
+
         -- second key is the lefthand side of the map
         ["<Leader>r"] = { desc = "Genral helpful keys" },
         ["<Leader>ra"] = { function() vim.fn.setreg("+", vim.fn.expand "%:p") end, desc = "Copy file's absolute path" },
