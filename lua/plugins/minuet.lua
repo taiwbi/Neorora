@@ -40,7 +40,7 @@ return {
       },
       provider = "openai_fim_compatible",
       context_window = 3500,
-      notify = "debug",
+      -- notify = "debug",
       throttle = 300,
       debounce = 500,
       request_timeout = 3,
