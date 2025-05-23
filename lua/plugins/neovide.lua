@@ -9,15 +9,15 @@ return {
     options = {
       opt = { -- configure vim.opt options
         -- line spacing
-        linespace = 7,
-        guifont = "Geist Mono,:h11",
+        linespace = 6,
+        -- guifont = "Monaspace Neon,AzarMehrMonospaced:h12",
         guicursor = "n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175",
         winblend = 0,
         pumblend = 0,
       },
       g = { -- configure vim.g variables
         -- configure padding
-        neovide_padding_top = 0,
+        neovide_padding_top = 4,
         neovide_padding_bottom = 0,
         neovide_padding_right = 0,
         neovide_padding_left = 0,
