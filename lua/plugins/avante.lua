@@ -4,6 +4,7 @@ return {
   version = false, -- Never set this value to "*"! Never!
   opts = {
     provider = "gemini",
+    cursor_applying_provider = "gemini",
     gemini = {
       model = "gemini-2.5-flash-preview-04-17",
       api_key_name = "GEMINI_KEY",
@@ -12,6 +13,9 @@ return {
       generationConfig = {
         responseMimeType = "text/plain",
       },
+    },
+    behaviour = {
+      enable_cursor_planning_mode = true,
     },
   },
   build = "make",
