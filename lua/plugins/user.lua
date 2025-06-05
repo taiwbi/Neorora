@@ -38,15 +38,17 @@ return {
     },
   },
   {
-    "nobbmaestro/nvim-andromeda",
-    dependencies = { "tjdevries/colorbuddy.nvim", branch = "dev" },
-    config = function()
-      require("andromeda").setup {
-        preset = "andromeda",
-        styles = {
-          italic = true,
+    "catppuccin/nvim",
+    name = "catppuccin",
+    priority = 1000,
+    opts = {
+      color_overrides = {
+        mocha = {
+          base = "#1a1a1a",
+          mantle = "#161616",
+          crust = "#0f0f0f",
         },
-      }
-    end,
+      },
+    },
   },
 }
