@@ -58,6 +58,16 @@ return {
     mappings = {
       -- first key is the mode
       n = {
+        -- Open dashboard automatically when no more buffers
+        ["<Leader>c"] = {
+          function()
+            local bufs = vim.fn.getbufinfo { buflisted = 1 }
+            require("astrocore.buffer").close(0)
+            if not bufs[2] then require("snacks").dashboard() end
+          end,
+          desc = "Close buffer",
+        },
+
         ["<Leader>W"] = { function() vim.cmd "noautocmd w" end, desc = "Save without formatting" },
 
         -- second key is the lefthand side of the map
