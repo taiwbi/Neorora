@@ -78,6 +78,10 @@ return {
         -- Navigate buffer tabs
         ["<Tab>"] = { function() require("astrocore.buffer").nav(vim.v.count1) end, desc = "Next buffer" },
         ["<S-Tab>"] = { function() require("astrocore.buffer").nav(-vim.v.count1) end, desc = "Previous buffer" },
+
+        -- Database Keys
+        ["<leader>D"] = { function() vim.cmd "DBUIToggle" end, desc = " Database" },
+        ["<leader>Db"] = { function() vim.cmd "DBUIToggle" end, desc = "Toggle UI" },
       },
     },
   },
