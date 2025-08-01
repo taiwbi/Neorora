@@ -21,6 +21,7 @@ return {
         ignore_filetypes = {},
       },
       disabled = { -- disable formatting capabilities for the listed language servers
+        "intelephense",
       },
       timeout_ms = 5000, -- default format timeout
       -- filter = function(client) -- fully override the default formatting function
