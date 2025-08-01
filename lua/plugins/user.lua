@@ -38,14 +38,9 @@ return {
     },
   },
   {
-    "m4xshen/hardtime.nvim",
+    "JoosepAlviste/palenightfall.nvim",
     lazy = false,
-    dependencies = { "MunifTanjim/nui.nvim" },
-    opts = {},
-  },
-  {
-    "rose-pine/neovim",
-    name = "rose-pine",
-    config = function() vim.cmd "colorscheme rose-pine" end,
+    priority = 1000,
+    config = function() require("palenightfall").setup() end,
   },
 }

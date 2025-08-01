@@ -7,7 +7,7 @@ return {
   ---@type AstroUIOpts
   opts = {
     -- change colorscheme
-    colorscheme = "rose-pine",
+    colorscheme = "palenightfall",
     -- AstroUI allows you to easily modify highlight groups easily for any and all colorschemes
     highlights = {
       init = { -- this table overrides highlights in all themes
@@ -15,6 +15,14 @@ return {
       },
       astrodark = { -- a table of overrides/changes when applying the astrotheme theme
         -- Normal = { bg = "#000000" },
+      },
+      palenightfall = {
+        Normal = { bg = "#1f212b" },
+        NormalNC = { bg = "#1f212b" },
+        StatusLine = { bg = "#1f212b" },
+        VertSplit = { bg = "#1f212b", fg = "#1f212b" },
+        WinSeparator = { bg = "#1f212b", fg = "#1f212b" },
+        NeoTreeWinSeparator = { bg = "#1f212b", fg = "#1f212b" },
       },
     },
     -- Icons can be configured throughout the interface
