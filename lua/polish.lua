@@ -92,3 +92,39 @@ vim.api.nvim_create_autocmd("BufWritePost", {
   end,
   desc = "Run WrapCssClasses after formatting",
 })
+
+-- Transparency in neovide --
+
+vim.api.nvim_create_user_command("TransparentizeNeovide", function()
+  if vim.g.neovide then
+    vim.g.neovide_opacity = 0.8
+
+    -- Define the background and foreground colors
+    local bg_color = "#191a22"
+
+    -- Update each highlight group
+    vim.api.nvim_set_hl(0, "Normal", { bg = bg_color })
+    vim.api.nvim_set_hl(0, "NormalNC", { bg = bg_color })
+    vim.api.nvim_set_hl(0, "StatusLine", { bg = bg_color })
+    vim.api.nvim_set_hl(0, "VertSplit", { bg = bg_color, fg = bg_color })
+    vim.api.nvim_set_hl(0, "WinSeparator", { bg = bg_color, fg = bg_color })
+    vim.api.nvim_set_hl(0, "NeoTreeWinSeparator", { bg = bg_color, fg = bg_color })
+  end
+end, {})
+
+vim.api.nvim_create_user_command("ClearNeovideTransparency", function()
+  if vim.g.neovide then
+    vim.g.neovide_opacity = 1
+
+    -- Define the background and foreground colors
+    local bg_color = "#1f212b"
+
+    -- Update each highlight group
+    vim.api.nvim_set_hl(0, "Normal", { bg = bg_color })
+    vim.api.nvim_set_hl(0, "NormalNC", { bg = bg_color })
+    vim.api.nvim_set_hl(0, "StatusLine", { bg = bg_color })
+    vim.api.nvim_set_hl(0, "VertSplit", { bg = bg_color, fg = bg_color })
+    vim.api.nvim_set_hl(0, "WinSeparator", { bg = bg_color, fg = bg_color })
+    vim.api.nvim_set_hl(0, "NeoTreeWinSeparator", { bg = bg_color, fg = bg_color })
+  end
+end, {})
