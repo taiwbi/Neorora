@@ -47,10 +47,10 @@ return {
       n_completions = 1,
       provider_options = {
         openai_fim_compatible = {
-          model = "Qwen/Qwen2.5-Coder-32B-Instruct",
-          end_point = "https://api.deepinfra.com/v1/inference/",
-          api_key = "DEEPINFRA_KEY",
-          name = "DeepInfra",
+          model = "qwen/qwen-2.5-coder-32b-instruct",
+          end_point = "https://openrouter.ai/api/v1/completions",
+          api_key = "OPENROUTER_KEY",
+          name = "OpenRouter",
           stream = true,
           template = {
             prompt = function(context_before_cursor, context_after_cursor)
@@ -64,22 +64,18 @@ return {
           },
           transform = {
             function(args)
-              args.end_point = args.end_point .. args.body.model
-              args.body.model = nil
-              args.body.input = args.body.prompt
-              args.body.prompt = nil
-              args.body.suffix = nil
+              args.body.provider = {
+                order = { "deepinfra/fp8" },
+                allow_fallbacks = false,
+              }
               return args
             end,
           },
-          get_text_fn = {
-            no_stream = function(json) return json.results[1].generated_text end,
-            stream = function(json) return json.token.text end,
-          },
           optional = {
-            max_tokens = 1024,
+            max_tokens = 512,
             top_p = 0.9,
             temperature = 0.45,
+            -- provider = "deepinfra/fp8",
           },
           n_completions = 2,
         },
