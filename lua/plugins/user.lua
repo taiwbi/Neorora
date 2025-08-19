@@ -3,12 +3,6 @@
 ---@type LazySpec
 return {
   {
-    "MeanderingProgrammer/render-markdown.nvim",
-    dependencies = { "nvim-treesitter/nvim-treesitter", "echasnovski/mini.icons" }, -- if you use standalone mini plugins
-    opts = {},
-    ft = { "markdown", "codecompanion", "Avante" },
-  },
-  {
     "saghen/blink.compat",
     version = "*",
     lazy = true,
@@ -67,5 +61,10 @@ return {
         },
       }
     end,
+  },
+  {
+    "Vallen217/eidolon.nvim",
+    lazy = false,
+    priority = 1000,
   },
 }

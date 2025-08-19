@@ -7,7 +7,7 @@ return {
   ---@type AstroUIOpts
   opts = {
     -- change colorscheme
-    colorscheme = "kanagawa",
+    colorscheme = "eidolon",
     -- AstroUI allows you to easily modify highlight groups easily for any and all colorschemes
     highlights = {
       init = { -- this table overrides highlights in all themes
@@ -29,6 +29,11 @@ return {
         GitSignsAdd = { bg = "#1F1F28", fg = "#76946a" },
         GitSignsDelete = { bg = "#1F1F28", fg = "#dca561" },
         GitSignsChange = { bg = "#1F1F28", fg = "#c34043" },
+      },
+      eidolon = {
+        VertSplit = { bg = "#12121F", fg = "#12121F" },
+        WinSeparator = { bg = "#12121F", fg = "#12121F" },
+        NeoTreeWinSeparator = { bg = "#12121F", fg = "#12121F" },
       },
     },
     -- Icons can be configured throughout the interface

@@ -21,7 +21,7 @@ return {
         neovide_padding_bottom = 0,
         neovide_padding_right = 0,
         neovide_padding_left = 0,
-        neovide_opacity = 1,
+        neovide_opacity = 0.85,
         neovide_floating_blur_amount_x = 8,
         neovide_floating_blur_amount_y = 8,
         neovide_floating_shadow = false,

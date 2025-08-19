@@ -49,6 +49,7 @@ return {
         expandtab = true,
         showtabline = 0,
         showcmdloc = "statusline",
+        cursorline = false,
       },
       g = { -- vim.g.<key>
         -- configure global vim variables (vim.g)
