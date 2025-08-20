@@ -1,7 +1,7 @@
 return {
   "xiyaowong/transparent.nvim",
   name = "transparent",
-  event = "User AstroFile",
+  lazy = false,
   config = function()
     vim.g.transparent_groups = vim.list_extend(vim.g.transparent_groups or {}, {
       "CmdLine",
@@ -203,6 +203,14 @@ return {
       "colorizer_mb_1a1b26",
       "colorizer_mb_b4b5b9",
       "debugPC",
+      "SpecialKey",
+      "Directory",
+      "Question",
+      "Conceal",
+      "Whitespace",
+      "SnacksDashboardTitle",
+      "SnacksDashboardFooter",
+      "SnacksDashboardHeader",
     })
   end,
 }
