@@ -7,7 +7,7 @@ return {
   ---@type AstroUIOpts
   opts = {
     -- change colorscheme
-    colorscheme = "eidolon",
+    colorscheme = "rose-pine",
     -- AstroUI allows you to easily modify highlight groups easily for any and all colorschemes
     highlights = {
       init = { -- this table overrides highlights in all themes
@@ -16,24 +16,11 @@ return {
       astrodark = { -- a table of overrides/changes when applying the astrotheme theme
         -- Normal = { bg = "#000000" },
       },
-      kanagawa = {
-        -- Wave: #1F1F28
-        -- Dragon: #181616
-        VertSplit = { bg = "#1F1F28", fg = "#181616" },
-        WinSeparator = { bg = "#1F1F28", fg = "#181616" },
-        NeoTreeWinSeparator = { bg = "#1F1F28", fg = "#181616" },
-        GitSigns = { bg = "#1F1F28" },
-        LineNr = { bg = "#1F1F28" },
-        FoldColumn = { bg = "#1F1F28" },
-        SignColumn = { bg = "#1F1F28" },
-        GitSignsAdd = { bg = "#1F1F28", fg = "#76946a" },
-        GitSignsDelete = { bg = "#1F1F28", fg = "#dca561" },
-        GitSignsChange = { bg = "#1F1F28", fg = "#c34043" },
-      },
-      eidolon = {
-        VertSplit = { bg = "#12121F", fg = "#12121F" },
-        WinSeparator = { bg = "#12121F", fg = "#12121F" },
-        NeoTreeWinSeparator = { bg = "#12121F", fg = "#12121F" },
+      ["rose-pine"] = {
+        VertSplit = { bg = "#191724", fg = "#191724" },
+        WinSeparator = { bg = "#191724", fg = "#191724" },
+        NeoTreeWinSeparator = { bg = "#191724", fg = "#191724" },
+        StatusLine = { bg = "#191724" },
       },
     },
     -- Icons can be configured throughout the interface
