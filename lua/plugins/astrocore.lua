@@ -81,8 +81,16 @@ return {
         ["<S-Tab>"] = { function() require("astrocore.buffer").nav(-vim.v.count1) end, desc = "Previous buffer" },
 
         -- Database Keys
-        ["<leader>D"] = { function() vim.cmd "DBUIToggle" end, desc = " Database" },
+        ["<leader>D"] = { desc = " Database" },
         ["<leader>Db"] = { function() vim.cmd "DBUIToggle" end, desc = "Toggle UI" },
+
+        -- VS Tasks Keys (using <leader>j for "jobs/tasks")
+        ["<leader>j"] = { desc = " Tasks" },
+        ["<leader>ja"] = { function() require("vstask").tasks() end, desc = "Tasks" },
+        ["<leader>ji"] = { function() require("vstask").inputs() end, desc = "Task Inputs" },
+        ["<leader>jj"] = { function() require("vstask").jobs() end, desc = "Running Jobs" },
+        ["<leader>jl"] = { function() require("vstask").launches() end, desc = "Launch Configs" },
+        ["<leader>jr"] = { function() require("vstask").command() end, desc = "Run Command" },
       },
     },
   },
