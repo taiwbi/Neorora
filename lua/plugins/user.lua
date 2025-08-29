@@ -51,5 +51,9 @@ return {
       }
     end,
   },
-  { "rose-pine/neovim", name = "rose-pine" },
+  {
+    "xStormyy/bearded-theme.nvim",
+    lazy = false,
+    config = function() vim.g.bearded_variant = "blackandglod" end,
+  },
 }
