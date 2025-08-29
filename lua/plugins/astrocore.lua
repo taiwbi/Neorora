@@ -28,10 +28,10 @@ return {
       },
       filename = {
         [".foorc"] = "fooscript",
-        ["*.blade.php"] = "blade",
       },
       pattern = {
         [".*/etc/foo/.*"] = "fooscript",
+        [".*%.blade%.php"] = "php",
       },
     },
     -- vim options can be configured here
