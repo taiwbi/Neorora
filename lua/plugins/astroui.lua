@@ -16,12 +16,6 @@ return {
       astrodark = { -- a table of overrides/changes when applying the astrotheme theme
         -- Normal = { bg = "#000000" },
       },
-      ["rose-pine"] = {
-        VertSplit = { bg = "#191724", fg = "#191724" },
-        WinSeparator = { bg = "#191724", fg = "#191724" },
-        NeoTreeWinSeparator = { bg = "#191724", fg = "#191724" },
-        StatusLine = { bg = "#191724" },
-      },
     },
     -- Icons can be configured throughout the interface
     icons = {
