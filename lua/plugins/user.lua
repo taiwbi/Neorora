@@ -54,6 +54,6 @@ return {
   {
     "xStormyy/bearded-theme.nvim",
     lazy = false,
-    config = function() vim.g.bearded_variant = "blackandglod" end,
+    config = function() vim.g.bearded_variant = "black_and_diamond" end,
   },
 }
