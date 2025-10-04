@@ -56,4 +56,5 @@ return {
     lazy = false,
     config = function() vim.g.bearded_variant = "monokai_stone" end,
   },
+  { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 }
