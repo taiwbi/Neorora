@@ -22,8 +22,8 @@ return {
         {
           pane = 1,
           section = "image",
-          path = "~/.config/nvim/assets/MyBunny.png",
-          height = 10,
+          path = "~/.config/nvim/assets/LookDown.png",
+          height = 12,
           padding = 2,
         },
         { pane = 1, section = "header" },
