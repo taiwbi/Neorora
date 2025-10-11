@@ -83,6 +83,30 @@ return {
         ["<leader>jj"] = { function() require("vstask").jobs() end, desc = "Running Jobs" },
         ["<leader>jl"] = { function() require("vstask").launches() end, desc = "Launch Configs" },
         ["<leader>jr"] = { function() require("vstask").command() end, desc = "Run Command" },
+
+        -- Neovide scale factor controls
+        ["<C-0>"] = {
+          function()
+            if vim.g.neovide_scale_factor then vim.g.neovide_scale_factor = 1 end
+          end,
+          desc = "Reset Neovide scale factor",
+        },
+        ["<C-+>"] = {
+          function()
+            if vim.g.neovide_scale_factor then
+              vim.g.neovide_scale_factor = math.min(vim.g.neovide_scale_factor + 0.1, 2.0)
+            end
+          end,
+          desc = "Increase Neovide scale factor",
+        },
+        ["<C-_>"] = {
+          function()
+            if vim.g.neovide_scale_factor then
+              vim.g.neovide_scale_factor = math.max(vim.g.neovide_scale_factor - 0.1, 0.5)
+            end
+          end,
+          desc = "Decrease Neovide scale factor",
+        },
       },
     },
   },
