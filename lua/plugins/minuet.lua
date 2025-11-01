@@ -82,14 +82,15 @@ return {
       n_completions = 1,
       provider_options = {
         openai_fim_compatible = {
-          model = "qwen/qwen-2.5-coder-32b-instruct",
-          end_point = "https://openrouter.ai/api/v1/completions",
-          api_key = "OPENROUTER_KEY",
-          name = "OpenRouter",
+          model = "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+          end_point = "https://api.deepinfra.com/v1/inference/",
+          api_key = "DEEPINFRA_KEY",
+          name = "DeepInfra",
           stream = true,
           template = {
             prompt = function(context_before_cursor, context_after_cursor)
-              return "<|fim_prefix|>"
+              return "<|im_start|>system\nComplete the text as minimal as possible, write code/text as much as it is obvious that it should be there. No more.<|im_end|>"
+                .. "<|fim_prefix|>"
                 .. context_before_cursor
                 .. "<|fim_suffix|>"
                 .. context_after_cursor
@@ -99,18 +100,22 @@ return {
           },
           transform = {
             function(args)
-              args.body.provider = {
-                order = { "deepinfra/fp8" },
-                allow_fallbacks = false,
-              }
+              args.end_point = args.end_point .. args.body.model
+              args.body.model = nil
+              args.body.input = args.body.prompt
+              args.body.prompt = nil
+              args.body.suffix = nil
               return args
             end,
           },
+          get_text_fn = {
+            no_stream = function(json) return json.results[1].generated_text end,
+            stream = function(json) return json.token.text end,
+          },
           optional = {
-            max_tokens = 512,
+            max_tokens = 1024,
             top_p = 0.9,
-            temperature = 0.45,
-            -- provider = "deepinfra/fp8",
+            temperature = 0.25,
           },
           n_completions = 2,
         },
