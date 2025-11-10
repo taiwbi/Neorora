@@ -108,6 +108,10 @@ return {
           desc = "Decrease Neovide scale factor",
         },
       },
+      v = {
+        ["<leader>p"] = { '"_dP', desc = "Paste without overwriting clipboard" },
+        ["<leader>x"] = { '"_x', desc = "Delete without overwriting clipboard" },
+      },
     },
   },
 }
