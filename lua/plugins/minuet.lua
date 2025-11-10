@@ -89,7 +89,8 @@ return {
           stream = true,
           template = {
             prompt = function(context_before_cursor, context_after_cursor)
-              return "<|im_start|>system\nComplete the text as minimal as possible, write code/text as much as it is obvious that it should be there. No more.<|im_end|>"
+              return "<|im_start|>system\n\nComplete the text as minimal as possible, write code/text as much as it is obvious that it should be there even if it's just one character."
+                .. "Do not try to predict too much and keep it just minimal. Just predict what's obvious, No more.<|im_end|>"
                 .. "<|fim_prefix|>"
                 .. context_before_cursor
                 .. "<|fim_suffix|>"
@@ -113,7 +114,7 @@ return {
             stream = function(json) return json.token.text end,
           },
           optional = {
-            max_tokens = 1024,
+            max_tokens = 256,
             top_p = 0.9,
             temperature = 0.25,
           },
