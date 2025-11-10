@@ -52,6 +52,10 @@ return {
     end,
   },
   {
+    "OXY2DEV/markview.nvim",
+    lazy = false,
+  },
+  {
     "xStormyy/bearded-theme.nvim",
     lazy = false,
     config = function() vim.g.bearded_variant = "monokai_stone" end,
