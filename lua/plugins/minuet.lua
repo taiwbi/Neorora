@@ -82,7 +82,7 @@ return {
       n_completions = 1,
       provider_options = {
         openai_fim_compatible = {
-          model = "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+          model = "Qwen/Qwen3-14B",
           end_point = "https://api.deepinfra.com/v1/inference/",
           api_key = "DEEPINFRA_KEY",
           name = "DeepInfra",
@@ -90,7 +90,7 @@ return {
           template = {
             prompt = function(context_before_cursor, context_after_cursor)
               return "<|im_start|>system\n\nComplete the text as minimal as possible, write code/text as much as it is obvious that it should be there even if it's just one character."
-                .. "Do not try to predict too much and keep it just minimal. Just predict what's obvious, No more.<|im_end|>"
+                .. "Do not try to predict too much and keep it just minimal. Just predict what's obvious, No more./no_think<|im_end|>"
                 .. "<|fim_prefix|>"
                 .. context_before_cursor
                 .. "<|fim_suffix|>"
