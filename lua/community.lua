@@ -6,4 +6,5 @@
 return {
   "AstroNvim/astrocommunity",
   { import = "astrocommunity.pack.full-dadbod" },
+  { import = "astrocommunity.recipes.vscode" },
 }
