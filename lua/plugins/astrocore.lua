@@ -59,6 +59,9 @@ return {
     mappings = {
       -- first key is the mode
       n = {
+        ["H"] = { "^", desc = "Go to start of line" },
+        ["L"] = { "$", desc = "Go to end of line" },
+
         ["<Leader>W"] = { function() vim.cmd "noautocmd w" end, desc = "Save without formatting" },
 
         -- ["<Leader>e"] = { function() Snacks.picker.explorer() end, desc = "Toggle Explorer" },
