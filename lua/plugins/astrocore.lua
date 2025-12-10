@@ -114,6 +114,10 @@ return {
       v = {
         ["<leader>p"] = { '"_dP', desc = "Paste without overwriting clipboard" },
         ["<leader>x"] = { '"_x', desc = "Delete without overwriting clipboard" },
+
+        -- stay in Visual mode after indenting
+        ["<"] = { "<gv", desc = "Unindent line" },
+        [">"] = { ">gv", desc = "Indent line" },
       },
     },
   },
