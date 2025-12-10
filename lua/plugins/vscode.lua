@@ -15,6 +15,8 @@ return {
 
           ["<Leader>uw"] = "<CMD>call VSCodeNotify('editor.action.toggleWordWrap')<CR>",
 
+          ["<Leader>W"] = "<CMD>call VSCodeNotify('workbench.action.files.saveWithoutFormatting')<CR>",
+
           ["zg"] = "<CMD>call VSCodeNotify('cSpell.addWordToUserDictionary')<CR>",
           ["z="] = "<CMD>call VSCodeNotify('editor.action.quickFix')<CR>",
           ["]s"] = "<CMD>call VSCodeNotify('cSpell.goToNextSpellingIssue')<CR>",
