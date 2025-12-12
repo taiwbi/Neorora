@@ -21,6 +21,10 @@ return {
           ["z="] = "<CMD>call VSCodeNotify('editor.action.quickFix')<CR>",
           ["]s"] = "<CMD>call VSCodeNotify('cSpell.goToNextSpellingIssue')<CR>",
           ["[s"] = "<CMD>call VSCodeNotify('cSpell.goToPreviousSpellingIssue')<CR>",
+
+          ["<Leader>th"] = "<CMD>call VSCodeNotify('workbench.action.terminal.toggleTerminal')<CR>",
+          ["<Leader>tv"] = "<CMD>call VSCodeNotify('workbench.action.terminal.toggleTerminal')<CR>",
+          ["<Leader>tf"] = "<CMD>call VSCodeNotify('workbench.action.terminal.toggleTerminal')<CR>",
         },
       },
     },
