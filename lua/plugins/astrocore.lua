@@ -31,6 +31,7 @@ return {
       },
       pattern = {
         [".*/etc/foo/.*"] = "fooscript",
+        [".*/ghostty/config"] = "toml",
         [".*%.blade%.php"] = "php",
       },
     },
