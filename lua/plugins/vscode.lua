@@ -25,6 +25,12 @@ return {
           ["<Leader>th"] = "<CMD>call VSCodeNotify('workbench.action.terminal.toggleTerminal')<CR>",
           ["<Leader>tv"] = "<CMD>call VSCodeNotify('workbench.action.terminal.toggleTerminal')<CR>",
           ["<Leader>tf"] = "<CMD>call VSCodeNotify('workbench.action.terminal.toggleTerminal')<CR>",
+
+          ["<Leader>bC"] = "<CMD>call VSCodeNotify('workbench.action.closeAllEditors')<CR>",
+
+          ["<leader>ld"] = "<Cmd>call VSCodeNotify('editor.action.showHover')<CR>",
+
+          ["<leader>W"] = "<CMD>call VSCodeNotify('workbench.action.files.saveWithoutFormatting')<CR>",
         },
       },
     },
