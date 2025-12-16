@@ -128,3 +128,31 @@ vim.api.nvim_create_user_command("ClearNeovideTransparency", function()
     vim.api.nvim_set_hl(0, "NeoTreeWinSeparator", { bg = bg_color, fg = bg_color })
   end
 end, {})
+
+-- Function to add italic
+local function add_italic(group)
+  local hl = vim.api.nvim_get_hl(0, { name = group })
+  if hl and not vim.tbl_isempty(hl) then
+    hl.italic = true
+    vim.api.nvim_set_hl(0, group, hl)
+  end
+end
+
+-- Apply italics after a delay to ensure colorscheme is loaded
+vim.defer_fn(function()
+  add_italic "@comment"
+  add_italic "@keyword"
+  add_italic "@keyword.function"
+  add_italic "@keyword.operator"
+  add_italic "@keyword.return"
+  add_italic "@keyword.conditional"
+  add_italic "@keyword.repeat"
+  add_italic "@storageclass"
+  add_italic "@type.builtin"
+  add_italic "@constant.builtin"
+  add_italic "@variable.builtin"
+  add_italic "Keyword"
+  add_italic "StorageClass"
+  add_italic "Constant"
+  add_italic "Comment"
+end, 200)
