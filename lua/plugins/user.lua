@@ -65,4 +65,17 @@ return {
     "rose-pine/neovim",
     name = "rose-pine",
   },
+  {
+    "scottmckendry/cyberdream.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function(_, opts)
+      require("cyberdream").setup {
+        options = {
+          theme = "auto",
+          italic_comments = true,
+        },
+      }
+    end,
+  },
 }
