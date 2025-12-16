@@ -31,6 +31,13 @@ return {
           ["<leader>ld"] = "<Cmd>call VSCodeNotify('editor.action.showHover')<CR>",
 
           ["<leader>W"] = "<CMD>call VSCodeNotify('workbench.action.files.saveWithoutFormatting')<CR>",
+
+          ["<leader>ag"] = "<CMD>call VSCodeNotify('antigravity.openAgent')<CR>", -- Open Agent
+          ["<leader>ae"] = "<CMD>call VSCodeNotify('antigravity.prioritized.command.open')<CR>", -- Open AI quick edit
+        },
+        v = {
+          ["<leader>ae"] = "<CMD>call VSCodeNotify('antigravity.prioritized.command.open')<CR>", -- Open AI quick edit
+          ["<leader>ac"] = "<CMD>call VSCodeNotify('antigravity.prioritized.chat.open')<CR>", -- Give selected lines to Agent
         },
       },
     },
