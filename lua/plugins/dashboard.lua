@@ -14,7 +14,7 @@ return {
         {
           pane = 1,
           section = "image",
-          path = "~/.config/nvim/assets/vigil.png",
+          path = "~/.config/nvim/assets/bunnyatta.png",
           height = 10,
           padding = 2,
         },
