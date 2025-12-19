@@ -32,6 +32,18 @@ return {
     },
   },
   {
+    "supermaven-inc/supermaven-nvim",
+    config = function()
+      require("supermaven-nvim").setup {
+        keymaps = {
+          accept_suggestion = "<Alt-a>",
+          clear_suggestion = "<C-]>",
+          accept_word = "<C-j>",
+        },
+      }
+    end,
+  },
+  {
     "OXY2DEV/markview.nvim",
     lazy = false,
   },
