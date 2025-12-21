@@ -44,6 +44,9 @@ return {
 
           ["<leader>Db"] = "<CMD>call VSCodeNotify('workbench.view.extension.github-cweijan-mysql')<CR>",
 
+          ["<leader>Sf"] = "<CMD>call VSCodeNotify('workbench.action.openRecent')<CR>",
+          ["<leader>SF"] = "<CMD>call VSCodeNotify('workbench.action.openRecent')<CR>",
+
           ["<leader>ag"] = "<CMD>call VSCodeNotify('antigravity.openAgent')<CR>", -- Open Agent
           ["<leader>ae"] = "<CMD>call VSCodeNotify('antigravity.prioritized.command.open')<CR>", -- Open AI quick edit
         },
