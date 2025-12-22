@@ -14,6 +14,7 @@ return {
       "css",
       "javascript",
       "php",
+      "blade",
       "scss",
       "python",
       "rust",
