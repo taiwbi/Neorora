@@ -15,6 +15,7 @@ return {
       "javascript",
       "php",
       "blade",
+      "php_only",
       "scss",
       "python",
       "rust",
