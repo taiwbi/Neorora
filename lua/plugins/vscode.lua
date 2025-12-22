@@ -29,6 +29,8 @@ return {
 
           ["<Leader>gG"] = "<CMD>call VSCodeNotify('workbench.view.extension.gitlens')<CR>",
           ["<Leader>gI"] = "<CMD>call VSCodeNotify('workbench.view.extension.gitlensInspect')<CR>",
+          ["<Leader>gC"] = "<CMD>call VSCodeNotify('gitlens.views.fileHistory.focus')<CR>",
+          ["<Leader>gC"] = "<CMD>call VSCodeNotify('gitlens.views.fileHistory.focus')<CR>",
 
           ["<Leader>th"] = "<CMD>call VSCodeNotify('workbench.action.terminal.toggleTerminal')<CR>",
           ["<Leader>tv"] = "<CMD>call VSCodeNotify('workbench.action.terminal.toggleTerminal')<CR>",
