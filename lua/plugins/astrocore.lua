@@ -109,6 +109,16 @@ return {
         -- Paste using Ctrl+Shift+V
         ["<C-S-v>"] = { '"+p', desc = "Paste from clipboard" },
 
+        -- Yank entire file (preserve position)
+        ["yag"] = {
+          function()
+            local pos = vim.api.nvim_win_get_cursor(0)
+            vim.cmd "normal! ggVGy"
+            vim.api.nvim_win_set_cursor(0, pos)
+          end,
+          desc = "Yank entire file (preserve position)",
+        },
+
         -- Neovide scale factor controls
         ["<C-0>"] = {
           function()
