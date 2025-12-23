@@ -44,8 +44,11 @@ return {
     end,
   },
   {
-    "OXY2DEV/markview.nvim",
-    lazy = false,
+    "MeanderingProgrammer/render-markdown.nvim",
+    opts = {
+      file_types = { "markdown" },
+    },
+    ft = { "markdown" },
   },
   {
     "taiwbi/bearded-theme.nvim",
