@@ -106,6 +106,9 @@ return {
           desc = "ToggleTerm lazygit (fullscreen)",
         },
 
+        -- Paste using Ctrl+Shift+V
+        ["<C-S-v>"] = { '"+p', desc = "Paste from clipboard" },
+
         -- Neovide scale factor controls
         ["<C-0>"] = {
           function()
@@ -137,6 +140,23 @@ return {
         -- stay in Visual mode after indenting
         ["<"] = { "<gv", desc = "Unindent line" },
         [">"] = { ">gv", desc = "Indent line" },
+
+        -- Paste using Ctrl+Shift+V
+        ["<C-S-v>"] = { '"+p', desc = "Paste from clipboard" },
+      },
+      i = {
+        -- Paste using Ctrl+Shift+V
+        ["<C-S-v>"] = { "<C-r>+", desc = "Paste from clipboard" },
+      },
+      -- Command mode
+      c = {
+        -- Paste using Ctrl+Shift+V
+        ["<C-S-v>"] = { "<C-r>+", desc = "Paste from clipboard" },
+      },
+      -- Terminal mode
+      t = {
+        -- Paste using Ctrl+Shift+V
+        ["<C-S-v>"] = { '<C-\\><C-n>"+pi', desc = "Paste from clipboard" },
       },
     },
   },
