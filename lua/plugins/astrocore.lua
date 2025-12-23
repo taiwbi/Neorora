@@ -134,6 +134,9 @@ return {
         },
       },
       v = {
+        ["H"] = { "^", desc = "Go to start of line" },
+        ["L"] = { "$", desc = "Go to end of line" },
+
         ["<leader>p"] = { '"_dP', desc = "Paste without overwriting clipboard" },
         ["<leader>x"] = { '"_x', desc = "Delete without overwriting clipboard" },
 
