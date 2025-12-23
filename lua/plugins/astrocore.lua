@@ -33,7 +33,7 @@ return {
         [".*/etc/foo/.*"] = "fooscript",
         [".*/ghostty/config"] = "toml",
         [".*/vscode/.*.json"] = "jsonc",
-        [".*%.blade%.php"] = "php",
+        [".*%.blade%.php"] = "blade",
       },
     },
     -- vim options can be configured here
