@@ -50,6 +50,17 @@ return {
     },
     ft = { "markdown" },
   },
+  -- Themes
+  {
+    "rebelot/kanagawa.nvim",
+    config = function()
+      require("kanagawa").setup {
+        commentStyle = { italic = true },
+        keywordStyle = { italic = true },
+        statementStyle = { bold = true },
+      }
+    end,
+  },
   {
     "taiwbi/bearded-theme.nvim",
     lazy = false,

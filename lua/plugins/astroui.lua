@@ -7,7 +7,7 @@ return {
   ---@type AstroUIOpts
   opts = {
     -- change colorscheme
-    colorscheme = "bearded-theme",
+    colorscheme = "kanagawa-wave",
     -- AstroUI allows you to easily modify highlight groups easily for any and all colorschemes
     highlights = {
       init = { -- this table overrides highlights in all themes
@@ -15,6 +15,38 @@ return {
       },
       astrodark = { -- a table of overrides/changes when applying the astrotheme theme
         -- Normal = { bg = "#000000" },
+      },
+      kanagawa = {
+        -- Wave: #1F1F28
+        -- Dragon: #181616
+        NoicePopupBorder = { bg = "#1F1F28", fg = "#54546D" },
+
+        NoiceCmdlinePopupBorder = { bg = "#1F1F28", fg = "#54546D" },
+        NoiceCmdlinePopupBorderCmdline = { bg = "#1F1F28", fg = "#54546D" },
+        NoiceCmdLineIcon = { bg = "#1F1F28", fg = "#54546D" },
+
+        NoiceCmdlineIconSearch = { bg = "#1F1F28", fg = "#54546D" },
+        NoiceCmdlinePopupBorderSearch = { bg = "#1F1F28", fg = "#54546D" },
+
+        NoiceConfirmBorder = { bg = "#1F1F28", fg = "#54546D" },
+
+        NoicePopupmenuBorder = { bg = "#1F1F28", fg = "#54546D" },
+        NoiceSplitBorder = { bg = "#1F1F28", fg = "#54546D" },
+
+        FloatBorder = { bg = "#1F1F28", fg = "#54546D" },
+
+        VertSplit = { bg = "#1F1F28", fg = "#54546D" },
+        WinSeparator = { bg = "#1F1F28", fg = "#54546D" },
+        NeoTreeWinSeparator = { bg = "#1F1F28", fg = "#54546D" },
+
+        LineNr = { bg = "#1F1F28" },
+        FoldColumn = { bg = "#1F1F28" },
+        SignColumn = { bg = "#1F1F28" },
+
+        GitSigns = { bg = "#1F1F28" },
+        GitSignsAdd = { bg = "#1F1F28", fg = "#76946a" },
+        GitSignsDelete = { bg = "#1F1F28", fg = "#dca561" },
+        GitSignsChange = { bg = "#1F1F28", fg = "#c34043" },
       },
     },
     -- Icons can be configured throughout the interface
