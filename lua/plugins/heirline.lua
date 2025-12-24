@@ -10,13 +10,17 @@ return {
         mode_text = { padding = { left = 1, right = 1 } },
       },
       status.component.git_branch(),
+      status.component.builder {
+        {
+          provider = function() return "󱑒 " .. os.date "%H:%M" .. " " end,
+        },
+      },
       status.component.file_info {
         filename = {},
         filetype = false,
       },
       status.component.git_diff(),
       status.component.builder {
-        { provider = "" },
         padding = { left = 0 },
       },
       status.component.breadcrumbs { icon = { enabled = false } },
