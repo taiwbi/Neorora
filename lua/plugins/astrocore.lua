@@ -89,23 +89,6 @@ return {
         ["<leader>jl"] = { function() require("vstask").launches() end, desc = "Launch Configs" },
         ["<leader>jr"] = { function() require("vstask").command() end, desc = "Run Command" },
 
-        -- Lazygit
-        ["<leader>gg"] = {
-          function()
-            local toggleterm = require "toggleterm.terminal"
-            local lazygit = toggleterm.Terminal:new {
-              cmd = "lazygit -sm full",
-              hidden = true,
-              direction = "float",
-              float_opts = {
-                border = "rounded",
-              },
-            }
-            lazygit:toggle()
-          end,
-          desc = "ToggleTerm lazygit (fullscreen)",
-        },
-
         -- Paste using Ctrl+Shift+V
         ["<C-S-v>"] = { '"+p', desc = "Paste from clipboard" },
 
