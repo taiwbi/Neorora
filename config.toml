@@ -11,13 +11,9 @@ hinting = "full"
 edging = "antialias"
 
 [[font.normal]]
-family = "JetBrains Mono"
-style = "W500"
+family = "Adwaita Mono"
 
 # fallback font
 [[font.normal]]
 family = "Vazir Code Hack"
 style = "Normal"
-
-[font.features]
-"JetBrains Mono" = [ "+calt", "+dlig", "+ss02" ]
