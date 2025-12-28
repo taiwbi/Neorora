@@ -16,8 +16,9 @@ return {
             action = ":lua Snacks.dashboard.pick('files', {cwd = vim.fn.stdpath('config')})",
           },
           { icon = "󰒲 ", key = "L", desc = "Lazy", action = ":Lazy" },
-          { icon = "󰒲 ", key = "M", desc = "Mason", action = ":Mason" },
-          { icon = " ", key = "q", desc = "Quit", action = ":qa" },
+          { icon = " ", key = "M", desc = "Mason", action = ":Mason" },
+          { icon = "󰆸 ", key = "U", desc = "Mason", action = ":AstroUpdate" },
+          { icon = " ", key = "q", desc = "Quit", action = ":qa" },
         },
         header = [[
  ▄▄    ▄ ▄▄▄▄▄▄▄ ▄▄▄▄▄▄▄ ▄▄   ▄▄ ▄▄▄ ▄▄   ▄▄ 
@@ -44,7 +45,7 @@ today's commits count.
         },
         { pane = 1, icon = " ", title = "Projects", section = "projects", indent = 2, padding = 1 },
         { pane = 1, section = "startup" },
-        { pane = 2, padding = 3 },
+        { pane = 2, padding = 2 },
         { pane = 2, section = "header", padding = 2 },
         { pane = 2, section = "keys" },
       },
