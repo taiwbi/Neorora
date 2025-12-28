@@ -11,19 +11,13 @@ return {
         },
       },
       sections = {
-        -- Waiting for https://github.com/folke/snacks.nvim/pull/2544
-        -- {
-        --   pane = 1,
-        --   section = "image",
-        --   path = "~/.config/nvim/assets/bunnyatta.png",
-        --   height = 10,
-        --   padding = 2,
-        -- },
+        -- using https://github.com/taiwbi/snacks.nvim
         {
           pane = 1,
-          section = "terminal",
-          cmd = "chafa ~/.config/nvim/assets/bunnyatta.png --format symbols --symbols vhalf --size 60x12 --stretch; sleep .1",
-          height = 13,
+          section = "image",
+          path = "~/.config/nvim/assets/hersmile.png",
+          height = 15,
+          width = 45,
           padding = 1,
         },
         { pane = 1, icon = " ", title = "Projects", section = "projects", indent = 2, padding = 1 },
