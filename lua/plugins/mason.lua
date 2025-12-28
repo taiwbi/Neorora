@@ -13,6 +13,8 @@ return {
         "lua-language-server",
         "html-lsp",
         "intelephense",
+        "phpactor",
+        "laravel-ls",
         "css-lsp",
         "tailwindcss-language-server",
         "typescript-language-server",
