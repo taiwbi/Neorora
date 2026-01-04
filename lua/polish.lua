@@ -156,3 +156,42 @@ vim.defer_fn(function()
   add_italic "Constant"
   add_italic "Comment"
 end, 200)
+
+-- Sync Neovim background with GNOME theme
+local function sync_gnome_theme()
+  local result = vim.fn.system("gsettings get org.gnome.desktop.interface color-scheme")
+  if vim.v.shell_error == 0 then
+    result = result:gsub("['\n\r]", "") -- Remove quotes and newlines
+    local new_bg = result == "prefer-dark" and "dark" or "light"
+    if vim.o.background ~= new_bg then
+      vim.schedule(function() vim.o.background = new_bg end)
+    end
+  end
+end
+
+-- Run on startup
+sync_gnome_theme()
+
+-- Monitor for changes in real-time
+local stdout = vim.loop.new_pipe(false)
+local handle = vim.loop.spawn("gsettings", {
+  args = { "monitor", "org.gnome.desktop.interface", "color-scheme" },
+  stdio = { nil, stdout, nil },
+}, function()
+  stdout:close()
+end)
+
+if handle then
+  stdout:read_start(function(err, data)
+    if not err and data then
+      -- Schedule the check on the main loop
+      vim.schedule(sync_gnome_theme)
+    end
+  end)
+end
+
+-- Fallback: Check when focusing back on Neovim
+vim.api.nvim_create_autocmd("FocusGained", {
+  desc = "Sync background with GNOME theme",
+  callback = sync_gnome_theme,
+})
