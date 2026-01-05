@@ -3,17 +3,35 @@
 # mkdir -p ~/.config/neovide
 # ln -s ~/.config/nvim/config.toml ~/.config/neovide/config.toml
 
+# --- Window frame ---
 frame = "none"
 
+# --- Fonts ---
 [font]
 size = 11
 hinting = "full"
 edging = "antialias"
 
 [[font.normal]]
-family = "Adwaita Mono"
+family = "Monaspace Neon Var"
+style = "W500"
 
 # fallback font
 [[font.normal]]
 family = "Vazir Code Hack"
 style = "Normal"
+
+
+# --- Font Features ---
+# ss01: != !== == === /= 
+# ss02: <= >= <=> <==>
+# ss03: -> => --> ==> ->> =>> <- <-> <-- <== <<= ~~> ~>
+# ss04: </ /> </> < >
+# ss05: |> <| [| |]
+# ss06: ## ### #### && &&& %% %%% ++ +++ ** *** !! !!! ?? ??? ??= // /// //// 
+# ss07: :: ::: := =:=
+# ss08: .. ..= .-
+# ss09: >>= <<= >>= <<=
+# ss10: #[ #(
+[font.features]
+"Monaspace Neon Var" = [ "+calt", "+ss01", "+ss02", "+ss03", "+ss04", "+ss05", "+ss06", "+ss07", "+ss08", "+ss09", "+ss10" ]
