@@ -17,7 +17,7 @@ return {
           },
           { icon = "󰒲 ", key = "L", desc = "Lazy", action = ":Lazy" },
           { icon = " ", key = "M", desc = "Mason", action = ":Mason" },
-          { icon = "󰆸 ", key = "U", desc = "Mason", action = ":AstroUpdate" },
+          { icon = "󰆸 ", key = "U", desc = "Update Nvim", action = ":AstroUpdate" },
           { icon = " ", key = "q", desc = "Quit", action = ":qa" },
         },
         header = [[
