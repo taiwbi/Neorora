@@ -89,6 +89,15 @@ return {
         ["<leader>jl"] = { function() require("vstask").launches() end, desc = "Launch Configs" },
         ["<leader>jr"] = { function() require("vstask").command() end, desc = "Run Command" },
 
+        -- Open Ghostty terminal
+        ["<leader>tg"] = {
+          function()
+            local cwd = vim.fn.getcwd()
+            os.execute("ghostty --working-directory=" .. vim.fn.shellescape(cwd) .. " > /dev/null 2>&1 &")
+          end,
+          desc = "Open Ghostty in directory",
+        },
+
         -- Paste using Ctrl+Shift+V
         ["<C-S-v>"] = { '"+p', desc = "Paste from clipboard" },
 
