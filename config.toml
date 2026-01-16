@@ -13,12 +13,12 @@ hinting = "full"
 edging = "antialias"
 
 [[font.normal]]
-family = "Monaspace Neon Var"
+family = "Monaspace Argon Var"
 style = "W500"
 
-[[font.italic]]
-family = "Monaspace Radon Var"
-style = "W500 Italic"
+# [[font.italic]]
+# family = "Monaspace Radon Var"
+# style = "W500 Italic"
 
 # fallback font
 [[font.normal]]
