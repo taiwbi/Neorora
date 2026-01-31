@@ -159,11 +159,13 @@ end, 200)
 
 -- Sync Neovim background with GNOME theme
 local function sync_gnome_theme()
-  local result = vim.fn.system("gsettings get org.gnome.desktop.interface color-scheme")
+  local result = vim.fn.system "gsettings get org.gnome.desktop.interface color-scheme"
   if vim.v.shell_error == 0 then
     result = result:gsub("['\n\r]", "") -- Remove quotes and newlines
     local new_bg = result == "prefer-dark" and "dark" or "light"
+    local new_theme = result == "prefer-dark" and "oldworld" or "no-clown-fiesta-light"
     if vim.o.background ~= new_bg then
+      vim.cmd("colorscheme " .. new_theme)
       vim.schedule(function() vim.o.background = new_bg end)
     end
   end
@@ -177,9 +179,7 @@ local stdout = vim.loop.new_pipe(false)
 local handle = vim.loop.spawn("gsettings", {
   args = { "monitor", "org.gnome.desktop.interface", "color-scheme" },
   stdio = { nil, stdout, nil },
-}, function()
-  stdout:close()
-end)
+}, function() stdout:close() end)
 
 if handle then
   stdout:read_start(function(err, data)
