@@ -7,7 +7,7 @@ return {
   ---@type AstroUIOpts
   opts = {
     -- change colorscheme
-    colorscheme = "oldworld",
+    colorscheme = "catppuccin-mocha",
     -- AstroUI allows you to easily modify highlight groups easily for any and all colorschemes
     highlights = {
       init = { -- this table overrides highlights in all themes
@@ -68,11 +68,14 @@ return {
       VimIcon = "",
     },
     status = {
+      colors = {
+        file_info_bg = "#DA627D",
+      },
       separators = {
         none = { "", "" },
-        rounded_right = { "", " " },
-        rounded_left = { " ", "" },
-        rounded_tight = { "", "" },
+        right_continue = { "", "" },
+        left_start = { " ", "" },
+        mode_left_only = { "", "" },
         left = { "", "" },
         right = { "  ", "" },
         center = { "  ", "  " },
