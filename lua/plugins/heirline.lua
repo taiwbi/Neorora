@@ -35,6 +35,7 @@ return {
         surround = { separator = "right_continue" },
         filetype = false,
       },
+      status.component.cmd_info(),
       status.component.fill(),
       status.component.git_diff(),
       status.component.diagnostics(),
