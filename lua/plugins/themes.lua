@@ -64,4 +64,14 @@ return {
   {
     "shaunsingh/nord.nvim",
   },
+  {
+    "nobbmaestro/nvim-andromeda",
+    dependencies = { "tjdevries/colorbuddy.nvim" },
+
+    config = function()
+      require("andromeda").setup {
+        preset = "andromeda",
+      }
+    end,
+  },
 }
