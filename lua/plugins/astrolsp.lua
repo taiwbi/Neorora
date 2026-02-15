@@ -75,23 +75,6 @@ return {
           },
         },
       },
-      phpactor = {
-        on_attach = function(client, bufnr)
-          -- Disable all features that conflict with Intelephense
-          local caps = client.server_capabilities
-          caps.completionProvider = false
-          caps.hoverProvider = false
-          caps.definitionProvider = false
-          caps.typeDefinitionProvider = false
-          caps.implementationProvider = false
-          caps.referencesProvider = false
-          caps.renameProvider = false
-          caps.selectionRangeProvider = false
-          caps.documentSymbolProvider = false
-          caps.workspaceSymbolProvider = false
-          caps.callHierarchyProvider = false
-        end,
-      },
     },
     -- customize how language servers are attached
     handlers = {
