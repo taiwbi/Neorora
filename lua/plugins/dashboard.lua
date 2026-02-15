@@ -1,5 +1,6 @@
 return {
   "folke/snacks.nvim",
+  url = "https://github.com/taiwbi/snacks.nvim.git",
   opts = {
     image = { doc = { enabled = true } },
     dashboard = {
