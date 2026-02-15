@@ -163,7 +163,7 @@ local function sync_gnome_theme()
   if vim.v.shell_error == 0 then
     result = result:gsub("['\n\r]", "") -- Remove quotes and newlines
     local new_bg = result == "prefer-dark" and "dark" or "light"
-    local new_theme = result == "prefer-dark" and "oldworld" or "no-clown-fiesta-light"
+    local new_theme = result == "prefer-dark" and "andromeda" or "catppuccin-latte"
     if vim.o.background ~= new_bg then
       vim.cmd("colorscheme " .. new_theme)
       vim.schedule(function() vim.o.background = new_bg end)
