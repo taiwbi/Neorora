@@ -38,12 +38,6 @@ return {
     end,
   },
   {
-    "oskarnurm/koda.nvim",
-    lazy = false,
-    priority = 1000,
-    -- config = function() require("koda").setup { transparent = true } end,
-  },
-  {
     "dgox16/oldworld.nvim",
     lazy = false,
     priority = 1000,
