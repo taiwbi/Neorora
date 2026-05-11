@@ -56,9 +56,9 @@ return {
       },
       phptools = {
         cmd = { "devsense-php-ls", "--stdio" },
-        filetypes = { "php" },
+        filetypes = { "php", "blade" },
         root_dir = function(fname)
-          local util = require "lspconfig.util"
+          local util = require("lspconfig.util")
           return util.root_pattern("composer.json", ".git")(fname) or util.path.dirname(fname)
         end,
         init_options = {
