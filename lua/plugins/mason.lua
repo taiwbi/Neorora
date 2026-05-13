@@ -12,7 +12,6 @@ return {
         -- Language servers
         "lua-language-server",
         "html-lsp",
-        "intelephense",
         "laravel-ls",
         "css-lsp",
         "tailwindcss-language-server",

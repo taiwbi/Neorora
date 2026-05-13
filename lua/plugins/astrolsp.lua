@@ -21,7 +21,7 @@ return {
         ignore_filetypes = {},
       },
       disabled = { -- disable formatting capabilities for the listed language servers
-        "intelephense",
+        "phptools",
       },
       timeout_ms = 5000, -- default format timeout
       -- filter = function(client) -- fully override the default formatting function
@@ -29,7 +29,7 @@ return {
       -- end
     },
     -- enable servers that you already have installed without mason
-    servers = {},
+    servers = { "phptools" },
     -- customize language server configuration options passed to `lspconfig`
     ---@diagnostic disable: missing-fields
     config = {
@@ -54,25 +54,15 @@ return {
           },
         },
       },
-      intelephense = {
-        filetypes = { "php", "blade" },
+      phptools = {
+        cmd = { "devsense-php-ls", "--stdio" },
+        filetypes = { "php" },
+        root_dir = function(fname)
+          local util = require "lspconfig.util"
+          return util.root_pattern("composer.json", ".git")(fname) or util.path.dirname(fname)
+        end,
         init_options = {
-          licenceKey = "INTELEPHENSE_LICENSE_KEY",
-        },
-        settings = {
-          intelephense = {
-            files = {
-              -- this forces the server to parse blade files as PHP
-              associations = { "*.php", "*.phtml", "*.blade.php" },
-            },
-            environment = {
-              includePaths = {
-                vim.fn.getcwd() .. "/_ide_helper.php",
-                vim.fn.getcwd() .. "/_ide_helper_models.php",
-                vim.fn.getcwd() .. "/.phpstorm.meta.php",
-              },
-            },
-          },
+          ["0"] = "{}", --optional premium license validation from https://www.devsense.com/purchase/validation
         },
       },
     },
