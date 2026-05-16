@@ -38,10 +38,9 @@ today's commits count.
         -- using https://github.com/taiwbi/snacks.nvim
         {
           pane = 1,
-          section = "image",
-          path = "~/.config/nvim/assets/hersmile.png",
+          section = "terminal",
+          cmd = "chafa ~/.config/nvim/assets/virtuous.png --format symbols --symbols vhalf --size 45x15 --stretch; sleep .1",
           height = 15,
-          width = 45,
           padding = 2,
         },
         { pane = 1, icon = " ", title = "Projects", section = "projects", indent = 2, padding = 1 },
