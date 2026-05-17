@@ -16,8 +16,8 @@ return {
       astrodark = { -- a table of overrides/changes when applying the astrotheme theme
         -- Normal = { bg = "#000000" },
       },
-      adwaita = {
-        SnacksDashboardHeader = { fg = "#33B2A4" },
+      gruvbox = {
+        SignColumn = { bg = "#1D2021" },
       },
       kanagawa = {
         -- Wave: #1F1F28
