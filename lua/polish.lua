@@ -160,15 +160,37 @@ end, 200)
 -- Sync Neovim background with GNOME theme
 local function sync_gnome_theme()
   local result = vim.fn.system "gsettings get org.gnome.desktop.interface color-scheme"
-  if vim.v.shell_error == 0 then
-    result = result:gsub("['\n\r]", "") -- Remove quotes and newlines
-    local new_bg = result == "prefer-dark" and "dark" or "light"
-    -- local new_theme = result == "prefer-dark" and "rose-pine-main" or "rose-pine-dawn"
-    if vim.o.background ~= new_bg then
-      -- vim.cmd("colorscheme " .. new_theme)
-      vim.schedule(function() vim.o.background = new_bg end)
+  if vim.v.shell_error ~= 0 then return end
+
+  result = result:gsub("['\n\r]", "")
+  local new_bg = result == "prefer-dark" and "dark" or "light"
+
+  local config = vim.g.theme_sync
+  local mode_config = config and config[new_bg]
+
+  local function apply_highlights(target_cs)
+    local hl_by_theme = config and config.highlights and config.highlights[target_cs]
+    local mode_hl = hl_by_theme and hl_by_theme[new_bg]
+    if mode_hl then
+      vim.defer_fn(function()
+        for group, hl in pairs(mode_hl) do
+          vim.api.nvim_set_hl(0, group, hl)
+        end
+      end, 50)
     end
   end
+
+  vim.schedule(function()
+    local target_cs
+    if mode_config and mode_config.colorscheme and mode_config.colorscheme ~= vim.g.colors_name then
+      target_cs = mode_config.colorscheme
+      vim.cmd("colorscheme " .. target_cs)
+    else
+      target_cs = vim.g.colors_name
+      if vim.o.background ~= new_bg then vim.o.background = new_bg end
+    end
+    apply_highlights(target_cs)
+  end)
 end
 
 -- Run on startup
