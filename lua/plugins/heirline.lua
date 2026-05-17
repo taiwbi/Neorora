@@ -37,6 +37,8 @@ return {
       },
       status.component.cmd_info(),
       status.component.fill(),
+      status.component.breadcrumbs { icon = { enabled = false } },
+      status.component.fill(),
       status.component.git_diff(),
       status.component.diagnostics(),
       status.component.nav {
