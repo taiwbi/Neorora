@@ -6,8 +6,8 @@ vim.g.theme_sync = {
   -- Active colorscheme per mode.
   -- Same name → only vim.o.background is toggled (e.g. gruvbox, kanagawa).
   -- Different names → full colorscheme reload (e.g. rose-pine-main / rose-pine-dawn).
-  dark = { colorscheme = "gruvbox" },
-  light = { colorscheme = "gruvbox" },
+  dark = { colorscheme = "kanagawa" },
+  light = { colorscheme = "kanagawa" },
 
   -- Per-theme, per-mode highlight overrides applied on top of AstroUI's own highlights.
   highlights = {
@@ -25,36 +25,65 @@ vim.g.theme_sync = {
       dark = {
         -- Wave: #1F1F28
         -- Dragon: #181616
-        NoicePopupBorder = { bg = "#1F1F28", fg = "#54546D" },
+        NoicePopupBorder = { bg = "#181616", fg = "#54546D" },
 
-        NoiceCmdlinePopupBorder = { bg = "#1F1F28", fg = "#54546D" },
-        NoiceCmdlinePopupBorderCmdline = { bg = "#1F1F28", fg = "#54546D" },
-        NoiceCmdLineIcon = { bg = "#1F1F28", fg = "#54546D" },
+        NoiceCmdlinePopupBorder = { bg = "#181616", fg = "#54546D" },
+        NoiceCmdlinePopupBorderCmdline = { bg = "#181616", fg = "#54546D" },
+        NoiceCmdLineIcon = { bg = "#181616", fg = "#54546D" },
 
-        NoiceCmdlineIconSearch = { bg = "#1F1F28", fg = "#54546D" },
-        NoiceCmdlinePopupBorderSearch = { bg = "#1F1F28", fg = "#54546D" },
+        NoiceCmdlineIconSearch = { bg = "#181616", fg = "#54546D" },
+        NoiceCmdlinePopupBorderSearch = { bg = "#181616", fg = "#54546D" },
 
-        NoiceConfirmBorder = { bg = "#1F1F28", fg = "#54546D" },
+        NoiceConfirmBorder = { bg = "#181616", fg = "#54546D" },
 
-        NoicePopupmenuBorder = { bg = "#1F1F28", fg = "#54546D" },
-        NoiceSplitBorder = { bg = "#1F1F28", fg = "#54546D" },
+        NoicePopupmenuBorder = { bg = "#181616", fg = "#54546D" },
+        NoiceSplitBorder = { bg = "#181616", fg = "#54546D" },
 
-        FloatBorder = { bg = "#1F1F28", fg = "#54546D" },
+        FloatBorder = { bg = "#181616", fg = "#54546D" },
 
-        VertSplit = { bg = "#1F1F28", fg = "#54546D" },
-        WinSeparator = { bg = "#1F1F28", fg = "#54546D" },
-        NeoTreeWinSeparator = { bg = "#1F1F28", fg = "#54546D" },
+        VertSplit = { bg = "#181616", fg = "#54546D" },
+        WinSeparator = { bg = "#181616", fg = "#54546D" },
+        NeoTreeWinSeparator = { bg = "#181616", fg = "#54546D" },
 
-        LineNr = { bg = "#1F1F28" },
-        FoldColumn = { bg = "#1F1F28" },
-        SignColumn = { bg = "#1F1F28" },
+        LineNr = { bg = "#181616" },
+        FoldColumn = { bg = "#181616" },
+        SignColumn = { bg = "#181616" },
 
-        GitSigns = { bg = "#1F1F28" },
-        GitSignsAdd = { bg = "#1F1F28", fg = "#76946a" },
-        GitSignsDelete = { bg = "#1F1F28", fg = "#dca561" },
-        GitSignsChange = { bg = "#1F1F28", fg = "#c34043" },
+        GitSigns = { bg = "#181616" },
+        GitSignsAdd = { bg = "#181616", fg = "#76946a" },
+        GitSignsDelete = { bg = "#181616", fg = "#c34043" },
+        GitSignsChange = { bg = "#181616", fg = "#dca561" },
       },
-      light = {},
+      light = {
+        NoicePopupBorder = { bg = "#F2ECBC", fg = "#D5CEAC" },
+
+        NoiceCmdlinePopupBorder = { bg = "#F2ECBC", fg = "#D5CEAC" },
+        NoiceCmdlinePopupBorderCmdline = { bg = "#F2ECBC", fg = "#D5CEAC" },
+        NoiceCmdLineIcon = { bg = "#F2ECBC", fg = "#D5CEAC" },
+
+        NoiceCmdlineIconSearch = { bg = "#F2ECBC", fg = "#D5CEAC" },
+        NoiceCmdlinePopupBorderSearch = { bg = "#F2ECBC", fg = "#D5CEAC" },
+
+        NoiceConfirmBorder = { bg = "#F2ECBC", fg = "#D5CEAC" },
+
+        NoicePopupmenuBorder = { bg = "#F2ECBC", fg = "#D5CEAC" },
+        NoiceSplitBorder = { bg = "#F2ECBC", fg = "#D5CEAC" },
+
+        FloatBorder = { bg = "#F2ECBC", fg = "#D5CEAC" },
+
+        VertSplit = { bg = "#F2ECBC", fg = "#D5CEAC" },
+        WinSeparator = { bg = "#F2ECBC", fg = "#D5CEAC" },
+        NeoTreeWinSeparator = { bg = "#F2ECBC", fg = "#D5CEAC" },
+
+        LineNr = { bg = "#F2ECBC" },
+        FoldColumn = { bg = "#F2ECBC" },
+        SignColumn = { bg = "#F2ECBC" },
+
+        GitSigns = { bg = "#F2ECBC" },
+        GitSignsAdd = { bg = "#F2ECBC", fg = "#76946A" },
+        GitSignsDelete = { bg = "#F2ECBC", fg = "#C34043" },
+        GitSignsChange = { bg = "#F2ECBC", fg = "#DCA561" },
+      },
     },
     -- Rose-pine uses different colorscheme names per mode, so key by each name:
     -- ["rose-pine-main"] = { dark = { ... } },
