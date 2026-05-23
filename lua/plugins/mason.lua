@@ -1,15 +1,25 @@
--- Customize Mason
-
----@type LazySpec
 return {
-  -- use mason-tool-installer for automatically installing Mason packages
+  {
+    "williamboman/mason.nvim",
+    cmd = { "Mason", "MasonInstall", "MasonUninstall", "MasonUninstallAll", "MasonLog", "MasonUpdate" },
+    build = ":MasonUpdate",
+    opts = {
+      ui = {
+        icons = {
+          package_installed = "✓",
+          package_uninstalled = "✗",
+          package_pending = "⟳",
+        },
+      },
+    },
+  },
   {
     "WhoIsSethDaniel/mason-tool-installer.nvim",
-    -- overrides `require("mason-tool-installer").setup(...)`
+    dependencies = { "williamboman/mason.nvim" },
+    event = "VeryLazy",
     opts = {
-      -- Make sure to use the names found in `:Mason`
+      run_on_start = true,
       ensure_installed = {
-        -- Language servers
         "lua-language-server",
         "html-lsp",
         "laravel-ls",
@@ -20,7 +30,6 @@ return {
         "basedpyright",
         "rust-analyzer",
 
-        -- Formatters
         "stylua",
         "pint",
         "prettier",
@@ -30,12 +39,10 @@ return {
         "pyink",
         "sql-formatter",
 
-        -- Debuggers
         "debugpy",
         "php-debug-adapter",
         "codelldb",
 
-        -- Other package
         "tree-sitter-cli",
       },
     },

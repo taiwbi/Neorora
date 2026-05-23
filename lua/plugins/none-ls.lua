@@ -1,29 +1,51 @@
--- Customize None-ls sources
+local format_on_save = function(bufnr)
+  if vim.g.autoformat == false or vim.b[bufnr].autoformat == false then return end
+  vim.lsp.buf.format {
+    bufnr = bufnr,
+    timeout_ms = 5000,
+    filter = function(client) return client.name ~= "phptools" end,
+  }
+end
 
----@type LazySpec
 return {
   "nvimtools/none-ls.nvim",
-  opts = function(_, opts)
-    -- opts variable is the default configuration table for the setup function call
+  main = "null-ls",
+  event = { "BufReadPre", "BufNewFile" },
+  dependencies = {
+    "nvim-lua/plenary.nvim",
+    {
+      "jay-babu/mason-null-ls.nvim",
+      dependencies = { "williamboman/mason.nvim" },
+      cmd = { "NullLsInstall", "NullLsUninstall" },
+      opts = { ensure_installed = {}, handlers = {} },
+    },
+  },
+  config = function()
     local null_ls = require "null-ls"
-
-    -- Check supported formatters and linters
-    -- https://github.com/nvimtools/none-ls.nvim/tree/main/lua/null-ls/builtins/formatting
-    -- https://github.com/nvimtools/none-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
-
-    opts.sources = require("astrocore").list_insert_unique(opts.sources, {
-      -- Set a formatter
-      null_ls.builtins.formatting.blade_formatter.with {
-        command = "blade-formatter",
-        args = {
-          "-i",
-          vim.opt.tabstop:get(),
-          "--sort-tailwindcss-classes",
-          "--indent-inner-html",
-          "--write",
-          "$FILENAME",
+    null_ls.setup {
+      sources = {
+        null_ls.builtins.formatting.blade_formatter.with {
+          command = "blade-formatter",
+          args = {
+            "-i",
+            vim.opt.tabstop:get(),
+            "--sort-tailwindcss-classes",
+            "--indent-inner-html",
+            "--write",
+            "$FILENAME",
+          },
         },
       },
-    })
+      on_attach = function(client, bufnr)
+        if client.supports_method "textDocument/formatting" then
+          local group = vim.api.nvim_create_augroup("null_ls_format_" .. bufnr, { clear = true })
+          vim.api.nvim_create_autocmd("BufWritePre", {
+            group = group,
+            buffer = bufnr,
+            callback = function() format_on_save(bufnr) end,
+          })
+        end
+      end,
+    }
   end,
 }

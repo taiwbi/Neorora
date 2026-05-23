@@ -1,0 +1,63 @@
+return {
+  {
+    "mfussenegger/nvim-dap",
+    lazy = true,
+    config = function()
+      local dap, sign = require "dap", vim.fn.sign_define
+      sign("DapBreakpoint", { text = "", texthl = "DiagnosticInfo", numhl = "" })
+      sign("DapBreakpointCondition", { text = "", texthl = "DiagnosticInfo", numhl = "" })
+      sign("DapBreakpointRejected", { text = "", texthl = "DiagnosticError", numhl = "" })
+      sign("DapLogPoint", { text = "", texthl = "DiagnosticInfo", numhl = "" })
+      sign("DapStopped", { text = "", texthl = "DiagnosticWarn", numhl = "" })
+
+      dap.adapters.php = {
+        type = "executable",
+        command = "node",
+        args = { os.getenv "HOME" .. "/.local/share/nvim/mason/packages/php-debug-adapter/extension/out/phpDebug.js" },
+      }
+      dap.configurations.php = {
+        {
+          type = "php",
+          request = "launch",
+          name = "Listen for Xdebug",
+          port = "9003",
+        },
+        {
+          name = "Launch currently open script",
+          type = "php",
+          request = "launch",
+          program = "${file}",
+          cwd = "${fileDirname}",
+          port = 0,
+          runtimeArgs = { "-dxdebug.start_with_request=yes" },
+          env = {
+            XDEBUG_MODE = "debug,develop",
+            XDEBUG_CONFIG = "client_port=${port}",
+          },
+        },
+      }
+    end,
+  },
+  {
+    "jay-babu/mason-nvim-dap.nvim",
+    dependencies = { "mfussenegger/nvim-dap", "williamboman/mason.nvim" },
+    cmd = { "DapInstall", "DapUninstall" },
+    opts = {
+      ensure_installed = {},
+      handlers = {},
+    },
+  },
+  {
+    "rcarriga/nvim-dap-ui",
+    lazy = true,
+    dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
+    opts = { floating = { border = "rounded" } },
+    config = function(_, opts)
+      local dap, dapui = require "dap", require "dapui"
+      dapui.setup(opts)
+      dap.listeners.after.event_initialized["dapui_config"] = function() dapui.open() end
+      dap.listeners.before.event_terminated["dapui_config"] = function() dapui.close() end
+      dap.listeners.before.event_exited["dapui_config"] = function() dapui.close() end
+    end,
+  },
+}

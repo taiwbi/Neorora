@@ -1,34 +1,41 @@
-# AstroNvim Template
+# nvim
 
-**NOTE:** This is for AstroNvim v5+
+Custom Neovim configuration, self-hosted (no distro).
 
-A template for getting started with [AstroNvim](https://github.com/AstroNvim/AstroNvim)
+## Architecture
 
-## 🛠️ Installation
+- **Plugin manager:** [lazy.nvim](https://github.com/folke/lazy.nvim)
+- **Package manager:** [mason.nvim](https://github.com/williamboman/mason.nvim) (+ mason-tool-installer)
+- **LSP:** native `vim.lsp.config` / `vim.lsp.enable` driven by nvim-lspconfig and mason-lspconfig
+- **Completion:** [blink.cmp](https://github.com/Saghen/blink.cmp) (LuaSnip + friendly-snippets)
+- **File explorer / picker / dashboard:** [snacks.nvim](https://github.com/folke/snacks.nvim)
+- **Statusline:** [heirline.nvim](https://github.com/rebelot/heirline.nvim)
+- **Syntax:** [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
+- **Formatting/linting:** [none-ls.nvim](https://github.com/nvimtools/none-ls.nvim)
+- **Git:** [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
+- **Sessions:** [resession.nvim](https://github.com/stevearc/resession.nvim)
+- **Debug:** [nvim-dap](https://github.com/mfussenegger/nvim-dap) + dap-ui
 
-#### Make a backup of your current nvim and shared folder
+No in-editor terminal.
 
-```shell
-mv ~/.config/nvim ~/.config/nvim.bak
-mv ~/.local/share/nvim ~/.local/share/nvim.bak
-mv ~/.local/state/nvim ~/.local/state/nvim.bak
-mv ~/.cache/nvim ~/.cache/nvim.bak
+## Layout
+
+```
+init.lua                # bootstrap + leader keys
+lua/
+├── config/             # options, filetypes, autocmds, mappings, lazy bootstrap
+├── util/               # buffer helpers, toggles, icons
+└── plugins/            # plugin specs, one file per concern
+after/ftplugin/blade.lua
+mappings.md             # keymap reference
 ```
 
-#### Create a new user repository from this template
-
-Press the "Use this template" button above to create a new repository to store your user configuration.
-
-You can also just clone this repository directly if you do not want to track your user configuration in GitHub.
-
-#### Clone the repository
+## Install
 
 ```shell
-git clone https://github.com/<your_user>/<your_repository> ~/.config/nvim
+mv ~/.local/share/nvim ~/.local/share/nvim.bak  # optional clean slate
+git clone <repo> ~/.config/nvim
+nvim                                            # lazy.nvim bootstraps on first run
 ```
 
-#### Start Neovim
-
-```shell
-nvim
-```
+See `mappings.md` for keybindings.
