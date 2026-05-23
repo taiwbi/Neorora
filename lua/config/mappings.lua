@@ -24,10 +24,13 @@ map("v", "L", "$", { desc = "Go to end of line" })
 map("n", "<C-s>", "<Cmd>silent! update<CR>", { desc = "Force write" })
 map("n", "<C-q>", "<Cmd>confirm qall<CR>", { desc = "Force quit" })
 map("n", "<Leader>n", "<Cmd>enew<CR>", { desc = "New file" })
+map("n", "<Leader>w", function() vim.cmd "w" end, { desc = "Save" })
 map("n", "<Leader>W", function() vim.cmd "noautocmd w" end, { desc = "Save without formatting" })
 map("n", "<Leader>c", function() buffer.close() end, { desc = "Close buffer" })
 map("n", "<Leader>C", function() buffer.close(0, true) end, { desc = "Force close buffer" })
 map("n", "<Leader>R", function() snacks().rename.rename_file() end, { desc = "Rename current file" })
+
+map("n", "<Leader>Q", function() vim.cmd "q" end, { desc = "Quit" })
 
 map("n", "]t", "<Cmd>tabnext<CR>", { desc = "Next tab" })
 map("n", "[t", "<Cmd>tabprevious<CR>", { desc = "Previous tab" })
@@ -39,7 +42,11 @@ map("n", "|", "<Cmd>vsplit<CR>", { desc = "Vertical split" })
 local function smart_split(action, fallback)
   return function()
     local ok, ss = pcall(require, "smart-splits")
-    if ok and ss[action] then ss[action]() else vim.cmd(fallback) end
+    if ok and ss[action] then
+      ss[action]()
+    else
+      vim.cmd(fallback)
+    end
   end
 end
 map("n", "<C-h>", smart_split("move_cursor_left", "wincmd h"), { desc = "Window left" })
@@ -139,9 +146,19 @@ map("n", "<Leader>Ss", function()
 end, { desc = "Save session" })
 map("n", "<Leader>Sl", function() resession().load "Last Session" end, { desc = "Load last session" })
 map("n", "<Leader>Sd", function() resession().delete() end, { desc = "Delete session" })
-map("n", "<Leader>SD", function() resession().delete(nil, { dir = "dirsession" }) end, { desc = "Delete directory session" })
+map(
+  "n",
+  "<Leader>SD",
+  function() resession().delete(nil, { dir = "dirsession" }) end,
+  { desc = "Delete directory session" }
+)
 map("n", "<Leader>Sf", function() resession().load() end, { desc = "Find session" })
-map("n", "<Leader>SF", function() resession().load(nil, { dir = "dirsession" }) end, { desc = "Find directory session" })
+map(
+  "n",
+  "<Leader>SF",
+  function() resession().load(nil, { dir = "dirsession" }) end,
+  { desc = "Find directory session" }
+)
 map("n", "<Leader>S.", function() resession().load(vim.fn.getcwd(), { dir = "dirsession" }) end, {
   desc = "Load current directory session",
 })
@@ -259,13 +276,21 @@ map("n", "<Leader>dh", function() require("dap.ui.widgets").hover() end, { desc 
 
 map("n", "<Leader>f<CR>", function() picker().resume() end, { desc = "Resume previous search" })
 map("n", "<Leader>f'", function() picker().marks() end, { desc = "Find marks" })
-map("n", "<Leader>fa", function() picker().files { dirs = { vim.fn.stdpath "config" } } end, { desc = "Find config files" })
+map(
+  "n",
+  "<Leader>fa",
+  function() picker().files { dirs = { vim.fn.stdpath "config" } } end,
+  { desc = "Find config files" }
+)
 map("n", "<Leader>fb", function() picker().buffers() end, { desc = "Find buffers" })
 map("n", "<Leader>fc", function() picker().grep_word() end, { desc = "Find word under cursor" })
 map("n", "<Leader>fC", function() picker().commands() end, { desc = "Find commands" })
-map("n", "<Leader>ff", function()
-  picker().files { hidden = vim.tbl_get((vim.uv or vim.loop).fs_stat ".git" or {}, "type") == "directory" }
-end, { desc = "Find files" })
+map(
+  "n",
+  "<Leader>ff",
+  function() picker().files { hidden = vim.tbl_get((vim.uv or vim.loop).fs_stat ".git" or {}, "type") == "directory" } end,
+  { desc = "Find files" }
+)
 map("n", "<Leader>fF", function() picker().files { hidden = true, ignored = true } end, { desc = "Find all files" })
 map("n", "<Leader>fg", function() picker().git_files() end, { desc = "Find git files" })
 map("n", "<Leader>fh", function() picker().help() end, { desc = "Find help tags" })
@@ -338,7 +363,12 @@ map("n", "<Leader>uv", toggles.virtual_text, { desc = "Toggle diagnostics virtua
 map("n", "<Leader>uV", toggles.virtual_lines, { desc = "Toggle diagnostics virtual lines" })
 map("n", "<Leader>uw", toggles.wrap, { desc = "Toggle wrap" })
 map("n", "<Leader>uy", function() toggles.buffer_syntax() end, { desc = "Toggle syntax highlighting (buffer)" })
-map("n", "<Leader>uY", function() toggles.buffer_semantic_tokens() end, { desc = "Toggle LSP semantic tokens (buffer)" })
+map(
+  "n",
+  "<Leader>uY",
+  function() toggles.buffer_semantic_tokens() end,
+  { desc = "Toggle LSP semantic tokens (buffer)" }
+)
 map("n", "<Leader>uz", toggles.color_highlight, { desc = "Toggle color highlighting" })
 map("n", "<Leader>uZ", toggles.zen_mode, { desc = "Toggle zen mode" })
 
@@ -380,12 +410,8 @@ map("n", "<C-0>", function()
   if vim.g.neovide_scale_factor then vim.g.neovide_scale_factor = 1 end
 end, { desc = "Reset Neovide scale factor" })
 map("n", "<C-+>", function()
-  if vim.g.neovide_scale_factor then
-    vim.g.neovide_scale_factor = math.min(vim.g.neovide_scale_factor + 0.1, 2.0)
-  end
+  if vim.g.neovide_scale_factor then vim.g.neovide_scale_factor = math.min(vim.g.neovide_scale_factor + 0.1, 2.0) end
 end, { desc = "Increase Neovide scale factor" })
 map("n", "<C-_>", function()
-  if vim.g.neovide_scale_factor then
-    vim.g.neovide_scale_factor = math.max(vim.g.neovide_scale_factor - 0.1, 0.5)
-  end
+  if vim.g.neovide_scale_factor then vim.g.neovide_scale_factor = math.max(vim.g.neovide_scale_factor - 0.1, 0.5) end
 end, { desc = "Decrease Neovide scale factor" })
