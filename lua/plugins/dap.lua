@@ -4,11 +4,11 @@ return {
     lazy = true,
     config = function()
       local dap, sign = require "dap", vim.fn.sign_define
-      sign("DapBreakpoint", { text = "", texthl = "DiagnosticInfo", numhl = "" })
-      sign("DapBreakpointCondition", { text = "", texthl = "DiagnosticInfo", numhl = "" })
-      sign("DapBreakpointRejected", { text = "", texthl = "DiagnosticError", numhl = "" })
-      sign("DapLogPoint", { text = "", texthl = "DiagnosticInfo", numhl = "" })
-      sign("DapStopped", { text = "", texthl = "DiagnosticWarn", numhl = "" })
+      sign("DapBreakpoint", { text = "●", texthl = "DiagnosticError", numhl = "DiagnosticError" })
+      sign("DapBreakpointCondition", { text = "◐", texthl = "DiagnosticWarn", numhl = "DiagnosticWarn" })
+      sign("DapBreakpointRejected", { text = "●", texthl = "Comment", numhl = "" })
+      sign("DapLogPoint", { text = "◆", texthl = "DiagnosticInfo", numhl = "" })
+      sign("DapStopped", { text = "▶", texthl = "DiagnosticWarn", numhl = "DiagnosticWarn" })
 
       dap.adapters.php = {
         type = "executable",
