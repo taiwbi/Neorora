@@ -344,7 +344,6 @@ map("n", "<Leader>uD", toggles.dismiss_notifications, { desc = "Dismiss notifica
 map("n", "<Leader>uf", function() toggles.autoformat_buf() end, { desc = "Toggle autoformat (buffer)" })
 map("n", "<Leader>uF", toggles.autoformat_global, { desc = "Toggle autoformat (global)" })
 map("n", "<Leader>ug", toggles.signcolumn, { desc = "Toggle signcolumn" })
-map("n", "<Leader>u>", toggles.foldcolumn, { desc = "Toggle foldcolumn" })
 map("n", "<Leader>uh", function() toggles.inlay_hints() end, { desc = "Toggle inlay hints (buffer)" })
 map("n", "<Leader>uH", function() toggles.inlay_hints(0) end, { desc = "Toggle inlay hints (global)" })
 map("n", "<Leader>ui", toggles.indent, { desc = "Toggle indent setting" })
