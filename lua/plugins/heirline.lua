@@ -44,7 +44,7 @@ local file_info = {
   {
     provider = function()
       local name = vim.fn.expand "%:t"
-      return " " .. name .. (vim.bo.modified and "  " or "") .. (vim.bo.modifiable == false and "  " or "") .. " "
+      return " " .. name .. (vim.bo.modified and " " or "") .. (vim.bo.modifiable == false and "  " or "") .. " "
     end,
     hl = { fg = MODE_FG, bg = FILE_BG, bold = true },
   },
@@ -88,7 +88,7 @@ local breadcrumbs = {
       table.insert(parts, item.name)
     end
     if #parts == 0 then return "" end
-    return "  " .. table.concat(parts, "  ")
+    return "  " .. table.concat(parts, "  ")
   end,
   update = "CursorMoved",
 }
