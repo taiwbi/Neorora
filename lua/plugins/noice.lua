@@ -8,12 +8,6 @@ return {
         ["vim.lsp.util.stylize_markdown"] = true,
         ["cmp.entry.get_documentation"] = false,
       },
-      hover = {
-        enabled = false,
-      },
-      signature = {
-        enabled = false,
-      },
     },
   },
   dependencies = {
