@@ -67,6 +67,7 @@ return {
     event = { "BufReadPost", "BufNewFile" },
     opts = {
       delay = 200,
+      providers = { "lsp", "regex" },
       filetypes_denylist = { "dirvish", "fugitive", "snacks_dashboard", "snacks_picker_list" },
     },
     config = function(_, opts) require("illuminate").configure(opts) end,
