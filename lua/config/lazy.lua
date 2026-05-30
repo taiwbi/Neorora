@@ -17,6 +17,9 @@ require("lazy").setup({
   install = { colorscheme = { "kanagawa", "habamax" } },
   ui = { backdrop = 100 },
   change_detection = { notify = false },
+  git = {
+    timeout = 300,
+  },
   performance = {
     rtp = {
       disabled_plugins = {
