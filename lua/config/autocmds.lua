@@ -222,8 +222,8 @@ vim.g.theme_sync = {
   highlights = {
     gruvbox = {
       dark = {
-        SignColumn = { bg = "#1D2021" },
-        FoldColumn = { bg = "#1D2021" },
+        SignColumn = { bg = "#282828" },
+        FoldColumn = { bg = "#282828" },
       },
       light = {
         SignColumn = { bg = "#F9F5D7" },
