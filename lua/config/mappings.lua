@@ -330,8 +330,8 @@ end
 
 map("n", "<Leader>tg", function()
   local cwd = vim.fn.getcwd()
-  os.execute("ptyxis --new-window -d " .. vim.fn.shellescape(cwd) .. " > /dev/null 2>&1 &")
-end, { desc = "Open ptyxis in directory" })
+  os.execute("ghostty --working-directory=" .. vim.fn.shellescape(cwd) .. " > /dev/null 2>&1 &")
+end, { desc = "Open ghostty in directory" })
 
 -- UI/UX toggles ---------------------------------------------------------------
 
