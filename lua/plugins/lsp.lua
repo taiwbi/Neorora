@@ -37,6 +37,26 @@ local server_settings = {
       ["0"] = "{}",
     },
   },
+  jsonls = {
+    handlers = {
+      ["textDocument/publishDiagnostics"] = function(err, result, ctx, config)
+        if result and result.diagnostics then
+          result.diagnostics = vim.tbl_filter(function(diag)
+            return diag.code ~= 519
+          end, result.diagnostics)
+        end
+        vim.lsp.handlers["textDocument/publishDiagnostics"](err, result, ctx, config)
+      end,
+      ["textDocument/diagnostic"] = function(err, result, ctx, config)
+        if result and result.items then
+          result.items = vim.tbl_filter(function(diag)
+            return diag.code ~= 519
+          end, result.items)
+        end
+        vim.lsp.handlers["textDocument/diagnostic"](err, result, ctx, config)
+      end,
+    },
+  },
 }
 
 local default_servers = {
@@ -151,7 +171,7 @@ return {
       })
 
       -- Neovim 0.11+ exposes :lsp natively; lspconfig no longer registers these.
-      vim.api.nvim_create_user_command("lsp info", "checkhealth vim.lsp", { desc = "LSP info" })
+      -- vim.api.nvim_create_user_command("lsp info", "checkhealth vim.lsp", { desc = "LSP info" })
     end,
   },
 }
