@@ -151,16 +151,7 @@ return {
       })
 
       -- Neovim 0.11+ exposes :lsp natively; lspconfig no longer registers these.
-      vim.api.nvim_create_user_command("LspInfo", "checkhealth vim.lsp", { desc = "LSP info" })
-      vim.api.nvim_create_user_command("LspRestart", function(info)
-        vim.cmd("lsp restart" .. (info.args ~= "" and " " .. info.args or ""))
-      end, { nargs = "?", desc = "Restart LSP client" })
-      vim.api.nvim_create_user_command("LspStop", function(info)
-        vim.cmd("lsp stop" .. (info.args ~= "" and " " .. info.args or ""))
-      end, { nargs = "?", desc = "Stop LSP client" })
-      vim.api.nvim_create_user_command("LspStart", function(info)
-        vim.cmd("lsp enable" .. (info.args ~= "" and " " .. info.args or ""))
-      end, { nargs = "?", desc = "Start LSP client" })
+      vim.api.nvim_create_user_command("lsp info", "checkhealth vim.lsp", { desc = "LSP info" })
     end,
   },
 }
