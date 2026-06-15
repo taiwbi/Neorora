@@ -28,7 +28,7 @@ opt.shortmess:append { s = true, I = true, c = true, C = true }
 opt.showcmdloc = "statusline"
 opt.showmode = false
 opt.showtabline = 0
-opt.signcolumn = "yes:2"
+opt.signcolumn = "yes"
 opt.smartcase = true
 opt.softtabstop = 4
 opt.spell = false
