@@ -4,6 +4,7 @@ return {
   opts = {
     preset = "modern",
     spec = {
+      { "<Leader>a", group = "AI", mode = { "n", "v" } },
       { "<Leader>b", group = "Buffers" },
       { "<Leader>bs", group = "Sort buffers by..." },
       { "<Leader>d", group = "Debugger" },
