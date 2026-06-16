@@ -314,13 +314,18 @@ local function sync_gnome_theme()
   end)
 end
 
-au("User", {
-  group = augroup "theme_sync_start",
-  pattern = "LazyDone",
-  desc = "Initial GNOME theme sync after plugins load",
-  once = true,
-  callback = sync_gnome_theme,
-})
+local lazy_stats = pcall(require, "lazy") and require("lazy").stats()
+if lazy_stats and lazy_stats.times and lazy_stats.times.LazyDone then
+  sync_gnome_theme()
+else
+  au("User", {
+    group = augroup "theme_sync_start",
+    pattern = "LazyDone",
+    desc = "Initial GNOME theme sync after plugins load",
+    once = true,
+    callback = sync_gnome_theme,
+  })
+end
 
 au("FocusGained", {
   group = augroup "theme_sync_focus",
