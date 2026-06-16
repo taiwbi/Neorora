@@ -8,12 +8,7 @@ return {
         commentStyle = { italic = true },
         keywordStyle = { italic = true },
         statementStyle = { bold = true },
-        background = {
-          dark = "dragon",
-          light = "lotus",
-        },
       }
-      vim.cmd.colorscheme "kanagawa"
     end,
   },
   {
