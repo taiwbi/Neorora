@@ -33,9 +33,9 @@ local server_settings = {
     cmd = { "devsense-php-ls", "--stdio" },
     filetypes = { "php", "blade" },
     root_markers = { "composer.json", ".git" },
-    init_options = {
-      ["0"] = "{}",
-    },
+        init_options = {
+          ["0"] = vim.fn.readfile(vim.fn.expand("~/.keys/DEVSENS"))[1] or "",
+      },
   },
   jsonls = {
     handlers = {
