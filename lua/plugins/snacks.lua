@@ -3,6 +3,7 @@ local buffer = require "util.buffer"
 return {
   "folke/snacks.nvim",
   url = "https://github.com/taiwbi/snacks.nvim.git",
+  branch = "ghostty-fix",
   lazy = false,
   priority = 1000,
   opts = {
