@@ -220,6 +220,11 @@ vim.g.theme_sync = {
   dark = { colorscheme = "nordic" },
   light = { colorscheme = "catppuccin-latte" },
   highlights = {
+    nordic = {
+      dark = {
+        WhichKeyBorder = { bg = "#242933", fg = "#191d24" },
+      },
+    },
     gruvbox = {
       dark = {
         SignColumn = { bg = "#282828" },
