@@ -29,14 +29,6 @@ return {
     },
   },
   {
-    "max397574/better-escape.nvim",
-    event = "InsertCharPre",
-    opts = {
-      mapping = { "jj", "jk" },
-      timeout = vim.o.timeoutlen,
-    },
-  },
-  {
     "numToStr/Comment.nvim",
     keys = {
       { "gc", mode = { "n", "v" } },

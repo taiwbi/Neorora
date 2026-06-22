@@ -56,12 +56,6 @@ Leader key is `<Space>`, local leader is `,`. [`which-key.nvim`](https://github.
 | Open location list      | `Leader + xl` |
 | Next / previous / last / first location entry | `]l` / `[l` / `]L` / `[L` |
 
-## Better Escape
-
-| Action     | Mapping     |
-| ---------- | ----------- |
-| Escape key | `jj`, `jk`  |
-
 ## Completion (blink.cmp)
 
 | Action                       | Mapping                              |
