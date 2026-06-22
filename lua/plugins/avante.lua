@@ -7,7 +7,8 @@ return {
       and "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false"
       or "make",
   keys = {
-    { "<leader>ae", function() require("avante.api").edit() end, desc = "Avante Edit", mode = { "n", "v" } }
+    { "<leader>ae", function() require("avante.api").edit() end, desc = "AI Edit", mode = { "n", "v" } },
+    { "<leader>aa", function() require("avante.api").ask() end, desc = "AI Ask", mode = { "n", "v" } }
   },
   dependencies = {
     "nvim-lua/plenary.nvim",
@@ -28,7 +29,7 @@ return {
         __inherited_from = "openai",
         endpoint = "https://openrouter.ai/api/v1",
         api_key_name = "OPENROUTER_API_KEY",
-        model = "deepseek/deepseek-v4-flash",
+        model = "z-ai/glm-5.2",
       },
     },
     behaviour = {
