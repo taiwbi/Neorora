@@ -1,0 +1,29 @@
+# Configuration for Neovide
+
+# mkdir -p ~/.config/neovide
+# ln -s ~/.config/nvim/config.toml ~/.config/neovide/config.toml
+
+# --- Window frame ---
+frame = "none"
+
+# --- Fonts ---
+[font]
+size = 12
+hinting = "full"
+edging = "antialias"
+
+[[font.normal]]
+family = "Iosevka"
+style = "W500"
+
+[[font.bold]]
+family = "Iosevka"
+style = "W700"
+
+# fallback font
+[[font.normal]]
+family = "Vazir Code Hack"
+style = "Normal"
+
+[font.features]
+Iosevka = ["+ss05", "CLIK", "JSPT", "PHPX"]
