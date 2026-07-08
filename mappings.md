@@ -116,6 +116,7 @@ Leader key is `<Space>`, local leader is `,`. [`which-key.nvim`](https://github.
 | Format document             | `Leader + lf`                      |
 | Symbols outline (Aerial)    | `Leader + lS`                      |
 | Line diagnostics            | `gl`, `Leader + ld`                |
+| Buffer diagnostics (picker) | `Leader + lb`                      |
 | All diagnostics (picker)    | `Leader + lD`                      |
 | Workspace diagnostics       | `Leader + lw` (Neovim 0.12+)       |
 | Code actions                | `gra`, `Leader + la`               |

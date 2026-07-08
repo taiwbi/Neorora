@@ -31,6 +31,7 @@ map("n", "<Leader>C", function() buffer.close(0, true) end, { desc = "Force clos
 map("n", "<Leader>R", function() snacks().rename.rename_file() end, { desc = "Rename current file" })
 
 map("n", "<Leader>Q", function() vim.cmd "q" end, { desc = "Quit" })
+map("n", "<Leader>q", function() vim.cmd "q" end, { desc = "Quit" })
 
 map("n", "]t", "<Cmd>tabnext<CR>", { desc = "Next tab" })
 map("n", "[t", "<Cmd>tabprevious<CR>", { desc = "Previous tab" })
@@ -192,6 +193,7 @@ map("n", "<Leader>lA", function() vim.lsp.buf.code_action { context = { only = {
 map("n", "<Leader>lr", vim.lsp.buf.rename, { desc = "Rename symbol" })
 map("n", "<Leader>ld", vim.diagnostic.open_float, { desc = "Line diagnostics" })
 map("n", "gl", vim.diagnostic.open_float, { desc = "Line diagnostics" })
+map("n", "<Leader>lb", function() picker().diagnostics_buffer() end, { desc = "Buffer diagnostics" })
 map("n", "<Leader>lD", function() picker().diagnostics() end, { desc = "All diagnostics" })
 if vim.fn.has "nvim-0.12" == 1 then
   map("n", "<Leader>lw", function() vim.diagnostic.setqflist { open = true } end, { desc = "Workspace diagnostics" })
