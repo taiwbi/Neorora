@@ -8,7 +8,7 @@ return {
       or "make",
   keys = {
     { "<leader>ae", function() require("avante.api").edit() end, desc = "AI Edit", mode = { "n", "v" } },
-    { "<leader>aa", function() require("avante.api").ask() end, desc = "AI Ask", mode = { "n", "v" } }
+    { "<leader>al", function() require("avante.api").ask() end, desc = "AI Ask", mode = { "n", "v" } }
   },
   dependencies = {
     "nvim-lua/plenary.nvim",
