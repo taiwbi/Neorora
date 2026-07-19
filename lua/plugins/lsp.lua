@@ -34,7 +34,7 @@ local server_settings = {
     filetypes = { "php", "blade" },
     root_markers = { "composer.json", ".git" },
         init_options = {
-          ["0"] = vim.fn.readfile(vim.fn.expand("~/.keys/DEVSENS"))[1] or "",
+          ["0"] = vim.fn.readfile(vim.fn.expand("~/.keys/DEVSENSE"))[1] or "",
       },
   },
   jsonls = {
